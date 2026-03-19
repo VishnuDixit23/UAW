@@ -1,0 +1,19 @@
+[
+  {
+    "title": "Leadership",
+    "members": [
+      { "name": "Shivajee Vishen",          "designation": "Founder",            "image": "/TeamImages/founder.jpg",     "linkedin": "", "instagram": "" },
+      { "name": "Pooja Singh",              "designation": "Secretary",           "image": "/TeamImages/secretary.jpg",   "linkedin": "", "instagram": "" },
+      { "name": "Jitendra Gurjar",          "designation": "Vice President",      "image": "/TeamImages/vp.jpg",          "linkedin": "", "instagram": "" },
+      { "name": "Amit Agrawal",             "designation": "Treasurer",           "image": "/TeamImages/treasurer.jpg",   "linkedin": "", "instagram": "" }
+    ]
+  },
+  {
+    "title": "Operations",
+    "members": [
+      { "name": "Abhishek Soni",            "designation": "India Head",          "image": "/team/abhishek-soni.jpeg",    "linkedin": "", "instagram": "" },
+      { "name": "Hardik Visaria",           "designation": "Fundraising Head",    "image": "/team/hardik-visaria.jpeg",   "linkedin": "", "instagram": "" },
+      { "name": "Vishwajeet Singh Vishen",  "designation": "Senior Coordinator",  "image": "/TeamImages/coordinator.jpg", "linkedin": "", "instagram": "" }
+    ]
+  }
+]
