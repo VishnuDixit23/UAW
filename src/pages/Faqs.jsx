@@ -28,7 +28,7 @@ export default function Faqs() {
         <div style={{ position:"relative", zIndex:2 }}>
           <p className="section-label" style={{ justifyContent:"center", color:"var(--c-amber-light)", marginBottom:12 }}>Have Questions?</p>
           <h1 style={{ fontFamily:"var(--f-display)", fontSize:"clamp(2.2rem,5vw,3.8rem)", fontWeight:700, color:"white", marginBottom:14 }}>
-            Frequently Asked <span style={{ color:"#E8A84A" }}>Questions</span>
+            Frequently Asked <span style={{ color:"#F3842C" }}>Questions</span>
           </h1>
           <div className="divider" style={{ margin:"0 auto 20px" }} />
           <p style={{ fontFamily:"var(--f-body)", fontSize:"1rem", color:"rgba(255,255,255,0.58)", maxWidth:500, margin:"0 auto" }}>
@@ -59,7 +59,7 @@ export default function Faqs() {
           ))}
         </div>
 
-        <div style={{ background:"var(--c-pale)", borderRadius:"var(--r-xl)", padding:"36px", textAlign:"center", marginTop:48, border:"1px solid rgba(77,170,124,0.2)" }}>
+        <div style={{ background:"#FFF4EB", borderRadius:"var(--r-xl)", padding:"36px", textAlign:"center", marginTop:48, border:"1px solid rgba(243,132,44,0.2)" }}>
           <div style={{ fontSize:"2.5rem", marginBottom:12 }}>🐾</div>
           <h3 style={{ fontFamily:"var(--f-display)", fontSize:"1.3rem", fontWeight:700, color:"var(--c-bark)", marginBottom:10 }}>Still have questions?</h3>
           <p style={{ fontFamily:"var(--f-body)", fontSize:"0.9rem", color:"var(--c-bark-muted)", marginBottom:20 }}>Our team is happy to help — reach out directly.</p>

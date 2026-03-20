@@ -38,8 +38,9 @@ const OutreachSection = () => {
               className="p-6 bg-white shadow-sm rounded-2xl flex flex-col items-center border border-[#E8DDD0] hover:shadow-md hover:-translate-y-1 transition-all duration-300"
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: i * 0.1 }}>
               <span className="text-3xl mb-2">{stat.icon}</span>
-              <h2 className={`text-3xl md:text-4xl font-bold ${stat.color}`}>
-                {startCount ? <CountUp start={0} end={stat.number} duration={2.5} separator="," suffix={stat.suffix} /> : "0"}
+              <h2 style={{ fontFamily:"var(--f-number)", fontSize:"clamp(1.8rem,4vw,2.4rem)", fontWeight:800, color:"#111827", lineHeight:1, letterSpacing:"-0.03em" }}>
+                {startCount ? <CountUp start={0} end={stat.number} duration={2.5} separator="," /> : "0"}
+                <span style={{ fontSize:"1.2rem", fontWeight:700, color:"#F3842C", marginLeft:2 }}>{stat.suffix}</span>
               </h2>
               <p className="text-[#6B5642] mt-2 font-medium text-xs text-center">{stat.label}</p>
             </motion.div>

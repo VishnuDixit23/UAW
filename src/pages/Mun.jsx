@@ -62,7 +62,7 @@ const initiatives = [
       "Breaking stigma through open dialogue",
       "Partnering with local health volunteers",
     ],
-    image: "/programmes/hygiene.jpeg",
+    image: "/programmes/hygiene.png",
     stat: "1,200+", statLabel: "Girls Supported",
     accent: "#9D174D", accentLight: "#FFF0F5",
   },
@@ -157,7 +157,7 @@ function HeroSlider() {
         </AnimatePresence>
       ))}
       {/* Dark overlay */}
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(8,25,14,0.72) 0%, rgba(10,30,18,0.65) 55%, rgba(8,25,14,0.84) 100%)", zIndex: 2 }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(11,11,11,0.72) 0%, rgba(11,11,11,0.65) 55%, rgba(11,11,11,0.84) 100%)", zIndex: 2 }} />
       {/* Dots */}
       <div style={{ position: "absolute", bottom: 80, left: "50%", transform: "translateX(-50%)", display: "flex", gap: 8, zIndex: 10 }}>
         {HERO_IMAGES.map((_, i) => (
@@ -250,7 +250,7 @@ function InitiativeRow({ item, idx }) {
 ───────────────────────────────────────── */
 export default function OurWork() {
   return (
-    <div style={{ background: "#FAFDF7", minHeight: "100vh" }}>
+    <div style={{ background: "#FAFAFA", minHeight: "100vh" }}>
       <Navbar />
 
       {/* ══════ HERO WITH SLIDESHOW ══════ */}
@@ -311,7 +311,7 @@ export default function OurWork() {
         {/* Wave */}
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, zIndex: 5 }}>
           <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,30 Q360,60 720,30 T1440,30 V60 H0 Z" fill="#FAFDF7" />
+            <path d="M0,30 Q360,60 720,30 T1440,30 V60 H0 Z" fill="#FAFAFA" />
           </svg>
         </div>
       </div>
@@ -320,7 +320,7 @@ export default function OurWork() {
       <section id="initiatives" style={{ padding: "80px 0 24px", background: "white" }}>
         <div className="section-container">
           <div style={{ textAlign: "center", marginBottom: 72 }}>
-            <span style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 16px", background: "var(--c-pale)", borderRadius: 99, fontFamily: "var(--f-body)", fontSize: "0.78rem", fontWeight: 700, color: "var(--c-forest)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 14 }}>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 16px", background: "#FFF4EB", borderRadius: 99, fontFamily: "var(--f-body)", fontSize: "0.78rem", fontWeight: 700, color: "#F3842C", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 14 }}>
               <Heart style={{ width: 13, height: 13 }} /> What We Do
             </span>
             <h2 style={{ fontFamily: "var(--f-display)", fontSize: "clamp(2rem,5vw,3rem)", fontWeight: 700, color: "var(--c-bark)", marginBottom: 14 }}>
@@ -359,9 +359,9 @@ export default function OurWork() {
       </section>
 
       {/* ══════ UPCOMING CAMPAIGNS ══════ */}
-      <section style={{ padding: "88px 0", background: "linear-gradient(160deg, #F0FAF4 0%, #FAFDF7 100%)", position: "relative", overflow: "hidden" }}>
+      <section style={{ padding: "88px 0", background: "linear-gradient(160deg, #FFF4EB 0%, #FAFAFA 100%)", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: 24, right: 24, opacity: 0.04, pointerEvents: "none" }}>
-          <FaPaw size={180} color="#1B5E3B" style={{ transform: "rotate(12deg)" }} />
+          <FaPaw size={180} color="#F3842C" style={{ transform: "rotate(12deg)" }} />
         </div>
 
         <div className="section-container" style={{ position: "relative", zIndex: 1 }}>
@@ -419,7 +419,7 @@ export default function OurWork() {
 
       {/* ══════ CTA BANNER ══════ */}
       <section style={{ position: "relative", padding: "80px 0", overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #1B5E3B 0%, #276B4E 50%, #1B5E3B 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #0B0B0B 0%, #1A1A1A 50%, #0B0B0B 100%)" }} />
         <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
           {[10, 30, 55, 78].map((l, i) => (
             <motion.div key={i} style={{ position: "absolute", left: `${l}%`, color: "rgba(255,255,255,0.05)" }}
@@ -443,9 +443,9 @@ export default function OurWork() {
           <motion.div style={{ display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "center" }}
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} viewport={{ once: true }}>
             <Link to="/registration">
-              <motion.span style={{ display: "inline-flex", alignItems: "center", gap: 9, fontFamily: "var(--f-body)", fontWeight: 700, fontSize: "1rem", color: "var(--c-forest)", background: "white", padding: "14px 28px", borderRadius: "var(--r-md)", boxShadow: "0 8px 24px rgba(0,0,0,0.18)", cursor: "pointer" }}
+              <motion.span style={{ display: "inline-flex", alignItems: "center", gap: 9, fontFamily: "var(--f-body)", fontWeight: 700, fontSize: "1rem", color: "#F3842C", background: "white", padding: "14px 28px", borderRadius: "var(--r-md)", boxShadow: "0 8px 24px rgba(0,0,0,0.18)", cursor: "pointer" }}
                 whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-                <Heart style={{ width: 17, height: 17, fill: "var(--c-forest)" }} /> Donate Now <ArrowRight style={{ width: 17, height: 17 }} />
+                <Heart style={{ width: 17, height: 17, fill: "#F3842C" }} /> Donate Now <ArrowRight style={{ width: 17, height: 17 }} />
               </motion.span>
             </Link>
             <Link to="/ngos">

@@ -37,7 +37,7 @@ export default function Registration() {
         <div style={{ position:"relative", zIndex:2 }}>
           <p className="section-label" style={{ justifyContent:"center", color:"var(--c-amber-light)", marginBottom:12 }}>Make a Difference</p>
           <h1 style={{ fontFamily:"var(--f-display)", fontSize:"clamp(2.2rem,5vw,3.8rem)", fontWeight:700, color:"white", marginBottom:14 }}>
-            <span style={{ color:"#E8A84A" }}>Donate</span> & Save a Life
+            <span style={{ color:"#F3842C" }}>Donate</span> & Save a Life
           </h1>
           <div className="divider" style={{ margin:"0 auto 20px" }} />
           <p style={{ fontFamily:"var(--f-body)", fontSize:"1rem", color:"rgba(255,255,255,0.58)", maxWidth:500, margin:"0 auto" }}>
@@ -66,7 +66,7 @@ export default function Registration() {
                 <button key={t.amount} onClick={() => { setSel(t.amount); setCustom(""); }}
                   style={{ padding:"16px", borderRadius:"var(--r-md)", border:`2px solid ${sel===t.amount && !custom ? "var(--c-forest)" : "var(--c-sand-light)"}`, background:sel===t.amount && !custom ? "var(--c-pale)" : "white", cursor:"pointer", textAlign:"left", transition:"all 0.2s" }}>
                   <div style={{ fontSize:"1.8rem", marginBottom:6 }}>{t.icon}</div>
-                  <div style={{ fontFamily:"var(--f-display)", fontSize:"1.1rem", fontWeight:700, color:"var(--c-bark)", marginBottom:2 }}>₹{t.amount.toLocaleString()}</div>
+                  <div style={{ fontFamily:"var(--f-number)", fontSize:"1.1rem", fontWeight:800, color:"var(--c-bark)", marginBottom:2, letterSpacing:"-0.02em" }}>₹{t.amount.toLocaleString()}</div>
                   <div style={{ fontFamily:"var(--f-body)", fontSize:"0.68rem", fontWeight:700, color:"var(--c-forest)", textTransform:"uppercase", letterSpacing:"0.06em", marginBottom:4 }}>{t.label}</div>
                   <div style={{ fontFamily:"var(--f-body)", fontSize:"0.78rem", color:"var(--c-bark-muted)" }}>{t.desc}</div>
                 </button>

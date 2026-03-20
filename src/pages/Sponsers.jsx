@@ -28,7 +28,7 @@ export default function Sponsers() {
         <div style={{ position:"relative", zIndex:2 }}>
           <p className="section-label" style={{ justifyContent:"center", color:"var(--c-amber-light)", marginBottom:12 }}>Partnerships</p>
           <h1 style={{ fontFamily:"var(--f-display)", fontSize:"clamp(2.2rem,5vw,3.8rem)", fontWeight:700, color:"white", marginBottom:14 }}>
-            Our <span style={{ color:"#E8A84A" }}>Partners</span>
+            Our <span style={{ color:"#F3842C" }}>Partners</span>
           </h1>
           <div className="divider" style={{ margin:"0 auto 20px" }} />
           <p style={{ fontFamily:"var(--f-body)", fontSize:"1rem", color:"rgba(255,255,255,0.58)", maxWidth:500, margin:"0 auto" }}>
@@ -76,7 +76,7 @@ export default function Sponsers() {
                 style={{ background:t.color, borderRadius:"var(--r-xl)", padding:"32px", border:`2px solid ${t.border}`, boxShadow:"var(--sh-xs)" }}
                 whileHover={{ y:-6, boxShadow:"var(--sh-lg)" }}>
                 <p style={{ fontFamily:"var(--f-body)", fontSize:"0.68rem", fontWeight:700, letterSpacing:"0.18em", textTransform:"uppercase", color:t.label, marginBottom:6 }}>{t.tier}</p>
-                <p style={{ fontFamily:"var(--f-display)", fontSize:"2rem", fontWeight:700, color:"var(--c-bark)", marginBottom:24 }}>{t.amount}</p>
+                <p style={{ fontFamily:"var(--f-number)", fontSize:"2rem", fontWeight:800, color:"var(--c-bark)", marginBottom:24, letterSpacing:"-0.02em" }}>{t.amount}</p>
                 <div style={{ display:"flex", flexDirection:"column", gap:10, marginBottom:28 }}>
                   {t.benefits.map((b,j) => (
                     <div key={j} style={{ display:"flex", alignItems:"center", gap:10 }}>

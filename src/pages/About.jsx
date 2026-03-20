@@ -40,7 +40,7 @@ export default function About() {
       {/* ── PAGE HERO ── */}
       <div className="page-hero">
         <div style={{ position:"absolute", inset:0, backgroundImage:"radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize:"28px 28px", pointerEvents:"none", zIndex:1 }} />
-        <div style={{ position:"absolute", top:0, right:0, width:"50%", height:"100%", background:"radial-gradient(ellipse at top right, rgba(77,170,124,0.14) 0%, transparent 60%)", pointerEvents:"none", zIndex:1 }} />
+        <div style={{ position:"absolute", top:0, right:0, width:"50%", height:"100%", background:"radial-gradient(ellipse at top right, rgba(243,132,44,0.14) 0%, transparent 60%)", pointerEvents:"none", zIndex:1 }} />
         <div style={{ position:"relative", zIndex:2 }}>
           <motion.p className="section-label" style={{ justifyContent:"center", color:"var(--c-amber-light)" }}
             initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }} transition={{ delay:0.05 }}>
@@ -48,7 +48,7 @@ export default function About() {
           </motion.p>
           <motion.h1 style={{ fontFamily:"var(--f-display)", fontSize:"clamp(2.4rem,6vw,4.2rem)", fontWeight:700, color:"white", marginTop:14, marginBottom:14, lineHeight:1.12 }}
             initial={{ opacity:0, y:22 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.75, delay:0.12 }}>
-            About <span style={{ color:"#E8A84A" }}>Our Foundation</span>
+            About <span style={{ color:"#F3842C" }}>Our Foundation</span>
           </motion.h1>
           <div className="divider" style={{ margin:"0 auto 20px" }} />
           <motion.p style={{ fontFamily:"var(--f-body)", fontSize:"1.05rem", color:"rgba(255,255,255,0.60)", maxWidth:580, margin:"0 auto" }}
@@ -77,9 +77,9 @@ export default function About() {
         <div className="section-container">
           <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:24 }} className="mv-grid">
             {[
-              { icon:Target, title:"Our Mission", bg:"var(--c-pale)", border:"var(--c-leaf)", iconColor:"var(--c-forest)",
+              { icon:Target, title:"Our Mission", bg:"#FFF4EB", border:"#F3842C", iconColor:"#F3842C",
                 text:"To rescue, rehabilitate and rehome animals in need — and to keep the network of small, underfunded NGOs doing this vital work alive through financial support, resources and advocacy. Simultaneously, we serve communities through education, health, and empowerment programmes." },
-              { icon:Eye, title:"Our Vision", bg:"var(--c-amber-pale)", border:"var(--c-amber-light)", iconColor:"var(--c-amber)",
+              { icon:Eye, title:"Our Vision", bg:"#FFF4EB", border:"#F59E4B", iconColor:"#F59E4B",
                 text:"An India where no animal suffers for lack of care, and every passionate animal welfare NGO has the support it needs to survive. A society where humans and animals thrive together, supported by strong community welfare systems." },
             ].map(({icon:Icon,title,bg,border,iconColor,text},i) => (
               <motion.div key={i} {...fade(i*0.12)}
@@ -110,7 +110,7 @@ export default function About() {
               <motion.div key={i} {...fade(i*0.07)}
                 style={{ background:"white", borderRadius:"var(--r-lg)", padding:"24px", border:"1px solid var(--c-sand-light)", boxShadow:"var(--sh-xs)", display:"flex", gap:16, alignItems:"flex-start", transition:"all 0.3s", cursor:"default" }}
                 whileHover={{ y:-4, boxShadow:"var(--sh-md)" }}>
-                <div style={{ width:52, height:52, borderRadius:14, overflow:"hidden", flexShrink:0, background:"linear-gradient(135deg, var(--c-forest), var(--c-mid))", display:"flex", alignItems:"center", justifyContent:"center" }}>
+                <div style={{ width:52, height:52, borderRadius:14, overflow:"hidden", flexShrink:0, background:"linear-gradient(135deg, #F3842C, #F59E4B)", display:"flex", alignItems:"center", justifyContent:"center" }}>
                   {p.img
                     ? <img src={p.img} alt={p.name} style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"center top" }} />
                     : <span style={{ fontSize:"1.6rem" }}>{p.emoji}</span>
@@ -145,15 +145,15 @@ export default function About() {
           </div>
           <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:24 }} className="sectors-grid">
             <div style={{ background:"var(--c-pale)", borderRadius:"var(--r-lg)", padding:"28px 32px" }}>
-              <p style={{ fontFamily:"var(--f-body)", fontSize:"0.68rem", fontWeight:700, letterSpacing:"0.18em", textTransform:"uppercase", color:"var(--c-forest)", marginBottom:18, display:"flex", alignItems:"center", gap:8 }}>
-                <span style={{ width:20, height:2, background:"var(--c-forest)", display:"inline-block", borderRadius:2 }} />
+              <p style={{ fontFamily:"var(--f-body)", fontSize:"0.68rem", fontWeight:700, letterSpacing:"0.18em", textTransform:"uppercase", color:"#F3842C", marginBottom:18, display:"flex", alignItems:"center", gap:8 }}>
+                <span style={{ width:20, height:2, background:"#F3842C", display:"inline-block", borderRadius:2 }} />
                 Primary Sectors
               </p>
               <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
                 {SECTORS_PRIMARY.map((s,i) => (
                   <div key={i} style={{ display:"flex", alignItems:"center", gap:10 }}>
-                    <CheckCircle style={{ width:16, height:16, color: s.includes("Animal") ? "var(--c-forest)" : "var(--c-leaf)", flexShrink:0 }} />
-                    <span style={{ fontFamily:"var(--f-body)", fontSize:"0.9rem", fontWeight: s.includes("Animal") ? 700 : 500, color: s.includes("Animal") ? "var(--c-forest)" : "var(--c-bark-muted)" }}>{s}</span>
+                    <CheckCircle style={{ width:16, height:16, color: s.includes("Animal") ? "#F3842C" : "#F59E4B", flexShrink:0 }} />
+                    <span style={{ fontFamily:"var(--f-body)", fontSize:"0.9rem", fontWeight: s.includes("Animal") ? 700 : 500, color: s.includes("Animal") ? "#F3842C" : "var(--c-bark-muted)" }}>{s}</span>
                   </div>
                 ))}
               </div>
@@ -189,7 +189,7 @@ export default function About() {
                 <div style={{ width:20, height:20, borderRadius:"50%", background:"var(--c-amber)", border:"3px solid white", boxShadow:"0 0 0 2px var(--c-amber-light)", flexShrink:0, position:"relative", left:-42, zIndex:1, marginTop:4, marginRight:-20 }} />
                 <div style={{ flex:1, background:"white", borderRadius:"var(--r-md)", padding:"18px 22px", border:"1px solid var(--c-sand-light)", boxShadow:"var(--sh-xs)" }}>
                   <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:6 }}>
-                    <span style={{ fontFamily:"var(--f-body)", fontSize:"0.7rem", fontWeight:700, color:"white", background:"var(--c-forest)", padding:"3px 10px", borderRadius:99 }}>{m.year}</span>
+                    <span style={{ fontFamily:"var(--f-body)", fontSize:"0.7rem", fontWeight:700, color:"white", background:"#F3842C", padding:"3px 10px", borderRadius:99 }}>{m.year}</span>
                     <h3 style={{ fontFamily:"var(--f-display)", fontSize:"1rem", fontWeight:700, color:"var(--c-bark)" }}>{m.title}</h3>
                   </div>
                   <p style={{ fontFamily:"var(--f-body)", fontSize:"0.875rem", color:"var(--c-bark-muted)", lineHeight:1.65 }}>{m.desc}</p>
@@ -201,7 +201,7 @@ export default function About() {
       </section>
 
       {/* ── CTA ── */}
-      <section style={{ padding:"72px 0", textAlign:"center", background:"linear-gradient(150deg, #0F2E1C, #1B5E3B)" }}>
+      <section style={{ padding:"72px 0", textAlign:"center", background:"linear-gradient(150deg, #0B0B0B, #1A1A1A)" }}>
         <Heart style={{ width:36, height:36, color:"var(--c-amber)", fill:"var(--c-amber)", margin:"0 auto 16px" }} />
         <h2 style={{ fontFamily:"var(--f-display)", fontSize:"2.2rem", fontWeight:700, color:"white", marginBottom:14 }}>Join Our Mission</h2>
         <p style={{ fontFamily:"var(--f-body)", fontSize:"1rem", color:"rgba(255,255,255,0.55)", marginBottom:28, maxWidth:440, margin:"0 auto 28px" }}>

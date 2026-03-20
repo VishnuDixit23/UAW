@@ -34,7 +34,7 @@ export default function NGOs() {
           </motion.p>
           <motion.h1 style={{ fontFamily:"var(--f-display)", fontSize:"clamp(2.2rem,5vw,3.8rem)", fontWeight:700, color:"white", marginBottom:14 }}
             initial={{ opacity:0, y:22 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.75, delay:0.12 }}>
-            NGOs We <span style={{ color:"#E8A84A" }}>Support</span>
+            NGOs We <span style={{ color:"#F3842C" }}>Support</span>
           </motion.h1>
           <div className="divider" style={{ margin:"0 auto 20px" }} />
           <motion.p style={{ fontFamily:"var(--f-body)", fontSize:"1rem", color:"rgba(255,255,255,0.58)", maxWidth:520, margin:"0 auto" }}
@@ -84,7 +84,7 @@ export default function NGOs() {
           </div>
 
           {/* Apply CTA */}
-          <div style={{ background:"var(--c-pale)", borderRadius:"var(--r-xl)", padding:"40px", textAlign:"center", marginTop:48, border:"1px solid rgba(77,170,124,0.2)" }}>
+          <div style={{ background:"#FFF4EB", borderRadius:"var(--r-xl)", padding:"40px", textAlign:"center", marginTop:48, border:"1px solid rgba(243,132,44,0.2)" }}>
             <h3 style={{ fontFamily:"var(--f-display)", fontSize:"1.6rem", fontWeight:700, color:"var(--c-bark)", marginBottom:12 }}>Is Your NGO Struggling?</h3>
             <p style={{ fontFamily:"var(--f-body)", fontSize:"0.95rem", color:"var(--c-bark-muted)", maxWidth:480, margin:"0 auto 24px" }}>
               If you run an animal welfare NGO facing financial difficulties, apply for our support programme.

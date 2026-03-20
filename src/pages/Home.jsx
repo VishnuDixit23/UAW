@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React, { useRef, useState, useEffect, useCallback } from "react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { FaInstagram, FaLinkedinIn, FaFacebookF, FaWhatsapp } from "react-icons/fa";
 import { ArrowRight, ArrowDown, Heart } from "lucide-react";
 import CountUp from "react-countup";
@@ -8,11 +8,19 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
+/* ── HERO IMAGES ── */
+const HERO_IMAGES = [
+  "/hero/hero1.jpg",
+  "/hero/hero2.jpg",
+  "/hero/hero3.jpg",
+  "/hero/hero4.jpg",
+];
+
 /* ── DATA ── */
 const PROGRAMMES = [
-  { title:"Cow Feeding",               desc:"We feed more than 7,000 street cows across Rajasthan with daily nutrition drives, ensuring no sacred animal goes hungry.",                         icon:"🐄", img:"/programmes/feeding.jpeg",     stat:"7,000+", statLabel:"Cows Fed Daily" },
+  { title:"Cow Feeding",               desc:"We feed more than 7,000 street cows across Rajasthan with nutrition drives, ensuring no sacred animal goes hungry.",                         icon:"🐄", img:"/programmes/feeding.jpeg",     stat:"7,000+", statLabel:"Cows Fed" },
   { title:"Dog Care & Radium Collars", desc:"Caring for 5,000+ stray dogs and fitting them with glow-in-the-dark radium collar belts to save them from road accidents at night.",               icon:"🐕", img:"/programmes/collar.jpeg",      stat:"5,000+", statLabel:"Dogs Protected" },
-  { title:"Girls' Hygiene",           desc:"Distributing sanitary hygiene pads to girls in slum areas — giving them dignity, health and confidence every month.",                               icon:"💜", img:"/programmes/hygiene.jpeg",     stat:"1,200+", statLabel:"Girls Supported" },
+  { title:"Girls' Hygiene",           desc:"Distributing sanitary hygiene pads to girls in slum areas — giving them dignity, health and confidence every month.",                               icon:"💜", img:"/programmes/hygiene.png",     stat:"1,200+", statLabel:"Girls Supported" },
   { title:"Education",                 desc:"Providing books, stationery and geometric boxes to underprivileged students so no child is denied the right to learn.",                             icon:"📚", img:"/programmes/education.jpeg",   stat:"500+",   statLabel:"Students Helped" },
   { title:"Environment & Plantation",  desc:"Plantation drives to combat climate change, deforestation and pollution — building greener, healthier communities across Rajasthan.",               icon:"🌳", img:"/programmes/environment.jpeg", stat:"Active",  statLabel:"Campaign" },
   { title:"Youth Kickstart Programme",  desc:"Running for 4–5 years, we support talented youth from financially challenged backgrounds — providing sports training, education, accommodation and nutrition. Proud sponsors of Jaipur City Football Club.", icon:"⚽", img:"/programmes/youth.jpeg", stat:"4–5 Yrs", statLabel:"Running Strong" },
@@ -48,10 +56,11 @@ function StatCard({ n, suf, label, icon, delay=0 }) {
       initial={{ opacity:0, y:24 }} whileInView={{ opacity:1, y:0 }}
       transition={{ duration:0.6, delay, ease:[0.22,1,0.36,1] }} viewport={{ once:true }}>
       <span style={{ fontSize:"2.2rem", marginBottom:10 }}>{icon}</span>
-      <p style={{ fontFamily:"var(--f-display)", fontSize:"2.6rem", fontWeight:700, color:"var(--c-forest)", lineHeight:1 }}>
-        {inView ? <CountUp end={n} duration={2.2} separator="," suffix={suf} /> : "0"}
+      <p style={{ fontFamily:"var(--f-number)", fontSize:"2.8rem", fontWeight:800, color:"#111827", lineHeight:1, letterSpacing:"-0.03em" }}>
+        {inView ? <CountUp end={n} duration={2.2} separator="," /> : "0"}
+        <span style={{ fontSize:"1.6rem", fontWeight:700, color:"#F3842C", marginLeft:2 }}>{suf}</span>
       </p>
-      <p style={{ fontSize:"0.82rem", fontWeight:500, color:"var(--c-bark-muted)", marginTop:8 }}>{label}</p>
+      <p style={{ fontSize:"0.82rem", fontWeight:500, color:"var(--c-bark-muted)", marginTop:8, letterSpacing:"0.02em", textTransform:"uppercase" }}>{label}</p>
     </motion.div>
   );
 }
@@ -59,98 +68,177 @@ function StatCard({ n, suf, label, icon, delay=0 }) {
 export default function Home() {
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({ target:heroRef, offset:["start start","end start"] });
-  const bgY = useTransform(scrollYProgress, [0,1], ["0%","22%"]);
   const textY = useTransform(scrollYProgress, [0,1], ["0%","14%"]);
   const opacity = useTransform(scrollYProgress, [0,0.75], [1,0]);
+
+  /* ── Background image slideshow state ── */
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide(prev => (prev + 1) % HERO_IMAGES.length);
+    }, 8000); // 8 seconds per slide
+    return () => clearInterval(interval);
+  }, []);
+
+  /* Preload images */
+  useEffect(() => {
+    HERO_IMAGES.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
   return (
     <div style={{ background:"var(--c-cream)" }}>
       <Navbar />
 
       {/* ═══════════ HERO ═══════════ */}
-      <section ref={heroRef} style={{ position:"relative", minHeight:"100vh", display:"flex", alignItems:"center", justifyContent:"center", overflow:"hidden" }}>
-        <motion.div style={{ position:"absolute", inset:0, y:bgY, background:"linear-gradient(155deg, #0F2E1C 0%, #1B5E3B 45%, #133D28 100%)" }} />
-        <div style={{ position:"absolute", inset:0, backgroundImage:"radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px)", backgroundSize:"30px 30px", pointerEvents:"none", zIndex:1 }} />
-        <div style={{ position:"absolute", top:0, right:0, width:"55%", height:"100%", background:"radial-gradient(ellipse at top right, rgba(77,170,124,0.13) 0%, transparent 62%)", pointerEvents:"none", zIndex:1 }} />
+      <section ref={heroRef} style={{ position:"relative", height:"75vh", minHeight:"480px", maxHeight:"800px", display:"flex", alignItems:"center", justifyContent:"center", overflow:"hidden" }}>
 
-        {/* Floating glow blobs */}
-        <motion.div style={{ position:"absolute", top:"20%", left:"15%", width:320, height:320, borderRadius:"50%", background:"radial-gradient(circle, rgba(77,170,124,0.18), transparent)", filter:"blur(60px)", pointerEvents:"none" }}
-          animate={{ x:[0,25,-15,0], y:[0,-20,12,0] }} transition={{ duration:16, repeat:Infinity, ease:"easeInOut" }} />
-        <motion.div style={{ position:"absolute", bottom:"25%", right:"12%", width:260, height:260, borderRadius:"50%", background:"radial-gradient(circle, rgba(200,128,26,0.14), transparent)", filter:"blur(50px)", pointerEvents:"none" }}
-          animate={{ x:[0,-20,18,0], y:[0,18,-14,0] }} transition={{ duration:20, repeat:Infinity, ease:"easeInOut" }} />
-
-        <motion.div style={{ position:"relative", zIndex:10, textAlign:"center", padding:"136px 24px 160px", maxWidth:900, width:"100%", margin:"0 auto", y:textY, opacity }} >
-
-          {/* Logo */}
-          <motion.div {...fadeUp(0)} style={{ display:"flex", justifyContent:"center", marginBottom:28 }}>
-            <motion.div style={{ width:104, height:104, borderRadius:24, overflow:"hidden", boxShadow:"0 20px 60px rgba(0,0,0,0.35)", border:"3px solid rgba(255,255,255,0.20)" }}
-              whileHover={{ scale:1.05, rotate:2 }} transition={{ type:"spring", stiffness:280 }}>
-              <img src="/logo.jpeg" alt="United for Animal Welfare" style={{ width:"100%", height:"100%", objectFit:"cover" }} />
-            </motion.div>
+        {/* ── Background Image Slideshow ── */}
+        <AnimatePresence mode="sync">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            style={{
+              position: "absolute",
+              inset: 0,
+              zIndex: 0,
+            }}
+          >
+            <img
+              src={HERO_IMAGES[currentSlide]}
+              alt=""
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "center 35%",
+                display: "block",
+              }}
+            />
           </motion.div>
+        </AnimatePresence>
+
+        {/* ── Dark Overlay ── */}
+        <div style={{
+          position: "absolute",
+          inset: 0,
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.70) 100%)",
+          zIndex: 1,
+          pointerEvents: "none",
+        }} />
+
+        {/* ── Vignette edges ── */}
+        <div style={{
+          position: "absolute",
+          inset: 0,
+          boxShadow: "inset 0 0 150px 60px rgba(0,0,0,0.45)",
+          zIndex: 2,
+          pointerEvents: "none",
+        }} />
+
+        {/* ── Subtle orange glow accent ── */}
+        <div style={{
+          position: "absolute",
+          top: 0,
+          right: 0,
+          width: "50%",
+          height: "100%",
+          background: "radial-gradient(ellipse at top right, rgba(243,132,44,0.08) 0%, transparent 60%)",
+          pointerEvents: "none",
+          zIndex: 2,
+        }} />
+
+
+
+        {/* ── Hero Content ── */}
+        <motion.div style={{ position:"relative", zIndex:10, textAlign:"center", padding:"0 24px", maxWidth:900, width:"100%", margin:"0 auto", y:textY, opacity }} >
+
+
 
           {/* Badge */}
-          <motion.div {...fadeUp(0.07)} style={{ display:"flex", justifyContent:"center", marginBottom:20 }}>
+          <motion.div {...fadeUp(0.07)} style={{ display:"flex", justifyContent:"center", marginBottom:16 }}>
             <span className="badge badge-white" style={{ fontSize:"0.65rem" }}>
               Registered Public Trust · Rajasthan 2026
             </span>
           </motion.div>
 
           {/* Headline */}
-          <motion.h1 {...fadeUp(0.14)} style={{ fontFamily:"var(--f-display)", fontSize:"clamp(3.2rem,10vw,8rem)", fontWeight:700, color:"white", lineHeight:0.95, marginBottom:6, letterSpacing:"-0.01em" }}>
+          <motion.h1 {...fadeUp(0.14)} style={{ fontFamily:"var(--f-display)", fontSize:"clamp(3.2rem,10vw,8rem)", fontWeight:700, color:"white", lineHeight:0.95, marginBottom:6, letterSpacing:"-0.01em", textShadow:"0 4px 30px rgba(0,0,0,0.4)" }}>
             United For
           </motion.h1>
-          <motion.h2 {...fadeUp(0.20)} style={{ fontFamily:"var(--f-display)", fontSize:"clamp(2.8rem,9vw,7.2rem)", fontWeight:700, lineHeight:1.0, marginBottom:16, letterSpacing:"-0.01em", background:"linear-gradient(135deg, #E8A84A, #C8801A)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text" }}>
+          <motion.h2 {...fadeUp(0.20)} style={{ fontFamily:"var(--f-display)", fontSize:"clamp(2.8rem,9vw,7.2rem)", fontWeight:700, lineHeight:1.0, marginBottom:16, letterSpacing:"-0.01em", background:"linear-gradient(135deg, #F3842C, #F59E4B)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text", filter:"drop-shadow(0 2px 10px rgba(243,132,44,0.3))" }}>
             Animal Welfare
           </motion.h2>
-          <motion.p {...fadeUp(0.26)} style={{ fontFamily:"var(--f-body)", fontSize:"0.85rem", fontWeight:600, letterSpacing:"0.22em", textTransform:"uppercase", color:"rgba(255,255,255,0.50)", marginBottom:16 }}>
+          <motion.p {...fadeUp(0.26)} style={{ fontFamily:"var(--f-body)", fontSize:"0.85rem", fontWeight:600, letterSpacing:"0.22em", textTransform:"uppercase", color:"rgba(255,255,255,0.55)", marginBottom:16 }}>
             — Compassion For Every Life —
           </motion.p>
-          <motion.p {...fadeUp(0.30)} style={{ fontFamily:"var(--f-body)", fontSize:"1.05rem", fontWeight:300, color:"rgba(255,255,255,0.68)", lineHeight:1.7, maxWidth:520, margin:"0 auto 40px" }}>
-            Founded by <strong style={{ color:"rgba(255,255,255,0.90)", fontWeight:600 }}>Shivajee Vishen</strong> — feeding cows, protecting dogs, empowering girls, educating children, keeping NGOs alive.
+          <motion.p {...fadeUp(0.30)} style={{ fontFamily:"var(--f-body)", fontSize:"1.05rem", fontWeight:300, color:"rgba(255,255,255,0.75)", lineHeight:1.7, maxWidth:520, margin:"0 auto 24px", textShadow:"0 2px 8px rgba(0,0,0,0.3)" }}>
+            Founded by <strong style={{ color:"rgba(255,255,255,0.95)", fontWeight:600 }}>Shivajee Vishen</strong> — feeding cows, protecting dogs, empowering girls, educating children, keeping NGOs alive.
           </motion.p>
 
           {/* CTA buttons */}
-          <motion.div {...fadeUp(0.36)} style={{ display:"flex", flexWrap:"wrap", gap:12, justifyContent:"center", marginBottom:36 }}>
+          <motion.div {...fadeUp(0.36)} style={{ display:"flex", flexWrap:"wrap", gap:12, justifyContent:"center", marginBottom:40 }}>
             <Link to="/registration">
               <motion.span className="btn btn-amber btn-lg" style={{ display:"inline-flex" }} whileHover={{ scale:1.04, y:-2 }} whileTap={{ scale:0.97 }}>
                 <Heart style={{ width:18, height:18, fill:"white" }} /> Donate Now
               </motion.span>
             </Link>
             <Link to="/ourwork">
-              <motion.span className="btn btn-ghost btn-lg" style={{ display:"inline-flex" }} whileHover={{ scale:1.03 }} whileTap={{ scale:0.97 }}>
+              <motion.span className="btn btn-ghost btn-lg" style={{ display:"inline-flex", backdropFilter:"blur(12px)", background:"rgba(255,255,255,0.08)" }} whileHover={{ scale:1.03 }} whileTap={{ scale:0.97 }}>
                 Our Programmes <ArrowRight style={{ width:18, height:18 }} />
               </motion.span>
             </Link>
           </motion.div>
 
-          {/* Social */}
-          <motion.div {...fadeUp(0.42)} style={{ display:"flex", justifyContent:"center", gap:10 }}>
-            {[FaInstagram, FaLinkedinIn, FaFacebookF, FaWhatsapp].map((Icon,i) => (
-              <motion.a key={i} href="#"
-                style={{ width:40, height:40, borderRadius:10, background:"rgba(255,255,255,0.08)", border:"1px solid rgba(255,255,255,0.12)", display:"flex", alignItems:"center", justifyContent:"center", transition:"all 0.25s" }}
-                whileHover={{ scale:1.15, y:-3, background:"rgba(255,255,255,0.16)" }} transition={{ type:"spring", stiffness:380 }}>
-                <Icon style={{ color:"rgba(255,255,255,0.70)", fontSize:"0.9rem" }} />
-              </motion.a>
-            ))}
+          {/* Bottom Actions: Slide Dots + Social */}
+          <motion.div {...fadeUp(0.42)} style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:24 }}>
+            
+            {/* Slide indicator dots */}
+            <div style={{ display: "flex", gap: 10 }}>
+              {HERO_IMAGES.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentSlide(idx)}
+                  style={{
+                    width: currentSlide === idx ? 28 : 10,
+                    height: 10,
+                    borderRadius: 99,
+                    border: "none",
+                    background: currentSlide === idx ? "#F3842C" : "rgba(255,255,255,0.45)",
+                    cursor: "pointer",
+                    transition: "all 0.4s cubic-bezier(0.22, 1, 0.36, 1)",
+                    boxShadow: currentSlide === idx ? "0 0 12px rgba(243,132,44,0.5)" : "none",
+                  }}
+                />
+              ))}
+            </div>
+
+            {/* Social */}
+            {/* <div style={{ display:"flex", justifyContent:"center", gap:10 }}>
+              {[FaInstagram, FaLinkedinIn, FaFacebookF, FaWhatsapp].map((Icon,i) => (
+                <motion.a key={i} href="#"
+                  style={{ width:40, height:40, borderRadius:10, background:"rgba(255,255,255,0.10)", border:"1px solid rgba(255,255,255,0.15)", backdropFilter:"blur(8px)", display:"flex", alignItems:"center", justifyContent:"center", transition:"all 0.25s" }}
+                  whileHover={{ scale:1.15, y:-3, background:"rgba(255,255,255,0.20)" }} transition={{ type:"spring", stiffness:380 }}>
+                  <Icon style={{ color:"rgba(255,255,255,0.80)", fontSize:"0.9rem" }} />
+                </motion.a>
+              ))}
+            </div> */}
           </motion.div>
         </motion.div>
-
-        {/* Scroll cue */}
-        <motion.div style={{ position:"absolute", bottom:32, left:"50%", transform:"translateX(-50%)", display:"flex", flexDirection:"column", alignItems:"center", gap:6, zIndex:10 }}
-          animate={{ y:[0,7,0] }} transition={{ duration:2.2, repeat:Infinity }}>
-          <span style={{ fontFamily:"var(--f-body)", fontSize:"0.62rem", fontWeight:600, letterSpacing:"0.2em", textTransform:"uppercase", color:"rgba(255,255,255,0.30)" }}>Scroll</span>
-          <ArrowDown style={{ width:16, height:16, color:"rgba(255,255,255,0.28)" }} />
-        </motion.div>
       </section>
-
       {/* ═══════════ MARQUEE ═══════════ */}
-      <div style={{ background:"var(--c-forest)", padding:"14px 0", overflow:"hidden", borderTop:"2px solid rgba(200,128,26,0.25)", borderBottom:"2px solid rgba(200,128,26,0.25)" }}>
+      <div style={{ background:"#F3842C", padding:"14px 0", overflow:"hidden", borderTop:"2px solid rgba(255,255,255,0.15)", borderBottom:"2px solid rgba(255,255,255,0.15)" }}>
         <div className="marquee-inner">
           {[...Array(2)].map((_,o) => (
             <div key={o} style={{ display:"flex", flexShrink:0 }}>
-              {["🐄  7,000+ Cows Fed Daily","🐕  5,000+ Dogs Protected","💜  1,200+ Girls Helped","📚  500+ Students Supported","🌳  Tree Plantation Drive","⚽  Youth Kickstart Programme","🏥  NGO Life Support","❤  Compassion For Every Life"].map((t,i) => (
-                <span key={i} style={{ fontFamily:"var(--f-body)", fontSize:"0.82rem", fontWeight:500, letterSpacing:"0.06em", color:"rgba(255,255,255,0.75)", padding:"4px 36px", borderRight:"1px solid rgba(255,255,255,0.10)", whiteSpace:"nowrap" }}>{t}</span>
+              {["🐄  7,000+ Cows Fed","🐕  5,000+ Dogs Protected","💜  1,200+ Girls Helped","📚  500+ Students Supported","🌳  Tree Plantation Drive","⚽  Youth Kickstart Programme","🏥  NGO Life Support","❤  Compassion For Every Life"].map((t,i) => (
+                <span key={i} style={{ fontFamily:"var(--f-body)", fontSize:"0.82rem", fontWeight:500, letterSpacing:"0.06em", color:"rgba(255,255,255,0.90)", padding:"4px 36px", borderRight:"1px solid rgba(255,255,255,0.20)", whiteSpace:"nowrap" }}>{t}</span>
               ))}
             </div>
           ))}
@@ -158,9 +246,9 @@ export default function Home() {
       </div>
 
       {/* ═══════════ STATS ═══════════ */}
-      <section style={{ padding:"88px 0", background:"linear-gradient(160deg, var(--c-pale) 0%, #F2FAF5 100%)" }}>
+      <section style={{ padding:"40px 0 60px", background:"linear-gradient(160deg, #FFF4EB 0%, #FFFFFF 100%)" }}>
         <div className="section-container">
-          <div style={{ textAlign:"center", marginBottom:56 }}>
+          <div style={{ textAlign:"center", marginBottom:32 }}>
             <p className="section-label" style={{ justifyContent:"center", marginBottom:12 }}>Real Impact</p>
             <h2 style={{ fontFamily:"var(--f-display)", fontSize:"clamp(2.2rem,5vw,3.2rem)", fontWeight:700, color:"var(--c-bark)" }}>
               By The <span className="text-green-grad">Numbers</span>
@@ -200,14 +288,14 @@ export default function Home() {
                 United, We Stand<br /><span className="text-green-grad">For Every Life</span>
               </h2>
               <p style={{ fontFamily:"var(--f-body)", fontSize:"1.02rem", color:"var(--c-bark-muted)", lineHeight:1.8, letterSpacing:"0.005em", marginBottom:16 }}>
-                <strong style={{ color:"var(--c-forest)" }}>United for Animal Welfare</strong> is a registered Public Trust (Rajasthan, 2026) founded by <strong>Shivajee Vishen</strong>. Every day, our teams feed 7,000+ street cows, care for 5,000+ dogs, and distribute hygiene kits to girls in slums.
+                <strong style={{ color:"#F3842C" }}>United for Animal Welfare</strong> is a registered Public Trust (Rajasthan, 2026) founded by <strong>Shivajee Vishen</strong>. Every day, our teams feed 7,000+ street cows, care for 5,000+ dogs, and distribute hygiene kits to girls in slums.
               </p>
               <p style={{ fontFamily:"var(--f-body)", fontSize:"1.02rem", color:"var(--c-bark-muted)", lineHeight:1.8, letterSpacing:"0.005em", marginBottom:28 }}>
                 We also fight for the survival of animal NGOs on the verge of collapse — because when they shut down, hundreds of animals lose their only source of care.
               </p>
 
               <div className="trust-card" style={{ marginBottom:28 }}>
-                <p style={{ fontFamily:"var(--f-body)", fontSize:"0.65rem", fontWeight:700, letterSpacing:"0.18em", textTransform:"uppercase", color:"var(--c-amber)", marginBottom:14 }}>Trust Details</p>
+                <p style={{ fontFamily:"var(--f-body)", fontSize:"0.65rem", fontWeight:700, letterSpacing:"0.18em", textTransform:"uppercase", color:"#F3842C", marginBottom:14 }}>Trust Details</p>
                 <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"10px 20px" }}>
                   {[["Name","United for Animal Welfare"],["Type","Public Trust / NPO"],["Registered","Rajasthan, 2026"],["Founder","Shivajee Vishen"]].map(([k,v]) => (
                     <div key={k}>
@@ -290,7 +378,7 @@ export default function Home() {
             <span className="badge badge-amber" style={{ marginBottom:24, display:"inline-flex" }}>⚠ Urgent Need</span>
             <h2 style={{ fontFamily:"var(--f-display)", fontSize:"clamp(2rem,5vw,3.5rem)", fontWeight:700, color:"white", lineHeight:1.15, marginBottom:20 }}>
               NGOs Are Closing.<br />
-              <span style={{ color:"#E8A84A" }}>Animals Are Losing Their Last Hope.</span>
+              <span style={{ color:"#F3842C" }}>Animals Are Losing Their Last Hope.</span>
             </h2>
             <p style={{ fontFamily:"var(--f-body)", fontSize:"1.05rem", color:"rgba(255,255,255,0.65)", lineHeight:1.75, marginBottom:40, maxWidth:560, margin:"0 auto 40px" }}>
               Dozens of animal welfare NGOs across India face imminent shutdown. Led by <strong style={{ color:"white" }}>Hardik Visaria</strong> and <strong style={{ color:"white" }}>Abhishek Soni</strong>, we're working round-the-clock to keep every one alive.

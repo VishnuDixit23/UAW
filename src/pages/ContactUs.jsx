@@ -38,7 +38,7 @@ export default function ContactUs() {
         <div style={{ position:"relative", zIndex:2 }}>
           <p className="section-label" style={{ justifyContent:"center", color:"var(--c-amber-light)", marginBottom:12 }}>Reach Out</p>
           <h1 style={{ fontFamily:"var(--f-display)", fontSize:"clamp(2.4rem,6vw,4rem)", fontWeight:700, color:"white", marginBottom:14 }}>
-            Get In <span style={{ color:"#E8A84A" }}>Touch</span>
+            Get In <span style={{ color:"#F3842C" }}>Touch</span>
           </h1>
           <div className="divider" style={{ margin:"0 auto 20px" }} />
           <p style={{ fontFamily:"var(--f-body)", fontSize:"1rem", color:"rgba(255,255,255,0.58)", maxWidth:520, margin:"0 auto" }}>

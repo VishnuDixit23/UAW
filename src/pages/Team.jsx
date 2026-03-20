@@ -77,7 +77,7 @@ function FounderCard({ person }) {
         <img src={person.img} alt={person.name}
           style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block", minHeight: 420 }} />
         {/* Gradient overlay at bottom */}
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 80, background: "linear-gradient(to top, rgba(27,94,59,0.55), transparent)" }} />
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 80, background: "linear-gradient(to top, rgba(243,132,44,0.45), transparent)" }} />
         <div style={{ position: "absolute", bottom: 16, left: 20 }}>
           <span style={{ fontFamily: "var(--f-body)", fontSize: "0.68rem", fontWeight: 700, color: "white", background: "var(--c-amber)", padding: "4px 14px", borderRadius: 99, letterSpacing: "0.08em", textTransform: "uppercase" }}>
             {person.role}
@@ -93,14 +93,14 @@ function FounderCard({ person }) {
         <h2 style={{ fontFamily: "var(--f-display)", fontSize: "2.4rem", fontWeight: 700, color: "var(--c-bark)", lineHeight: 1.12, marginBottom: 6, letterSpacing: "-0.01em" }}>
           {person.name}
         </h2>
-        <div style={{ width: 48, height: 3, background: "linear-gradient(90deg, var(--c-forest), var(--c-amber))", borderRadius: 2, marginBottom: 22 }} />
+        <div style={{ width: 48, height: 3, background: "linear-gradient(90deg, #F3842C, #F59E4B)", borderRadius: 2, marginBottom: 22 }} />
 
         {/* Bio broken into readable chunks */}
         <p style={{ fontFamily: "var(--f-body)", fontSize: "1rem", color: "var(--c-bark-muted)", lineHeight: 1.8, marginBottom: 14 }}>
-          A compassionate leader with <strong style={{ color: "var(--c-forest)" }}>over a decade of hands-on experience</strong> in animal welfare. His journey began long before formal recognition — driven purely by empathy and a deep commitment to the voiceless.
+          A compassionate leader with <strong style={{ color: "#F3842C" }}>over a decade of hands-on experience</strong> in animal welfare. His journey began long before formal recognition — driven purely by empathy and a deep commitment to the voiceless.
         </p>
         <p style={{ fontFamily: "var(--f-body)", fontSize: "1rem", color: "var(--c-bark-muted)", lineHeight: 1.8, marginBottom: 14 }}>
-          Beyond animals, Shivajee actively supports underprivileged students, provides hygiene kits to girls, and empowers youth through sports — including over a year of support for the <strong style={{ color: "var(--c-forest)" }}>Jaipur City Football Club</strong>.
+          Beyond animals, Shivajee actively supports underprivileged students, provides hygiene kits to girls, and empowers youth through sports — including over a year of support for the <strong style={{ color: "#F3842C" }}>Jaipur City Football Club</strong>.
         </p>
         <p style={{ fontFamily: "var(--f-body)", fontSize: "1rem", color: "var(--c-bark-muted)", lineHeight: 1.8, marginBottom: 28 }}>
           Humble and down-to-earth, he leads with action and purpose — turning a lifelong vision into a structured mission for compassion.
@@ -109,7 +109,7 @@ function FounderCard({ person }) {
         {/* Highlights */}
         <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
           {["10+ Years of Service", "Animal Welfare", "Youth Sports", "Education & Hygiene"].map((tag, i) => (
-            <span key={i} style={{ fontFamily: "var(--f-body)", fontSize: "0.75rem", fontWeight: 600, color: "var(--c-forest)", background: "var(--c-pale)", padding: "5px 14px", borderRadius: 99, border: "1px solid rgba(77,170,124,0.25)" }}>
+            <span key={i} style={{ fontFamily: "var(--f-body)", fontSize: "0.75rem", fontWeight: 600, color: "#F3842C", background: "#FFF4EB", padding: "5px 14px", borderRadius: 99, border: "1px solid rgba(243,132,44,0.25)" }}>
               {tag}
             </span>
           ))}
@@ -134,7 +134,7 @@ function TeamCard({ person }) {
         {person.img
           ? <img src={person.img} alt={person.name} />
           : (
-            <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "linear-gradient(145deg, #1B5E3B, #3A8C66)" }}>
+            <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "linear-gradient(145deg, #F3842C, #F59E4B)" }}>
               <span style={{ fontSize: "4rem", marginBottom: 6 }}>{person.emoji}</span>
               <span style={{ fontFamily: "var(--f-body)", fontSize: "0.68rem", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.40)" }}>{person.role}</span>
             </div>
@@ -176,7 +176,7 @@ export default function Team() {
           </motion.p>
           <motion.h1 style={{ fontFamily: "var(--f-display)", fontSize: "clamp(2.4rem,6vw,4rem)", fontWeight: 700, color: "white", marginTop: 12, marginBottom: 6 }}
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.15 }}>
-            Our <span style={{ color: "#E8A84A" }}>Team</span>
+            Our <span style={{ color: "#F3842C" }}>Team</span>
           </motion.h1>
           <div className="divider" style={{ marginBottom: 18 }} />
           <motion.p style={{ fontFamily: "var(--f-body)", fontSize: "1.05rem", color: "rgba(255,255,255,0.55)", maxWidth: 520, margin: "0 auto" }}
@@ -221,7 +221,7 @@ export default function Team() {
       </section>
 
       {/* ── JOIN CTA ── */}
-      <section style={{ padding: "64px 0", textAlign: "center", background: "linear-gradient(150deg, #0F2E1C, #1B5E3B)" }}>
+      <section style={{ padding: "64px 0", textAlign: "center", background: "linear-gradient(150deg, #0B0B0B, #1A1A1A)" }}>
         <Heart style={{ width: 36, height: 36, color: "var(--c-amber)", fill: "var(--c-amber)", margin: "0 auto 16px" }} />
         <h2 style={{ fontFamily: "var(--f-display)", fontSize: "2rem", fontWeight: 700, color: "white", marginBottom: 14 }}>
           Want to Join the Team?
