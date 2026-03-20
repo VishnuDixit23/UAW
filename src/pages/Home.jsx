@@ -18,9 +18,9 @@ const HERO_IMAGES = [
 
 /* ── DATA ── */
 const PROGRAMMES = [
-  { title:"Cow Feeding",               desc:"We feed more than 7,000 street cows across Rajasthan with nutrition drives, ensuring no sacred animal goes hungry.",                         icon:"🐄", img:"/programmes/feeding.jpeg",     stat:"7,000+", statLabel:"Cows Fed" },
-  { title:"Dog Care & Radium Collars", desc:"Caring for 5,000+ stray dogs and fitting them with glow-in-the-dark radium collar belts to save them from road accidents at night.",               icon:"🐕", img:"/programmes/collar.jpeg",      stat:"5,000+", statLabel:"Dogs Protected" },
-  { title:"Girls' Hygiene",           desc:"Distributing sanitary hygiene pads to girls in slum areas — giving them dignity, health and confidence every month.",                               icon:"💜", img:"/programmes/hygiene.png",     stat:"1,200+", statLabel:"Girls Supported" },
+  { title:"Cow Feeding",               desc:"We have fed more than 7000 cow till date across Rajasthan with nutrition drives, ensuring no sacred animal goes hungry.",                         icon:"🐄", img:"/programmes/feeding.jpeg",     stat:"7,000+", statLabel:"Cows Fed" },
+  { title:"Dog Care & Radium Collars", desc:"Cared for 5,000+ stray dogs and fitting them with glow-in-the-dark radium collar belts to save them from road accidents at night.",               icon:"🐕", img:"/programmes/collar.jpeg",      stat:"5,000+", statLabel:"Dogs Protected" },
+  { title:"Girls' Hygiene",            desc:" 1200+ girls helped with sanitary hygiene pads in slum areas till now.",                               icon:"💜", img:"/programmes/hygiene.png",     stat:"1,200+", statLabel:"Girls Supported" },
   { title:"Education",                 desc:"Providing books, stationery and geometric boxes to underprivileged students so no child is denied the right to learn.",                             icon:"📚", img:"/programmes/education.jpeg",   stat:"500+",   statLabel:"Students Helped" },
   { title:"Environment & Plantation",  desc:"Plantation drives to combat climate change, deforestation and pollution — building greener, healthier communities across Rajasthan.",               icon:"🌳", img:"/programmes/environment.jpeg", stat:"Active",  statLabel:"Campaign" },
   { title:"Youth Kickstart Programme",  desc:"Running for 4–5 years, we support talented youth from financially challenged backgrounds — providing sports training, education, accommodation and nutrition. Proud sponsors of Jaipur City Football Club.", icon:"⚽", img:"/programmes/youth.jpeg", stat:"4–5 Yrs", statLabel:"Running Strong" },
@@ -288,7 +288,7 @@ export default function Home() {
                 United, We Stand<br /><span className="text-green-grad">For Every Life</span>
               </h2>
               <p style={{ fontFamily:"var(--f-body)", fontSize:"1.02rem", color:"var(--c-bark-muted)", lineHeight:1.8, letterSpacing:"0.005em", marginBottom:16 }}>
-                <strong style={{ color:"#F3842C" }}>United for Animal Welfare</strong> is a registered Public Trust (Rajasthan, 2026) founded by <strong>Shivajee Vishen</strong>. Every day, our teams feed 7,000+ street cows, care for 5,000+ dogs, and distribute hygiene kits to girls in slums.
+                <strong style={{ color:"#F3842C" }}>United for Animal Welfare</strong> is a registered Public Trust (Rajasthan, 2026) founded by <strong>Shivajee Vishen</strong>. Our team has fed 7,000+ street cows, cared for 5,000+ dogs, and distributed hygiene kits to girls in slums.
               </p>
               <p style={{ fontFamily:"var(--f-body)", fontSize:"1.02rem", color:"var(--c-bark-muted)", lineHeight:1.8, letterSpacing:"0.005em", marginBottom:28 }}>
                 We also fight for the survival of animal NGOs on the verge of collapse — because when they shut down, hundreds of animals lose their only source of care.
@@ -387,8 +387,8 @@ export default function Home() {
               <Link to="/registration">
                 <motion.span className="btn btn-amber btn-lg" style={{ display:"inline-flex" }} whileHover={{ scale:1.04 }} whileTap={{ scale:0.97 }}>Donate to Save an NGO</motion.span>
               </Link>
-              <Link to="/ngos">
-                <motion.span className="btn btn-ghost btn-lg" style={{ display:"inline-flex" }} whileHover={{ scale:1.03 }}>See Affected NGOs</motion.span>
+              <Link to="/ourwork">
+                <motion.span className="btn btn-ghost btn-lg" style={{ display:"inline-flex" }} whileHover={{ scale:1.03 }}>Learn More</motion.span>
               </Link>
             </div>
           </motion.div>

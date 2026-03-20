@@ -32,22 +32,22 @@ const initiatives = [
       "Medical check-ups for injured or sick street cows",
       "Community awareness about cow welfare",
     ],
-    image: "/hero/hero4.jpeg",
+    image: "/initiatives/cow-feeding-new.jpeg",
     stat: "7,000+", statLabel: "Cows Fed",
     accent: "#C8801A", accentLight: "#FFF8ED",
   },
   {
     id: "dog-safety",
     title: "Dog Safety & Radium Collars",
-    tagline: "Protecting 5,000+ Street Dogs",
-    description: "Street dogs face grave danger from speeding vehicles, especially at night. Our Radium Collar Belt initiative has equipped more than 5,000 stray dogs with reflective, glowing collars that make them visible to drivers after dark. This simple yet life-saving measure has significantly reduced nighttime road accidents involving animals.",
+    tagline: "Protecting Street Dogs",
+    description: "Street dogs face grave danger from speeding vehicles, especially at night. Our Radium Collar Belt initiative has provided stray dogs with reflective, glowing collars that make them visible to drivers after dark. This simple yet life-saving measure has significantly reduced nighttime road accidents involving animals.",
     highlights: [
       "Reflective radium collar belts for nighttime visibility",
       "Anti-rabies vaccination drives",
       "Sterilization (ABC) program partnerships",
       "Rescue and rehabilitation of injured dogs",
     ],
-    image: "/hero/hero1.jpeg",
+    image: "/initiatives/dog-safety-new.jpeg",
     stat: "5,000+", statLabel: "Dogs Protected",
     accent: "#1B5E3B", accentLight: "#EDFAF3",
   },
@@ -106,12 +106,7 @@ const upcoming = [
     icon: Utensils, accent: "#C8801A", accentLight: "#FFF8ED",
     target: "Feed 2,000+ people in the first month",
   },
-  {
-    title: "Environment Tree Plantation",
-    description: "Join our massive tree plantation drive! We aim to plant thousands of saplings across barren lands, roadsides and community spaces — every tree planted is a step toward cleaner air, cooler cities and a greener future.",
-    icon: Leaf, accent: "#1B5E3B", accentLight: "#EDFAF3",
-    target: "Plant 5,000+ trees across the city",
-  },
+
 ];
 
 const fade = (delay = 0, y = 24) => ({
@@ -448,7 +443,7 @@ export default function OurWork() {
                 <Heart style={{ width: 17, height: 17, fill: "#F3842C" }} /> Donate Now <ArrowRight style={{ width: 17, height: 17 }} />
               </motion.span>
             </Link>
-            <Link to="/ngos">
+            <Link to="/contact">
               <motion.span className="btn btn-ghost btn-lg" style={{ display: "inline-flex" }} whileHover={{ scale: 1.03 }}>
                 <Users style={{ width: 17, height: 17 }} /> Volunteer With Us
               </motion.span>

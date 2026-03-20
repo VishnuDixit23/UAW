@@ -5,11 +5,13 @@ import { motion } from "framer-motion";
 
 const LINKS = [
   { name:"Our Programmes",       path:"/ourwork" },
+<<<<<<< HEAD
   { name:"NGOs We Support",      path:"/ngos" },
   { name:"Gallery",              path:"/gallery" },
+=======
+>>>>>>> a3bc12b9c1b703dfedad8e88826a435c6f39f354
   { name:"About the Foundation", path:"/about" },
   { name:"Our Team",             path:"/team" },
-  { name:"Partners",             path:"/sponsers" },
   { name:"FAQs",                 path:"/faqs" },
   { name:"Contact Us",           path:"/contact" },
 ];
@@ -40,7 +42,7 @@ export default function Footer() {
               </div>
             </div>
             <p style={{ fontFamily:"var(--f-body)", fontSize:"0.875rem", color:"rgba(255,255,255,0.48)", lineHeight:1.75, marginBottom:8 }}>
-              Founded by <strong style={{ color:"rgba(255,255,255,0.75)" }}>Shivajee Vishen</strong>. Feeding 7,000+ cows, protecting 5,000+ dogs, empowering 1,200+ girls, educating 500+ students — every day.
+              Founded by <strong style={{ color:"rgba(255,255,255,0.75)" }}>Shivajee Vishen</strong>. Fed 7,000+ cows, protected 5,000+ dogs, empowered 1,200+ girls, educated 500+ students.
             </p>
             <p style={{ fontFamily:"var(--f-body)", fontSize:"0.8rem", color:"rgba(243,132,44,0.55)", fontStyle:"italic", marginBottom:22 }}>"Compassion For Every Life"</p>
             <div style={{ display:"flex", gap:10 }}>
@@ -75,7 +77,7 @@ export default function Footer() {
             <p style={{ fontFamily:"var(--f-body)", fontSize:"0.65rem", fontWeight:700, letterSpacing:"0.18em", textTransform:"uppercase", color:"#F3842C", marginBottom:20 }}>Get In Touch</p>
             <div style={{ display:"flex", flexDirection:"column", gap:14, marginBottom:22 }}>
               {[{ Icon:MapPin, text:"Rajasthan, India · Registered Public Trust, 2026" },
-                { Icon:Phone, text:"+91 88980 63143" },
+                { Icon:Phone, text:"+91 7976606854" },
                 { Icon:Mail,  text:"contact@unitedforanimalwelfare.org" }].map(({Icon,text},i) => (
                 <div key={i} style={{ display:"flex", alignItems:"flex-start", gap:12 }}>
                   <div style={{ width:32, height:32, borderRadius:8, background:"rgba(243,132,44,0.12)", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0 }}>

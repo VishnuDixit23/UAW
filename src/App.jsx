@@ -4,11 +4,9 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import ContactUs from "./pages/ContactUs";
 import OurWork from "./pages/Mun";
-import NGOs from "./pages/Zhs";
 import Registration from "./pages/Registration";
 import Gallery from "./pages/Gallery";
 import Team from "./pages/Team";
-import Sponsers from "./pages/Sponsers";
 import Faqs from "./pages/Faqs";
 
 function ScrollToTop() {
@@ -26,10 +24,8 @@ function App() {
         <Route path="/about"        element={<About />} />
         <Route path="/contact"      element={<ContactUs />} />
         <Route path="/ourwork"      element={<OurWork />} />
-        <Route path="/ngos"         element={<NGOs />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/team"         element={<Team />} />
-        <Route path="/sponsers"     element={<Sponsers />} />
         <Route path="/faqs"         element={<Faqs />} />
         <Route path="/gallery"      element={<Gallery />} />
       </Routes>
