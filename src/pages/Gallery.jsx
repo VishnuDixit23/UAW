@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight, Camera, ArrowLeft, Images, Grid3X3 } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Camera, ArrowLeft, Images } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -92,7 +92,7 @@ const staggerChild = {
 /* ═══════════════════════════════
    CATEGORY CARD
    ═══════════════════════════════ */
-function CategoryCard({ category, onClick, index }) {
+function CategoryCard({ category, onClick }) {
   const hasImages = category.images.length > 0;
 
   return (
@@ -454,12 +454,11 @@ export default function Gallery() {
                   whileInView="visible"
                   viewport={{ once: true }}
                 >
-                  {GALLERY_CATEGORIES.map((cat, i) => (
+                  {GALLERY_CATEGORIES.map((cat) => (
                     <CategoryCard
                       key={cat.id}
                       category={cat}
                       onClick={openCategory}
-                      index={i}
                     />
                   ))}
                 </motion.div>
