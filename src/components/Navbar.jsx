@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const NAV = [
   { to:"/",         label:"Home" },
   { to:"/about",    label:"About" },
+  { to:"/gallery",  label:"Gallery" },
   { to:"/team",     label:"Team" },
   { to:"/sponsers", label:"Partners" },
   { to:"/faqs",     label:"FAQs" },
