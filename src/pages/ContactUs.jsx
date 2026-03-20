@@ -8,9 +8,9 @@ import axios from "axios";
 
 const CONTACTS = [
   { Icon:MapPin,       title:"Location",          l1:"Rajasthan, India",                   l2:"Registered Public Trust, 2026" },
-  { Icon:Phone,        title:"Call / WhatsApp",   l1:"+91 88980 63143",                    l2:"Mon–Sat, 9 AM – 6 PM" },
+  { Icon:Phone,        title:"Call / WhatsApp",   l1:"+91 7976606854",                    l2:"Mon–Sat, 9 AM – 6 PM" },
   { Icon:Mail,         title:"Email",             l1:"contact@unitedforanimalwelfare.org", l2:"Reply within 24 hours" },
-  { Icon:AlertCircle,  title:"Animal Emergency",  l1:"Rescue Hotline (24/7):",             l2:"+91 88980 63143" },
+  { Icon:AlertCircle,  title:"Animal Emergency",  l1:"Rescue Hotline (24/7):",             l2:"+91 7976606854" },
 ];
 const KEY_PEOPLE = [
   { name:"Abhishek Soni",          role:"India Head",         note:"NGO partnerships & national ops" },

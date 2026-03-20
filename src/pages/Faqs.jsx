@@ -11,7 +11,7 @@ const FAQS = [
   { q:"Can I get a tax receipt?", a:"Yes! We are registered as a Public Trust in Rajasthan. You will receive a receipt by email within 5 working days. Please provide your PAN number for 80-G tax benefits." },
   { q:"Which NGOs do you support?", a:"We support animal welfare NGOs across Rajasthan and pan-India that are at risk of closing down. Abhishek Soni (India Head) personally assesses and oversees each partnership. View the list on our 'NGOs We Support' page." },
   { q:"How can I volunteer?", a:"Contact us via the form or reach Vishwajeet Singh Vishen (Senior Coordinator) directly. We have programmes for rescue operations, shelter care, awareness campaigns, and fundraising events." },
-  { q:"How do I report an animal emergency?", a:"Call our 24/7 rescue line at +91 88980 63143. Our field teams respond within 30 minutes in key areas. You can also WhatsApp us for a faster response." },
+  { q:"How do I report an animal emergency?", a:"Call our 24/7 rescue line at +91 7976606854. Our field teams respond within 30 minutes in key areas. You can also WhatsApp us for a faster response." },
   { q:"Can I sponsor a specific animal or NGO?", a:"Yes! We have animal and NGO sponsorship programmes with monthly impact updates and photos. Contact Hardik Visaria (Fundraising Head) for customised arrangements." },
   { q:"Do you accept in-kind donations?", a:"Yes — animal food, medicines, blankets, cages, stationery and more. Contact us to coordinate a drop-off or collection in Rajasthan." },
   { q:"Are monthly donations possible?", a:"Absolutely, and we strongly encourage it. Monthly donors provide the most stable support. You can set up recurring donations on our Donate page and cancel anytime." },

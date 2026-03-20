@@ -39,8 +39,8 @@ const initiatives = [
   {
     id: "dog-safety",
     title: "Dog Safety & Radium Collars",
-    tagline: "Protecting 5,000+ Street Dogs",
-    description: "Street dogs face grave danger from speeding vehicles, especially at night. Our Radium Collar Belt initiative has equipped more than 5,000 stray dogs with reflective, glowing collars that make them visible to drivers after dark. This simple yet life-saving measure has significantly reduced nighttime road accidents involving animals.",
+    tagline: "Protecting Street Dogs",
+    description: "Street dogs face grave danger from speeding vehicles, especially at night. Our Radium Collar Belt initiative has provided stray dogs with reflective, glowing collars that make them visible to drivers after dark. This simple yet life-saving measure has significantly reduced nighttime road accidents involving animals.",
     highlights: [
       "Reflective radium collar belts for nighttime visibility",
       "Anti-rabies vaccination drives",
