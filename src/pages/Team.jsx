@@ -1,8 +1,8 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
-import { Heart, ArrowRight } from "lucide-react";
+import { Heart, ArrowRight, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const TEAM = [
@@ -11,49 +11,56 @@ const TEAM = [
     role: "Founder",
     emoji: "🌱",
     img: "/team/shivajee-vishen.jpeg",
+    imgPosition: "center 15%",
     bio: "A compassionate leader with over a decade of hands-on experience in animal welfare. His vision spans animal rescue, education for underprivileged students, hygiene support for girls, and youth sports development — including over a year of support for the Jaipur City Football Club. Humble, action-oriented, and driven by purpose.",
   },
   {
     name: "Jitendra Gurjar",
     role: "Vice President",
     emoji: "🤝",
-    img: null,
-    bio: "A dedicated ground-level champion for animals — actively feeding cows, dogs, and other animals every day. Known for his hands-on approach and unwavering reliability, Jitendra steps in wherever help is needed and stands as a strong pillar of the organisation.",
+    img: "/team/jitendra-gurjar.jpeg",
+    imgPosition: "center 22%",
+    bio: "Jitendra Gurjar serves as the Vice President of United for Animal Welfare and is a dedicated animal supporter known for his consistent ground-level efforts. With a deep sense of compassion, he has been actively involved in feeding and caring for cows, dogs, and many other animals, ensuring their well-being and safety. He is recognized for his hands-on approach and unwavering commitment to animal welfare, often stepping in wherever help is needed. His dedication, reliability, and positive attitude make him an integral part of the organization.",
   },
   {
     name: "Pooja Singh",
     role: "Secretary",
     emoji: "📋",
     img: null,
+    imgPosition: "center center",
     bio: "Manages governance, documentation and stakeholder relationships. The backbone of the trust's administrative operations and legal compliance.",
-  },
-  {
-    name: "Amit Agrawal",
-    role: "Treasurer",
-    emoji: "💼",
-    img: null,
-    bio: "Manages all financial operations, donor accountability and transparent allocation of funds to rescue, feeding and NGO support programmes.",
   },
   {
     name: "Abhishek Soni",
     role: "India Head",
     emoji: "🇮🇳",
-    img: "/team/abhishek-soni.jpeg",
-    bio: "8+ years in retail fundraising. Conducted campaigns across 10+ cities — street, mall, society, school and airport fundraising — engaging diverse communities and inspiring people to contribute to social impact.",
+    img: "/team/abhishek-soni-new.jpeg",
+    imgPosition: "center 18%",
+    bio: "With over 8 years of experience in retail fundraising, Abhishek specializes in Face-to-Face fundraising and tele-calling, building strong connections with supporters for meaningful causes. He has successfully conducted fundraising campaigns across more than 10 cities, working through street fundraising, mall fundraising, society outreach, school campaigns, and airport fundraising, engaging diverse communities and inspiring people to contribute to social impact. He also brings 2 years of experience in sales, driven by a strong vision to create positive change and support society.",
   },
   {
     name: "Hardik Visaria",
     role: "Fundraising Head",
     emoji: "❤️",
     img: "/team/hardik-visaria.jpeg",
-    bio: "5+ years in Face-to-Face fundraising across 7+ cities. Worked with multiple NGOs through street campaigns, corporate offices, malls and airports — building deep donor relationships for social causes.",
+    imgPosition: "center 15%",
+    bio: "With more than 5 years of experience in retail fundraising, Hardik specializes in Face-to-Face fundraising and tele-calling, building strong relationships with donors and supporters for social causes. He has worked with multiple NGOs and successfully conducted fundraising campaigns across more than seven cities in India — through street campaigns, door-to-door outreach, corporate offices, shopping malls, and airport fundraising. He also brings over one year of experience in customer service and more than six months in sales, reflecting a strong commitment to social impact and community engagement.",
   },
   {
     name: "Vishwajeet Singh Vishen",
-    role: "Senior Coordinator",
-    emoji: "⭐",
-    img: null,
-    bio: "Coordinates day-to-day rescue operations, cow feeding drives, volunteer programmes and field activities across all regions. The operational engine behind our daily work.",
+    role: "Mentor & Player",
+    emoji: "⚽",
+    img: "/team/vishwajeet-vishen.jpeg",
+    imgPosition: "center 25%",
+    bio: "Vishwajeet Singh Vishen is a passionate footballer with over 7–8 years of playing experience, having represented multiple football clubs. He is currently mentoring players at Jaipur City Football Club, where he is dedicated to guiding and supporting young talent, helping them pursue their dreams and build a future in football.",
+  },
+  {
+    name: "Devdeep",
+    role: "Social Media Lead",
+    emoji: "📱",
+    img: "/team/devdeep.jpeg",
+    imgPosition: "center 20%",
+    bio: "Devdeep plays a key role in managing and strengthening our social media presence. He actively supports all digital activities, including content creation, campaign promotion, and audience engagement. His efforts help us effectively communicate our mission and connect with a wider community online.",
   },
 ];
 
@@ -76,7 +83,6 @@ function FounderCard({ person }) {
       <div style={{ position: "relative", overflow: "hidden", background: "var(--c-pale)" }}>
         <img src={person.img} alt={person.name}
           style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block", minHeight: 420 }} />
-        {/* Gradient overlay at bottom */}
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 80, background: "linear-gradient(to top, rgba(243,132,44,0.45), transparent)" }} />
         <div style={{ position: "absolute", bottom: 16, left: 20 }}>
           <span style={{ fontFamily: "var(--f-body)", fontSize: "0.68rem", fontWeight: 700, color: "white", background: "var(--c-amber)", padding: "4px 14px", borderRadius: 99, letterSpacing: "0.08em", textTransform: "uppercase" }}>
@@ -95,7 +101,6 @@ function FounderCard({ person }) {
         </h2>
         <div style={{ width: 48, height: 3, background: "linear-gradient(90deg, #F3842C, #F59E4B)", borderRadius: 2, marginBottom: 22 }} />
 
-        {/* Bio broken into readable chunks */}
         <p style={{ fontFamily: "var(--f-body)", fontSize: "1rem", color: "var(--c-bark-muted)", lineHeight: 1.8, marginBottom: 14 }}>
           A compassionate leader with <strong style={{ color: "#F3842C" }}>over a decade of hands-on experience</strong> in animal welfare. His journey began long before formal recognition — driven purely by empathy and a deep commitment to the voiceless.
         </p>
@@ -106,7 +111,6 @@ function FounderCard({ person }) {
           Humble and down-to-earth, he leads with action and purpose — turning a lifelong vision into a structured mission for compassion.
         </p>
 
-        {/* Highlights */}
         <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
           {["10+ Years of Service", "Animal Welfare", "Youth Sports", "Education & Hygiene"].map((tag, i) => (
             <span key={i} style={{ fontFamily: "var(--f-body)", fontSize: "0.75rem", fontWeight: 600, color: "#F3842C", background: "#FFF4EB", padding: "5px 14px", borderRadius: 99, border: "1px solid rgba(243,132,44,0.25)" }}>
@@ -126,37 +130,268 @@ function FounderCard({ person }) {
   );
 }
 
-/* ── Regular Team Card ── */
-function TeamCard({ person }) {
+/* ── Premium Team Card with Hover Reveal ── */
+function TeamCard({ person, onClick }) {
+  const [hovered, setHovered] = useState(false);
+
   return (
-    <div className="team-card">
-      <div className="team-card__photo">
-        {person.img
-          ? <img src={person.img} alt={person.name} />
-          : (
-            <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "linear-gradient(145deg, #F3842C, #F59E4B)" }}>
-              <span style={{ fontSize: "4rem", marginBottom: 6 }}>{person.emoji}</span>
-              <span style={{ fontFamily: "var(--f-body)", fontSize: "0.68rem", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.40)" }}>{person.role}</span>
-            </div>
-          )
-        }
-        <div className="team-card__photo-overlay">
-          <span style={{ display: "inline-block", background: "var(--c-amber)", color: "white", fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", padding: "4px 12px", borderRadius: 99 }}>
+    <motion.div
+      className="premium-team-card"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onClick={() => onClick(person)}
+      style={{
+        position: "relative",
+        borderRadius: 24,
+        overflow: "hidden",
+        cursor: "pointer",
+        background: "white",
+        boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
+        border: "1px solid rgba(0,0,0,0.06)",
+        transition: "all 0.4s cubic-bezier(0.22, 1, 0.36, 1)",
+        transform: hovered ? "translateY(-8px)" : "translateY(0)",
+        boxShadow: hovered ? "0 20px 60px rgba(0,0,0,0.15)" : "0 4px 24px rgba(0,0,0,0.08)",
+      }}
+    >
+      {/* Image Section */}
+      <div style={{ position: "relative", height: 340, overflow: "hidden" }}>
+        {person.img ? (
+          <img
+            src={person.img}
+            alt={person.name}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: person.imgPosition || "center 20%",
+              display: "block",
+              transition: "transform 0.7s cubic-bezier(0.22, 1, 0.36, 1)",
+              transform: hovered ? "scale(1.08)" : "scale(1)",
+            }}
+          />
+        ) : (
+          <div style={{
+            width: "100%", height: "100%",
+            display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+            background: "linear-gradient(145deg, #F3842C, #F59E4B)",
+          }}>
+            <span style={{ fontSize: "5rem", marginBottom: 8 }}>{person.emoji}</span>
+            <span style={{
+              fontFamily: "var(--f-body)", fontSize: "0.72rem", fontWeight: 600,
+              letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.50)",
+            }}>{person.role}</span>
+          </div>
+        )}
+
+        {/* Gradient overlay — always present */}
+        <div style={{
+          position: "absolute", inset: 0,
+          background: hovered
+            ? "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.20) 100%)"
+            : "linear-gradient(to top, rgba(0,0,0,0.50) 0%, transparent 55%)",
+          transition: "all 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+        }} />
+
+        {/* Role Badge */}
+        <div style={{
+          position: "absolute", top: 16, left: 16, zIndex: 5,
+        }}>
+          <span style={{
+            display: "inline-block",
+            background: "var(--c-amber)",
+            color: "white",
+            fontSize: "0.65rem",
+            fontWeight: 700,
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            padding: "5px 14px",
+            borderRadius: 99,
+            boxShadow: "0 4px 12px rgba(243,132,44,0.35)",
+          }}>
             {person.role}
           </span>
         </div>
+
+        {/* Name + Short info at bottom */}
+        <div style={{
+          position: "absolute", bottom: 0, left: 0, right: 0,
+          padding: "20px 22px",
+          zIndex: 5,
+        }}>
+          <h3 style={{
+            fontFamily: "var(--f-display)",
+            fontSize: "1.35rem",
+            fontWeight: 700,
+            color: "white",
+            lineHeight: 1.2,
+            marginBottom: 4,
+            textShadow: "0 2px 8px rgba(0,0,0,0.3)",
+          }}>
+            {person.name}
+          </h3>
+
+          {/* Bio text — appears on hover */}
+          <div style={{
+            overflow: "hidden",
+            maxHeight: hovered ? 200 : 0,
+            opacity: hovered ? 1 : 0,
+            transition: "all 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+            marginTop: hovered ? 8 : 0,
+          }}>
+            <p style={{
+              fontFamily: "var(--f-body)",
+              fontSize: "0.82rem",
+              color: "rgba(255,255,255,0.82)",
+              lineHeight: 1.6,
+              display: "-webkit-box",
+              WebkitLineClamp: 4,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+            }}>
+              {person.bio}
+            </p>
+            <p style={{
+              fontFamily: "var(--f-body)",
+              fontSize: "0.72rem",
+              fontWeight: 600,
+              color: "#F3842C",
+              marginTop: 8,
+              letterSpacing: "0.03em",
+            }}>
+              Click to read more →
+            </p>
+          </div>
+        </div>
       </div>
-      <div className="team-card__body">
-        <h3 className="team-card__name">{person.name}</h3>
-        <p className="team-card__bio">{person.bio}</p>
-      </div>
-    </div>
+    </motion.div>
+  );
+}
+
+/* ── Full Bio Modal — Side-by-Side Layout ── */
+function BioModal({ person, onClose }) {
+  if (!person) return null;
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={onClose}
+        style={{
+          position: "fixed", inset: 0, zIndex: 100,
+          background: "rgba(0,0,0,0.60)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          padding: 24,
+        }}
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.92, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.92, y: 20 }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          onClick={(e) => e.stopPropagation()}
+          className="bio-modal-content"
+          style={{
+            background: "white",
+            borderRadius: 28,
+            overflow: "hidden",
+            maxWidth: 820,
+            width: "100%",
+            maxHeight: "85vh",
+            overflowY: "auto",
+            boxShadow: "0 32px 80px rgba(0,0,0,0.3)",
+            display: "grid",
+            gridTemplateColumns: person.img ? "320px 1fr" : "1fr",
+          }}
+        >
+          {/* Left: Photo */}
+          {person.img ? (
+            <div style={{ position: "relative", overflow: "hidden", background: "#f3f0eb", minHeight: 400 }}>
+              <img src={person.img} alt={person.name} style={{
+                width: "100%", height: "100%", objectFit: "cover",
+                objectPosition: person.imgPosition || "center 20%",
+                display: "block",
+              }} />
+              {/* Subtle gradient at bottom */}
+              <div style={{
+                position: "absolute", bottom: 0, left: 0, right: 0, height: 100,
+                background: "linear-gradient(to top, rgba(0,0,0,0.35), transparent)",
+              }} />
+            </div>
+          ) : (
+            <div style={{
+              display: "none",
+            }} />
+          )}
+
+          {/* Right: Info */}
+          <div style={{ padding: "36px 36px 40px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+            {/* Close button */}
+            <button onClick={onClose} style={{
+              position: "absolute", top: 16, right: 16, zIndex: 10,
+              width: 40, height: 40, borderRadius: 12,
+              background: "rgba(0,0,0,0.06)",
+              border: "1px solid rgba(0,0,0,0.08)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              cursor: "pointer", transition: "all 0.2s",
+            }}>
+              <X style={{ width: 18, height: 18, color: "#666" }} />
+            </button>
+
+            {/* Role badge */}
+            <span style={{
+              display: "inline-block", width: "fit-content",
+              background: "var(--c-amber)", color: "white",
+              fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.08em",
+              textTransform: "uppercase", padding: "5px 14px", borderRadius: 99,
+              marginBottom: 14, boxShadow: "0 4px 12px rgba(243,132,44,0.25)",
+            }}>
+              {person.role}
+            </span>
+
+            <h2 style={{
+              fontFamily: "var(--f-display)", fontSize: "1.8rem", fontWeight: 700,
+              color: "var(--c-bark)", lineHeight: 1.15, marginBottom: 8,
+            }}>
+              {person.name}
+            </h2>
+            <div style={{ width: 48, height: 3, background: "linear-gradient(90deg, #F3842C, #F59E4B)", borderRadius: 2, marginBottom: 20 }} />
+
+            <p style={{
+              fontFamily: "var(--f-body)", fontSize: "0.92rem",
+              color: "var(--c-bark-muted)", lineHeight: 1.85,
+              whiteSpace: "pre-line",
+            }}>
+              {person.bio}
+            </p>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* Responsive: stack on small screens */}
+      <style>{`
+        @media (max-width: 700px) {
+          .bio-modal-content {
+            grid-template-columns: 1fr !important;
+            max-height: 90vh !important;
+          }
+          .bio-modal-content > div:first-child {
+            min-height: 280px !important;
+            max-height: 300px;
+          }
+        }
+      `}</style>
+    </AnimatePresence>
   );
 }
 
 export default function Team() {
   const founder = TEAM[0];
   const rest    = TEAM.slice(1);
+  const [selectedPerson, setSelectedPerson] = useState(null);
 
   return (
     <div style={{ background: "var(--c-cream)", minHeight: "100vh" }}>
@@ -207,13 +442,16 @@ export default function Team() {
             <h2 style={{ fontFamily: "var(--f-display)", fontSize: "clamp(1.8rem,4vw,2.6rem)", fontWeight: 700, color: "var(--c-bark)" }}>
               Leadership & <span className="text-amber-grad">Operations</span>
             </h2>
+            <p style={{ fontFamily: "var(--f-body)", fontSize: "0.92rem", color: "var(--c-bark-muted)", maxWidth: 460, margin: "12px auto 0", lineHeight: 1.6 }}>
+              Hover over a card to preview or click to read the full story.
+            </p>
           </div>
           <motion.div
-            style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px,1fr))", gap: 24 }}
+            style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px,1fr))", gap: 28 }}
             variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             {rest.map((p, i) => (
               <motion.div key={i} variants={item}>
-                <TeamCard person={p} />
+                <TeamCard person={p} onClick={setSelectedPerson} />
               </motion.div>
             ))}
           </motion.div>
@@ -237,6 +475,11 @@ export default function Team() {
       </section>
 
       <Footer />
+
+      {/* ── BIO MODAL ── */}
+      {selectedPerson && (
+        <BioModal person={selectedPerson} onClose={() => setSelectedPerson(null)} />
+      )}
     </div>
   );
 }

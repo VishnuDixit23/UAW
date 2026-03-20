@@ -7,13 +7,11 @@ const NAV = [
   { to:"/",         label:"Home" },
   { to:"/about",    label:"About" },
   { to:"/team",     label:"Team" },
-  { to:"/sponsers", label:"Partners" },
   { to:"/faqs",     label:"FAQs" },
   { to:"/contact",  label:"Contact" },
 ];
 const WORK = [
   { to:"/ourwork", label:"🐾  Rescue & Rehabilitation" },
-  { to:"/ngos",    label:"🏥  NGOs We Support" },
 ];
 
 export default function Navbar() {

@@ -387,8 +387,8 @@ export default function Home() {
               <Link to="/registration">
                 <motion.span className="btn btn-amber btn-lg" style={{ display:"inline-flex" }} whileHover={{ scale:1.04 }} whileTap={{ scale:0.97 }}>Donate to Save an NGO</motion.span>
               </Link>
-              <Link to="/ngos">
-                <motion.span className="btn btn-ghost btn-lg" style={{ display:"inline-flex" }} whileHover={{ scale:1.03 }}>See Affected NGOs</motion.span>
+              <Link to="/ourwork">
+                <motion.span className="btn btn-ghost btn-lg" style={{ display:"inline-flex" }} whileHover={{ scale:1.03 }}>Learn More</motion.span>
               </Link>
             </div>
           </motion.div>

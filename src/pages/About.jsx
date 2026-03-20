@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Heart, ArrowRight, CheckCircle, Target, Eye, Users, Leaf } from "lucide-react";
+import { Heart, ArrowRight, CheckCircle, Target, Eye } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
@@ -8,15 +8,7 @@ import { Link } from "react-router-dom";
 const SECTORS_PRIMARY = ["Children & Education & Literacy","Health & Family Welfare","Women's Development & Empowerment","Animal Welfare 🐾"];
 const SECTORS_SECONDARY = ["Agriculture & Animal Husbandry","Art & Culture","Biotechnology","Civic Issues","Dalit Upliftment","Differently Abled","Disaster Management","Drinking Water","Aged / Elderly","Environment & Forests","Food Processing","HIV/AIDS","Housing","Human Rights","ICT","Labour & Employment","Land Resources","Legal Awareness & Aid","Micro Finance","MSMEs","Minority Issues","New & Renewable Energy","Nutrition","Panchayati Raj","Prisoner's Issues","Right to Information"];
 
-const LEADERSHIP = [
-  { name:"Shivajee Vishen",         role:"Founder",           emoji:"🌱", img:"/team/shivajee-vishen.jpeg", desc:"10+ years of hands-on animal welfare work. His vision spans rescue, education, girls' hygiene, and youth sports development including support for Jaipur City Football Club." },
-  { name:"Jitendra Gurjar",         role:"Vice President",     emoji:"🤝", img:null, desc:"A dedicated ground-level champion — actively feeding cows, dogs and other animals daily. Known for hands-on reliability and stepping in wherever help is needed." },
-  { name:"Pooja Singh",             role:"Secretary",          emoji:"📋", img:null, desc:"Manages governance, documentation and all stakeholder relationships for the trust." },
-  { name:"Amit Agrawal",            role:"Treasurer",          emoji:"💼", img:null, desc:"Manages financial operations, donor accountability and transparent fund allocation." },
-  { name:"Abhishek Soni",           role:"India Head",         emoji:"🇮🇳", img:"/team/abhishek-soni.jpeg", desc:"Heads pan-India operations with 8+ years in fundraising across 10+ cities." },
-  { name:"Hardik Visaria",          role:"Fundraising Head",   emoji:"❤️", img:"/team/hardik-visaria.jpeg", desc:"5+ years in face-to-face fundraising across 7+ cities and multiple NGO campaigns." },
-  { name:"Vishwajeet Singh Vishen", role:"Senior Coordinator", emoji:"⭐", img:null, desc:"Coordinates daily rescue ops, cow feeding drives and all field activities." },
-];
+
 
 const MILESTONES = [
   { year:"2026", title:"Foundation Registered", desc:"Registered as a Public Trust in Rajasthan under Founder Shivajee Vishen." },
@@ -96,43 +88,7 @@ export default function About() {
         <style>{`@media(max-width:700px){.mv-grid{grid-template-columns:1fr!important}}`}</style>
       </section>
 
-      {/* ── LEADERSHIP ── */}
-      <section style={{ padding:"80px 0", background:"var(--c-cream)" }}>
-        <div className="section-container">
-          <div style={{ textAlign:"center", marginBottom:52 }}>
-            <p className="section-label" style={{ justifyContent:"center", marginBottom:12 }}>The People Behind the Mission</p>
-            <h2 style={{ fontFamily:"var(--f-display)", fontSize:"clamp(2rem,4vw,2.8rem)", fontWeight:700, color:"var(--c-bark)" }}>
-              Our <span className="text-green-grad">Leadership</span>
-            </h2>
-          </div>
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(300px,1fr))", gap:20 }}>
-            {LEADERSHIP.map((p,i) => (
-              <motion.div key={i} {...fade(i*0.07)}
-                style={{ background:"white", borderRadius:"var(--r-lg)", padding:"24px", border:"1px solid var(--c-sand-light)", boxShadow:"var(--sh-xs)", display:"flex", gap:16, alignItems:"flex-start", transition:"all 0.3s", cursor:"default" }}
-                whileHover={{ y:-4, boxShadow:"var(--sh-md)" }}>
-                <div style={{ width:52, height:52, borderRadius:14, overflow:"hidden", flexShrink:0, background:"linear-gradient(135deg, #F3842C, #F59E4B)", display:"flex", alignItems:"center", justifyContent:"center" }}>
-                  {p.img
-                    ? <img src={p.img} alt={p.name} style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"center top" }} />
-                    : <span style={{ fontSize:"1.6rem" }}>{p.emoji}</span>
-                  }
-                </div>
-                <div>
-                  <p style={{ fontFamily:"var(--f-display)", fontSize:"1rem", fontWeight:700, color:"var(--c-bark)", marginBottom:4 }}>{p.name}</p>
-                  <span style={{ display:"inline-block", fontFamily:"var(--f-body)", fontSize:"0.68rem", fontWeight:700, letterSpacing:"0.08em", textTransform:"uppercase", color:"var(--c-amber)", background:"var(--c-amber-pale)", padding:"3px 10px", borderRadius:99, marginBottom:8 }}>{p.role}</span>
-                  <p style={{ fontFamily:"var(--f-body)", fontSize:"0.835rem", color:"var(--c-bark-muted)", lineHeight:1.65 }}>{p.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-          <div style={{ textAlign:"center", marginTop:36 }}>
-            <Link to="/team">
-              <motion.span className="btn btn-primary" style={{ display:"inline-flex" }} whileHover={{ scale:1.03 }} whileTap={{ scale:0.97 }}>
-                Meet the Full Team <ArrowRight style={{ width:16, height:16 }} />
-              </motion.span>
-            </Link>
-          </div>
-        </div>
-      </section>
+
 
       {/* ── WORKING SECTORS ── */}
       <section style={{ padding:"72px 0", background:"white" }}>
