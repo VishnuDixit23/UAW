@@ -1,0 +1,5 @@
+This directory should contain cow feeding photos.
+Please copy the following files here:
+- cow1.jpg
+- cow2.jpg  
+- cow3.jpg

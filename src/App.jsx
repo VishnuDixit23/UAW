@@ -5,6 +5,7 @@ import About from "./pages/About";
 import ContactUs from "./pages/ContactUs";
 import OurWork from "./pages/Mun";
 import Registration from "./pages/Registration";
+import Gallery from "./pages/Gallery";
 import Team from "./pages/Team";
 import Faqs from "./pages/Faqs";
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/registration" element={<Registration />} />
         <Route path="/team"         element={<Team />} />
         <Route path="/faqs"         element={<Faqs />} />
+        <Route path="/gallery"      element={<Gallery />} />
       </Routes>
     </BrowserRouter>
   );

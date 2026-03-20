@@ -5,6 +5,11 @@ import { motion } from "framer-motion";
 
 const LINKS = [
   { name:"Our Programmes",       path:"/ourwork" },
+<<<<<<< HEAD
+  { name:"NGOs We Support",      path:"/ngos" },
+  { name:"Gallery",              path:"/gallery" },
+=======
+>>>>>>> a3bc12b9c1b703dfedad8e88826a435c6f39f354
   { name:"About the Foundation", path:"/about" },
   { name:"Our Team",             path:"/team" },
   { name:"FAQs",                 path:"/faqs" },
