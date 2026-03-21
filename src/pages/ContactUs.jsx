@@ -110,7 +110,7 @@ export default function ContactUs() {
           </motion.div>
           <motion.div {...fade(0.15)} style={{ borderRadius:"var(--r-xl)",overflow:"hidden",border:"1px solid var(--c-sand-light)",boxShadow:"var(--sh-xs)",minHeight:400 }}>
             <iframe className="w-full h-full" style={{ minHeight:400,border:"none" }}
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.5!2d75.79!3d26.82!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db5ddf3e3b9a3%3A0x5c8b2d74c2a1c!2sSanganer%2C%20Jaipur%2C%20Rajasthan%20302029!5e0!3m2!1sen!2sin!4v1"
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3509.643777109597!2d75.81602047543625!3d26.81950757670283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDQ5JzEwLjIiTiA3NcKwNDknMDYuOSJF!5e1!3m2!1sen!2sin!4v1774089654323!5m2!1sen!2sin"
               allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
           </motion.div>
         </div>
