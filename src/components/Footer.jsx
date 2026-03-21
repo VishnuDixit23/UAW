@@ -35,7 +35,7 @@ export default function Footer() {
               <div>
                 <p style={{ fontFamily:"var(--f-body)", fontSize:"0.62rem", fontWeight:700, letterSpacing:"0.2em", color:"#F3842C", textTransform:"uppercase", marginBottom:3 }}>United for</p>
                 <p style={{ fontFamily:"var(--f-display)", fontSize:"1.1rem", fontWeight:700, color:"white", lineHeight:1 }}>Animal Welfare</p>
-                <p style={{ fontSize:"0.58rem", color:"rgba(255,255,255,0.30)", letterSpacing:"0.15em", textTransform:"uppercase", marginTop:3 }}>Rajasthan · India · 2026</p>
+                <p style={{ fontSize:"0.58rem", color:"rgba(255,255,255,0.30)", letterSpacing:"0.15em", textTransform:"uppercase", marginTop:3 }}>Jaipur · Rajasthan · India</p>
               </div>
             </div>
             <p style={{ fontFamily:"var(--f-body)", fontSize:"0.875rem", color:"rgba(255,255,255,0.48)", lineHeight:1.75, marginBottom:8 }}>
@@ -73,7 +73,7 @@ export default function Footer() {
           <div>
             <p style={{ fontFamily:"var(--f-body)", fontSize:"0.65rem", fontWeight:700, letterSpacing:"0.18em", textTransform:"uppercase", color:"#F3842C", marginBottom:20 }}>Get In Touch</p>
             <div style={{ display:"flex", flexDirection:"column", gap:14, marginBottom:22 }}>
-              {[{ Icon:MapPin, text:"Rajasthan, India · Registered Public Trust, 2026" },
+              {[{ Icon:MapPin, text:"Basement Floor, Plot No 20, Chaudhary Nagar 2nd, Budhsinghpura, Sanganer, Jaipur, Rajasthan - 302029" },
                 { Icon:Phone, text:"+91 7976606854" },
                 { Icon:Mail,  text:"contact@unitedforanimalwelfare.org" }].map(({Icon,text},i) => (
                 <div key={i} style={{ display:"flex", alignItems:"flex-start", gap:12 }}>
@@ -105,7 +105,7 @@ export default function Footer() {
         {/* Bottom */}
         <div style={{ padding:"20px 0", display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap:"wrap", gap:12 }}>
           <p style={{ fontFamily:"var(--f-body)", fontSize:"0.78rem", color:"rgba(255,255,255,0.22)" }}>
-            © {new Date().getFullYear()} United for Animal Welfare · Founded by Shivajee Vishen · Rajasthan, India
+            © {new Date().getFullYear()} United for Animal Welfare · Founded by Shivajee Vishen · Jaipur, Rajasthan
           </p>
           <p style={{ fontFamily:"var(--f-body)", fontSize:"0.78rem", color:"rgba(243,132,44,0.40)", fontStyle:"italic" }}>
             "Compassion For Every Life" 🐾

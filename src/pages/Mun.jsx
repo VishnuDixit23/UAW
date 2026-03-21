@@ -25,7 +25,7 @@ const initiatives = [
     id: "cow-feeding",
     title: "Cow Feeding Program",
     tagline: "Nourishing 7,000+ Street Cows",
-    description: "Our largest ongoing initiative feeds more than 7,000 street cows across the city every day. Our dedicated volunteers prepare and distribute nutritious fodder to these gentle animals who often go hungry on busy roads. Caring for these sacred beings is not just an act of kindness — it's a responsibility we all share.",
+    description: "Our largest ongoing initiative we have fed more than 7,000 street cows across the city . Our dedicated volunteers prepare and distribute nutritious fodder to these gentle animals who often go hungry on busy roads. Caring for these sacred beings is not just an act of kindness — it's a responsibility we all share.",
     highlights: [
       "Daily feeding drives across multiple city zones",
       "Nutritious fodder mix prepared with veterinary guidance",

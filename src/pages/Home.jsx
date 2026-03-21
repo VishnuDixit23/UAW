@@ -297,7 +297,7 @@ export default function Home() {
               <div className="trust-card" style={{ marginBottom:28 }}>
                 <p style={{ fontFamily:"var(--f-body)", fontSize:"0.65rem", fontWeight:700, letterSpacing:"0.18em", textTransform:"uppercase", color:"#F3842C", marginBottom:14 }}>Trust Details</p>
                 <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"10px 20px" }}>
-                  {[["Name","United for Animal Welfare"],["Type","Public Trust / NPO"],["Registered","Rajasthan, 2026"],["Founder","Shivajee Vishen"]].map(([k,v]) => (
+                  {[["Name","United for Animal Welfare"],["Type","Public Trust / NPO"],["Registered","Jaipur, Rajasthan, 2026"],["Founder","Shivajee Vishen"]].map(([k,v]) => (
                     <div key={k}>
                       <p style={{ fontSize:"0.72rem", color:"var(--c-bark-muted)", marginBottom:2 }}>{k}</p>
                       <p style={{ fontSize:"0.85rem", fontWeight:600, color:"var(--c-bark)" }}>{v}</p>

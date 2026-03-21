@@ -54,7 +54,7 @@ export default function About() {
       <div style={{ background:"white", paddingBottom:0 }}>
         <div className="section-container" style={{ paddingTop:0 }}>
           <motion.div {...fade(0)} style={{ background:"white", border:"1px solid var(--c-sand-light)", borderRadius:"var(--r-xl)", boxShadow:"var(--sh-md)", padding:"28px 36px", display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:24, textAlign:"center", marginTop:-32, position:"relative", zIndex:10 }}>
-            {[["Entity Type","Public Trust / NPO"],["Registered In","Rajasthan, India"],["Registration Year","2026"],["Status","Active ✓"]].map(([k,v]) => (
+            {[["Entity Type","Public Trust / NPO"],["Registered In","Jaipur, Rajasthan"],["Registration Year","2026"],["Status","Active ✓"]].map(([k,v]) => (
               <div key={k}>
                 <p style={{ fontFamily:"var(--f-body)", fontSize:"0.62rem", fontWeight:700, letterSpacing:"0.18em", textTransform:"uppercase", color:"var(--c-amber)", marginBottom:8 }}>{k}</p>
                 <p style={{ fontFamily:"var(--f-display)", fontSize:"1.05rem", fontWeight:700, color:"var(--c-bark)" }}>{v}</p>
