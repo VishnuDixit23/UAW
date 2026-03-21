@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 
 const LINKS = [
   { name:"Our Programmes",       path:"/ourwork" },
+  // { name:"NGOs We Support",      path:"/ngos" },
+  { name:"Gallery",              path:"/gallery" },
   { name:"About the Foundation", path:"/about" },
   { name:"Our Team",             path:"/team" },
   { name:"FAQs",                 path:"/faqs" },
