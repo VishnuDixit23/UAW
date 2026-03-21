@@ -1,0 +1,5 @@
+# https://www.unitedforanimalwelfare.com/robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://www.unitedforanimalwelfare.com/sitemap.xml
