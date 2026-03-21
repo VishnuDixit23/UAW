@@ -26,8 +26,8 @@ const TEAM = [
     name: "Pooja Singh",
     role: "Secretary",
     emoji: "📋",
-    img: null,
-    imgPosition: "center center",
+    img: "/team/pooja-singh.png",
+    imgPosition: "center 12%",
     bio: "Manages governance, documentation and stakeholder relationships. The backbone of the trust's administrative operations and legal compliance.",
   },
   {
