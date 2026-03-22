@@ -45,33 +45,35 @@ export default function ContactUs() {
 
       <div className="section-container" style={{ paddingTop:60, paddingBottom:80 }}>
         {/* Info Cards */}
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(220px,1fr))", gap:16, marginBottom:48 }}>
+        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(250px,1fr))", gap:24, marginBottom:48 }}>
           {CONTACTS.map(({Icon,title,l1,l2},i) => (
             <motion.div key={i} {...fade(i*0.08)}
-              style={{ background:"white", borderRadius:"var(--r-lg)", padding:"22px", border:"1px solid var(--c-sand-light)", boxShadow:"var(--sh-xs)", textAlign:"center" }}
+              style={{ display:"flex", flexDirection:"column", height:"100%", background:"white", borderRadius:"var(--r-xl)", padding:"32px 24px", border:"1px solid var(--c-sand-light)", boxShadow:"var(--sh-xs)", textAlign:"center" }}
               whileHover={{ y:-4, boxShadow:"var(--sh-md)" }}>
-              <div style={{ width:44,height:44,borderRadius:12,background:"var(--c-pale)",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 14px" }}>
-                <Icon style={{ width:20,height:20,color:"var(--c-forest)" }} />
+              <div style={{ width:56,height:56,borderRadius:16,background:"rgba(243,132,44,0.1)",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 20px" }}>
+                <Icon style={{ width:24,height:24,color:"#F3842C" }} />
               </div>
-              <p style={{ fontFamily:"var(--f-display)",fontSize:"0.95rem",fontWeight:700,color:"var(--c-bark)",marginBottom:6 }}>{title}</p>
-              <p style={{ fontFamily:"var(--f-body)",fontSize:"0.82rem",color:"var(--c-bark-muted)" }}>{l1}</p>
-              <p style={{ fontFamily:"var(--f-body)",fontSize:"0.82rem",color:"var(--c-bark-muted)" }}>{l2}</p>
+              <p style={{ fontFamily:"var(--f-display)",fontSize:"1.15rem",fontWeight:700,color:"var(--c-bark)",marginBottom:14 }}>{title}</p>
+              <div style={{ display:"flex", flexDirection:"column", justifyContent:"center", flex:1, gap:8 }}>
+                <p style={{ fontFamily:"var(--f-body)",fontSize:"0.95rem",color:"var(--c-bark-muted)",lineHeight:1.6 }}>{l1}</p>
+                <p style={{ fontFamily:"var(--f-body)",fontSize:"0.9rem",fontWeight:600,color:"var(--c-bark)" }}>{l2}</p>
+              </div>
             </motion.div>
           ))}
         </div>
 
         {/* Key People */}
-        <motion.div {...fade(0.1)} style={{ background:"white",borderRadius:"var(--r-xl)",padding:"28px 32px",border:"1px solid var(--c-sand-light)",boxShadow:"var(--sh-xs)",marginBottom:40 }}>
-          <p style={{ fontFamily:"var(--f-body)",fontSize:"0.68rem",fontWeight:700,letterSpacing:"0.18em",textTransform:"uppercase",color:"var(--c-forest)",marginBottom:20 }}>Who to Contact</p>
-          <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(220px,1fr))",gap:16 }}>
+        <motion.div {...fade(0.1)} style={{ background:"white",borderRadius:"var(--r-xl)",padding:"36px 40px",border:"1px solid var(--c-sand-light)",boxShadow:"var(--sh-xs)",marginBottom:48 }}>
+          <p style={{ fontFamily:"var(--f-body)",fontSize:"0.75rem",fontWeight:700,letterSpacing:"0.15em",textTransform:"uppercase",color:"#F3842C",marginBottom:24 }}>Who to Contact</p>
+          <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:20 }}>
             {KEY_PEOPLE.map((p,i) => (
-              <div key={i} style={{ background:"var(--c-pale)",borderRadius:"var(--r-md)",padding:"16px 18px" }}>
-                <div style={{ width:40,height:40,borderRadius:10,background:"var(--c-forest)",display:"flex",alignItems:"center",justifyContent:"center",color:"white",fontWeight:700,fontSize:"0.82rem",marginBottom:10 }}>
+              <div key={i} style={{ background:"#FFF4EB",borderRadius:"var(--r-lg)",padding:"24px", display:"flex", flexDirection:"column", height:"100%" }}>
+                <div style={{ width:48,height:48,borderRadius:12,background:"#F3842C",display:"flex",alignItems:"center",justifyContent:"center",color:"white",fontWeight:700,fontSize:"1rem",marginBottom:16 }}>
                   {p.name.split(" ").map(n=>n[0]).join("").slice(0,2)}
                 </div>
-                <p style={{ fontFamily:"var(--f-display)",fontSize:"0.95rem",fontWeight:700,color:"var(--c-bark)",marginBottom:3 }}>{p.name}</p>
-                <p style={{ fontFamily:"var(--f-body)",fontSize:"0.7rem",fontWeight:700,color:"var(--c-amber)",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:5 }}>{p.role}</p>
-                <p style={{ fontFamily:"var(--f-body)",fontSize:"0.82rem",color:"var(--c-bark-muted)" }}>{p.note}</p>
+                <p style={{ fontFamily:"var(--f-display)",fontSize:"1.1rem",fontWeight:700,color:"var(--c-bark)",marginBottom:4 }}>{p.name}</p>
+                <p style={{ fontFamily:"var(--f-body)",fontSize:"0.75rem",fontWeight:700,color:"#F3842C",textTransform:"uppercase",letterSpacing:"0.08em",marginBottom:12 }}>{p.role}</p>
+                <p style={{ fontFamily:"var(--f-body)",fontSize:"0.9rem",color:"var(--c-bark-muted)",marginTop:"auto", lineHeight:1.5 }}>{p.note}</p>
               </div>
             ))}
           </div>
