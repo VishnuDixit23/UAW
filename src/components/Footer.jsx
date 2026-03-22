@@ -81,7 +81,7 @@ export default function Footer() {
             <div style={{ display:"flex", flexDirection:"column", gap:14, marginBottom:22 }}>
               {[{ Icon:MapPin, text:"Basement Floor, Plot No 20, Chaudhary Nagar 2nd, Budhsinghpura, Sanganer, Jaipur, Rajasthan - 302029" },
                 { Icon:Phone, text:"+91 7976606854" },
-                { Icon:Mail,  text:"contact@unitedforanimalwelfare.org" }].map(({Icon,text},i) => (
+                { Icon:Mail,  text:"info@unitedforanimalwelfare.org" }].map(({Icon,text},i) => (
                 <div key={i} style={{ display:"flex", alignItems:"flex-start", gap:12 }}>
                   <div style={{ width:32, height:32, borderRadius:8, background:"rgba(243,132,44,0.12)", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0 }}>
                     <Icon style={{ width:14, height:14, color:"#F3842C" }} />

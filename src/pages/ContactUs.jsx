@@ -9,7 +9,7 @@ import axios from "axios";
 const CONTACTS = [
   { Icon:MapPin,       title:"Location",          l1:"Basement Floor, Plot No 20, Chaudhary Nagar 2nd,",  l2:"Budhsinghpura, Sanganer, Jaipur, Rajasthan - 302029" },
   { Icon:Phone,        title:"Call / WhatsApp",   l1:"+91 7976606854",                    l2:"Mon–Sat, 9 AM – 6 PM" },
-  { Icon:Mail,         title:"Email",             l1:"contact@unitedforanimalwelfare.org", l2:"Reply within 24 hours" },
+  { Icon:Mail,         title:"Email",             l1:"info@unitedforanimalwelfare.org", l2:"Reply within 24 hours" },
 ];
 const KEY_PEOPLE = [
   { name:"Abhishek Soni",          role:"India Head",         note:"NGO partnerships & national ops" },
