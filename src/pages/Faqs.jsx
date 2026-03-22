@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
 const FAQS = [
-  { q:"What is United for Animal Welfare?", a:"We are a registered Public Trust (Rajasthan, 2026) founded by Shivajee Vishen. Our primary focus is Animal Welfare alongside Children's Education, Health & Family Welfare, and Women's Empowerment. We rescue animals, support collapsing NGOs, and run daily feeding, hygiene and education programmes." },
+  { q:"What is United for Animal Welfare?", a:"We are a registered Public Trust (Rajasthan, 2026) founded by Shivajee Vishen. Our primary focus is Animal Welfare alongside Children's Education, and Women's Empowerment. We rescue animals, support collapsing NGOs, and run daily feeding, hygiene and education programmes." },
   { q:"How is my donation used?", a:"85% of donations go directly to animal rescue operations and NGO support. The remaining 15% covers operational costs." },
   { q:"Can I get a tax receipt?", a:"Yes! We are registered as a Public Trust in Rajasthan. You will receive a receipt by email within 5 working days. Please provide your PAN number for 80-G tax benefits." },
   { q:"Which NGOs do you support?", a:"We support local NGOs and we help them providing food for animals and medical facilities." },
