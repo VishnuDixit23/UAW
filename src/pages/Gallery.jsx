@@ -21,6 +21,9 @@ const GALLERY_CATEGORIES = [
       { src: "/gallery/cow-feeding/cow1.jpg", caption: "Feeding green fodder to a rescued cow at the shelter" },
       { src: "/gallery/cow-feeding/cow2.jpg", caption: "A heartwarming moment — a young child bonds with a calf" },
       { src: "/gallery/cow-feeding/cow3.jpg", caption: "Caring for a young calf rescued from the streets" },
+      { src: "/gallery/cow-feeding/cow7.jpeg", caption: "🐄" },
+      { src: "/gallery/cow-feeding/cow8.jpeg", caption: "🐮" },
+      { src: "/gallery/cow-feeding/cow9.jpeg", caption: "🤠" }
     ],
   },
   {
@@ -45,8 +48,12 @@ const GALLERY_CATEGORIES = [
     description: "Caring for 5,000+ stray dogs and fitting them with glow-in-the-dark radium collar belts to save them from road accidents.",
     icon: "🐕",
     date: "Coming Soon",
-    coverImage: null,
-    images: [],
+    coverImage: "/gallery/dog-care/dog1.jpeg",
+    images: [
+      { src: "/gallery/dog-care/dog1.jpeg", caption: "“A small act of kindness can mean a full meal for someone who cannot ask for it. Together, we can make our streets a little more compassionate.” 🐾💛" },
+      { src: "/gallery/dog-care/dog2.jpeg", caption: "“Hunger doesn’t speak—but it’s felt. One bowl at a time, we’re bringing comfort, care, and hope to those who need it most.” 🐶✨" },
+      { src: "/gallery/dog-care/dog3.jpeg", caption: "“Every life matters, no matter how small. Your support helps us turn moments like these into everyday realities.” 🐾❤️" }
+    ],
   },
   {
     id: "girls-hygiene",
@@ -54,8 +61,15 @@ const GALLERY_CATEGORIES = [
     description: "Distributing sanitary hygiene pads to girls in slum areas — giving them dignity, health and confidence every month.",
     icon: "💜",
     date: "Coming Soon",
-    coverImage: null,
-    images: [],
+    coverImage: "/gallery/girls-hygiene/gh1.jpeg",
+    images: [
+      { src: "/gallery/girls-hygiene/gh1.jpeg", caption: "“Dignity begins with care. A small gesture today can bring comfort, confidence, and hope tomorrow.” 🌼💙" },
+      { src: "/gallery/girls-hygiene/gh2.jpeg", caption: "“Stronger together—when women support women, communities rise with them.” 💪✨" },
+      { src: "/gallery/girls-hygiene/gh3.jpeg", caption: "“Not just essentials, but respect and compassion—delivered hand to hand.” 🤝💛" },
+      { src: "/gallery/girls-hygiene/gh4.jpeg", caption: "“Every packet carries more than aid—it carries reassurance that someone cares.” 🌸📦" },
+      { src: "/gallery/girls-hygiene/gh5.jpeg", caption: "“Hope grows where care is shared. Together, we’re building healthier, safer futures for every woman and child.” 🌱❤️" },
+      { src: "/gallery/girls-hygiene/gh6.mp4", caption: "Distribution with smiles" }
+    ],
   },
   {
     id: "education",
@@ -72,8 +86,10 @@ const GALLERY_CATEGORIES = [
     description: "Plantation drives to combat climate change, deforestation and pollution — building greener, healthier communities.",
     icon: "🌳",
     date: "Coming Soon",
-    coverImage: null,
-    images: [],
+    coverImage: "/gallery/plantation/plt1.jpeg",
+    images: [
+      { src: "/gallery/plantation/plt1.jpeg", caption: "“Today we planted a sapling, tomorrow it will grow into hope. Small actions today create a greener, healthier future for all.” 🌱🌍💚" }
+    ],
   },
 ];
 
@@ -89,6 +105,9 @@ const staggerChild = {
   hidden: { opacity: 0, y: 30, scale: 0.97 },
   visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
 };
+
+/* ── Video detection helper ── */
+const isVideo = (src) => /\.(mp4|mov|webm|avi)$/i.test(src);
 
 /* ═══════════════════════════════
    CATEGORY CARD
@@ -225,7 +244,18 @@ function PhotoGalleryView({ category, onBack, onImageClick }) {
             className={`gallery-photo-item ${i === 0 ? "gallery-photo-item--large" : ""}`}
             onClick={() => onImageClick(i)}
           >
-            <img src={img.src} alt={img.caption} />
+            {isVideo(img.src) ? (
+              <>
+                <video src={img.src} muted preload="metadata" playsInline />
+                <div className="gallery-photo-item__play">
+                  <svg viewBox="0 0 24 24" fill="white" width="36" height="36">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </>
+            ) : (
+              <img src={img.src} alt={img.caption} />
+            )}
             <div className="gallery-photo-item__overlay">
               <p>{img.caption}</p>
             </div>
@@ -299,7 +329,17 @@ function Lightbox({ images, currentIndex, onClose, onPrev, onNext }) {
           transition={{ duration: 0.3 }}
           onClick={(e) => e.stopPropagation()}
         >
-          <img src={image.src} alt={image.caption} />
+          {isVideo(image.src) ? (
+              <video
+                src={image.src}
+                controls
+                autoPlay
+                playsInline
+                style={{ maxWidth: "100%", maxHeight: "70vh", borderRadius: 16, objectFit: "contain", boxShadow: "0 20px 60px rgba(0,0,0,0.5)" }}
+              />
+            ) : (
+              <img src={image.src} alt={image.caption} />
+            )}
           <motion.p
             className="gallery-lightbox__caption"
             initial={{ opacity: 0, y: 10 }}
@@ -330,7 +370,11 @@ function Lightbox({ images, currentIndex, onClose, onPrev, onNext }) {
               className={`gallery-lightbox__thumb ${i === currentIndex ? "gallery-lightbox__thumb--active" : ""}`}
               onClick={(e) => { e.stopPropagation(); onNext(i); }}
             >
-              <img src={img.src} alt="" />
+              {isVideo(img.src) ? (
+                <video src={img.src} muted preload="metadata" />
+              ) : (
+                <img src={img.src} alt="" />
+              )}
             </button>
           ))}
         </div>
@@ -677,15 +721,39 @@ export default function Gallery() {
             aspect-ratio: 4 / 3;
           }
         }
-        .gallery-photo-item img {
+        .gallery-photo-item img,
+        .gallery-photo-item video {
           width: 100%;
           height: 100%;
           object-fit: cover;
           display: block;
           transition: transform 0.55s var(--ease-out);
         }
-        .gallery-photo-item:hover img {
+        .gallery-photo-item:hover img,
+        .gallery-photo-item:hover video {
           transform: scale(1.06);
+        }
+        .gallery-photo-item__play {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 2;
+          pointer-events: none;
+        }
+        .gallery-photo-item__play svg {
+          width: 56px;
+          height: 56px;
+          filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+          background: rgba(0,0,0,0.45);
+          border-radius: 50%;
+          padding: 14px;
+          transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .gallery-photo-item:hover .gallery-photo-item__play svg {
+          transform: scale(1.15);
+          background: rgba(243,132,44,0.75);
         }
         .gallery-photo-item__overlay {
           position: absolute;

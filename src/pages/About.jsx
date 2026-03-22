@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
-const SECTORS_PRIMARY = ["Children & Education & Literacy","Health & Family Welfare","Women's Development & Empowerment","Animal Welfare 🐾","Youth kickstart Programme"];
+const SECTORS_PRIMARY = ["Children & Education & Literacy","Health & Family Welfare","Women's Development & Empowerment","Animal Welfare 🐾","Youth Sports Development"];
 const SECTORS_SECONDARY = ["Agriculture & Animal Husbandry","Art & Culture","Biotechnology","Civic Issues","Dalit Upliftment","Differently Abled","Disaster Management","Drinking Water","Aged / Elderly","Environment & Forests","Food Processing","HIV/AIDS","Housing","Human Rights","ICT","Labour & Employment","Land Resources","Legal Awareness & Aid","Micro Finance","MSMEs","Minority Issues","New & Renewable Energy","Nutrition","Panchayati Raj","Prisoner's Issues","Right to Information"];
 
 
