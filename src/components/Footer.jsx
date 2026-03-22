@@ -1,6 +1,6 @@
 import { ChevronRight, Phone, Mail, MapPin, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
-import { FaInstagram, FaLinkedinIn, FaFacebookF, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram, FaLinkedinIn, FaFacebookF, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const LINKS = [
@@ -43,8 +43,14 @@ export default function Footer() {
             </p>
             <p style={{ fontFamily:"var(--f-body)", fontSize:"0.8rem", color:"rgba(243,132,44,0.55)", fontStyle:"italic", marginBottom:22 }}>"Compassion For Every Life"</p>
             <div style={{ display:"flex", gap:10 }}>
-              {[FaInstagram, FaLinkedinIn, FaFacebookF, FaWhatsapp].map((Icon,i) => (
-                <motion.a key={i} href="#"
+              {[
+                { Icon: FaInstagram, url: "https://www.instagram.com/unitedforanimalwelfare?igsh=bTZlN3ZhemNwZnNr&utm_source=qr" },
+                { Icon: FaYoutube, url: "https://www.youtube.com/@UNITEDFORANIMALWELFARE" },
+                { Icon: FaLinkedinIn, url: "#" },
+                { Icon: FaFacebookF, url: "#" },
+                { Icon: FaWhatsapp, url: "#" }
+              ].map(({Icon, url},i) => (
+                <motion.a key={i} href={url} target="_blank" rel="noopener noreferrer"
                   style={{ width:36, height:36, borderRadius:9, background:"rgba(255,255,255,0.05)", border:"1px solid rgba(255,255,255,0.09)", display:"flex", alignItems:"center", justifyContent:"center" }}
                   whileHover={{ scale:1.12, y:-2, background:"rgba(243,132,44,0.20)" }} transition={{ type:"spring", stiffness:380 }}>
                   <Icon style={{ color:"rgba(255,255,255,0.45)", fontSize:"0.85rem" }} />

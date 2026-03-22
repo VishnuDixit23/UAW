@@ -12,7 +12,12 @@ const NAV = [
   { to:"/contact",  label:"Contact" },
 ];
 const WORK = [
-  { to:"/ourwork", label:"🐾  Rescue & Rehabilitation" },
+  { to:"/ourwork/cow-feeding", label:"🐄 Cow Feeding" },
+  { to:"/ourwork/dog-care", label:"🐕 Dog Care & Radium Collars" },
+  { to:"/ourwork/girls-hygiene", label:"💜 Girls' Hygiene" },
+  { to:"/ourwork/education", label:"📚 Education" },
+  { to:"/ourwork/plantation", label:"🌳 Environment & Plantation" },
+  { to:"/ourwork/youth-kickstart", label:"⚽ Youth Kickstart Programme" },
 ];
 
 export default function Navbar() {

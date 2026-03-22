@@ -18,12 +18,12 @@ const HERO_IMAGES = [
 
 /* ── DATA ── */
 const PROGRAMMES = [
-  { title:"Cow Feeding",               desc:"We have fed more than 7000 cow till date across Rajasthan with nutrition drives, ensuring no sacred animal goes hungry.",                         icon:"🐄", img:"/programmes/feeding.jpeg",     stat:"7,000+", statLabel:"Cows Fed" },
-  { title:"Dog Care & Radium Collars", desc:"Cared for 5,000+ stray dogs and fitting them with glow-in-the-dark radium collar belts to save them from road accidents at night.",               icon:"🐕", img:"/programmes/collar.jpeg",      stat:"5,000+", statLabel:"Dogs Protected" },
-  { title:"Girls' Hygiene",            desc:" 1200+ girls helped with sanitary hygiene pads in slum areas till now.",                               icon:"💜", img:"/programmes/hygiene.png",     stat:"1,200+", statLabel:"Girls Supported" },
-  { title:"Education",                 desc:"Providing books, stationery and geometric boxes to underprivileged students so no child is denied the right to learn.",                             icon:"📚", img:"/programmes/education.jpeg",   stat:"500+",   statLabel:"Students Helped" },
-  { title:"Environment & Plantation",  desc:"Plantation drives to combat climate change, deforestation and pollution — building greener, healthier communities across Rajasthan.",               icon:"🌳", img:"/programmes/environment.jpeg", stat:"Active",  statLabel:"Campaign" },
-  { title:"Youth Kickstart Programme",  desc:"Running for 4–5 years, we support talented youth from financially challenged backgrounds — providing sports training, education, accommodation and nutrition. Proud sponsors of Jaipur City Football Club.", icon:"⚽", img:"/programmes/youth.jpeg", stat:"4–5 Yrs", statLabel:"Running Strong" },
+  { id:"cow-feeding", title:"Cow Feeding",               desc:"We have fed more than 7000 cow till date across Rajasthan with nutrition drives, ensuring no sacred animal goes hungry.",                         icon:"🐄", img:"/programmes/feeding.jpeg",     stat:"7,000+", statLabel:"Cows Fed" },
+  { id:"dog-care", title:"Dog Care & Radium Collars", desc:"Cared for 5,000+ stray dogs and fitting them with glow-in-the-dark radium collar belts to save them from road accidents at night.",               icon:"🐕", img:"/programmes/collar.jpeg",      stat:"5,000+", statLabel:"Dogs Protected" },
+  { id:"girls-hygiene", title:"Girls' Hygiene",            desc:" 1200+ girls helped with sanitary hygiene pads in slum areas till now.",                               icon:"💜", img:"/programmes/hygiene-cover.jpg",     stat:"1,200+", statLabel:"Girls Supported" },
+  { id:"education", title:"Education",                 desc:"Providing books, stationery and geometric boxes to underprivileged students so no child is denied the right to learn.",                             icon:"📚", img:"/programmes/education.jpeg",   stat:"500+",   statLabel:"Students Helped" },
+  { id:"plantation", title:"Environment & Plantation",  desc:"Plantation drives to combat climate change, deforestation and pollution — building greener, healthier communities across Rajasthan.",               icon:"🌳", img:"/programmes/environment.jpeg", stat:"Active",  statLabel:"Campaign" },
+  { id:"youth-kickstart", title:"Youth Kickstart Programme",  desc:"Running for 4–5 years, we support talented youth from financially challenged backgrounds — providing sports training, education, accommodation and nutrition. Proud sponsors of Jaipur City Football Club.", icon:"⚽", img:"/programmes/youth.jpeg", stat:"4–5 Yrs", statLabel:"Running Strong" },
 ];
 
 const STATS = [
@@ -344,25 +344,27 @@ export default function Home() {
           <motion.div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(340px, 1fr))", gap:28 }}
             variants={staggerWrap} initial="hidden" whileInView="visible" viewport={{ once:true }}>
             {PROGRAMMES.map((p,i) => (
-              <motion.article key={i} variants={staggerChild} className="prog-card">
-                <div className="prog-card__img">
-                  {p.img
-                    ? <img src={p.img} alt={p.title} />
-                    : <div className="prog-card__img-placeholder">{p.icon}</div>
-                  }
-                </div>
-                <div className="prog-card__body">
-                  <div style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:10 }}>
-                    <h3 className="prog-card__title" style={{ flex:1, marginRight:8 }}>{p.title}</h3>
-                    <span style={{ fontSize:"1.6rem", flexShrink:0 }}>{p.icon}</span>
+              <Link to={`/ourwork/${p.id}`} key={i} style={{ textDecoration: "none", color: "inherit", display: "block", height: "100%" }}>
+                <motion.article variants={staggerChild} className="prog-card" style={{ height: "100%" }}>
+                  <div className="prog-card__img">
+                    {p.img
+                      ? <img src={p.img} alt={p.title} />
+                      : <div className="prog-card__img-placeholder">{p.icon}</div>
+                    }
                   </div>
-                  <p className="prog-card__desc">{p.desc}</p>
-                  <div className="prog-card__stat">
-                    <span className="prog-card__stat-num">{p.stat}</span>
-                    <span className="prog-card__stat-label">{p.statLabel}</span>
+                  <div className="prog-card__body">
+                    <div style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:10 }}>
+                      <h3 className="prog-card__title" style={{ flex:1, marginRight:8 }}>{p.title}</h3>
+                      <span style={{ fontSize:"1.6rem", flexShrink:0 }}>{p.icon}</span>
+                    </div>
+                    <p className="prog-card__desc">{p.desc}</p>
+                    <div className="prog-card__stat">
+                      <span className="prog-card__stat-num">{p.stat}</span>
+                      <span className="prog-card__stat-label">{p.statLabel}</span>
+                    </div>
                   </div>
-                </div>
-              </motion.article>
+                </motion.article>
+              </Link>
             ))}
           </motion.div>
         </div>
