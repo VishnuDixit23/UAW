@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 const PROGRAMME_DATA = {
   "cow-feeding": {
     title: "Cow Feeding",
-    tagline: "Nourishing 7,000+ Street Cows",
+    tagline: "Nourished 7,000+ Street Cows",
     icon: "🐄",
     heroImg: "/programmes/feeding.jpeg",
     description: "Our largest ongoing initiative, we have fed more than 7,000 street cows across the city. Our dedicated volunteers prepare and distribute nutritious fodder to these gentle animals who often go hungry on busy roads. Caring for these sacred beings is not just an act of kindness — it's a responsibility we all share.",
