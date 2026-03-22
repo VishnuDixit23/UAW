@@ -90,7 +90,8 @@ const GALLERY_CATEGORIES = [
     date: "Active",
     coverImage: "/gallery/plantation/plt1.jpeg",
     images: [
-      { src: "/gallery/plantation/plt1.jpeg", caption: "“Today we planted a sapling, tomorrow it will grow into hope. Small actions today create a greener, healthier future for all.” 🌱🌍💚" }
+      { src: "/gallery/plantation/plt1.jpeg", caption: "“Today we planted a sapling, tomorrow it will grow into hope. Small actions today create a greener, healthier future for all.” 🌱🌍💚" },
+      { src: "/gallery/plantation/plt2.mp4", caption: "\"Message from team\"" }
     ],
   },
   {
