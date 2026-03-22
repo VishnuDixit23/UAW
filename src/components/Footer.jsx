@@ -39,7 +39,7 @@ export default function Footer() {
               </div>
             </div>
             <p style={{ fontFamily:"var(--f-body)", fontSize:"0.875rem", color:"rgba(255,255,255,0.48)", lineHeight:1.75, marginBottom:8 }}>
-              Founded by <strong style={{ color:"rgba(255,255,255,0.75)" }}>Shivajee Vishen</strong>. Fed 7,000+ cows, protected 5,000+ dogs, empowered 1,200+ girls, educated 500+ students.
+              Founded by <strong style={{ color:"rgba(255,255,255,0.75)" }}>Shivajee Vishen</strong>. Fed 7,000+ cows, helped 5,000+ dogs, empowered 1,200+ girls, educated 500+ students.
             </p>
             <p style={{ fontFamily:"var(--f-body)", fontSize:"0.8rem", color:"rgba(243,132,44,0.55)", fontStyle:"italic", marginBottom:22 }}>"Compassion For Every Life"</p>
             <div style={{ display:"flex", gap:10 }}>

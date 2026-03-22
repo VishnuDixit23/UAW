@@ -19,7 +19,7 @@ const HERO_IMAGES = [
 /* ── DATA ── */
 const PROGRAMMES = [
   { id:"cow-feeding", title:"Cow Feeding",               desc:"We have fed more than 7000 cow till date across Rajasthan with nutrition drives, ensuring no sacred animal goes hungry.",                         icon:"🐄", img:"/programmes/feeding.jpeg",     stat:"7,000+", statLabel:"Cows Fed" },
-  { id:"dog-care", title:"Dog Care & Radium Collars", desc:"Cared for 5,000+ stray dogs and fitting them with glow-in-the-dark radium collar belts to save them from road accidents at night.",               icon:"🐕", img:"/programmes/dog-care-new.jpg",      stat:"5,000+", statLabel:"Dogs Protected" },
+  { id:"dog-care", title:"Dog Care & Radium Collars", desc:"Cared for 5,000+ stray dogs and fitting them with glow-in-the-dark radium collar belts to save them from road accidents at night.",               icon:"🐕", img:"/programmes/dog-care-new.jpg",      stat:"5,000+", statLabel:"Dogs Cared For" },
   { id:"girls-hygiene", title:"Girls' Hygiene",            desc:" 1200+ girls helped with sanitary hygiene pads in slum areas till now.",                               icon:"💜", img:"/programmes/hygiene-cover.jpg",     stat:"1,200+", statLabel:"Girls Supported" },
   { id:"education", title:"Education",                 desc:"Providing books, stationery and geometric boxes to underprivileged students so no child is denied the right to learn.",                             icon:"📚", img:"/programmes/education.jpeg",   stat:"500+",   statLabel:"Students Helped" },
   { id:"plantation", title:"Environment & Plantation",  desc:"Plantation drives to combat climate change, deforestation and pollution — building greener, healthier communities across Rajasthan.",               icon:"🌳", img:"/programmes/environment-new.jpg", stat:"Active",  statLabel:"Campaign" },
@@ -237,7 +237,7 @@ export default function Home() {
         <div className="marquee-inner">
           {[...Array(2)].map((_,o) => (
             <div key={o} style={{ display:"flex", flexShrink:0 }}>
-              {["🐄  7,000+ Cows Fed","🐕  5,000+ Dogs Protected","💜  1,200+ Girls Helped","📚  500+ Students Supported","🌳  Tree Plantation Drive","⚽  Youth Kickstart Programme","🏥  NGO Life Support","❤  Compassion For Every Life"].map((t,i) => (
+              {["🐄  7,000+ Cows Fed","🐕  5,000+ Dogs Cared For","💜  1,200+ Girls Helped","📚  500+ Students Supported","🌳  Tree Plantation Drive","⚽  Youth Kickstart Programme","🏥  NGO Life Support","❤  Compassion For Every Life"].map((t,i) => (
                 <span key={i} style={{ fontFamily:"var(--f-body)", fontSize:"0.82rem", fontWeight:500, letterSpacing:"0.06em", color:"rgba(255,255,255,0.90)", padding:"4px 36px", borderRight:"1px solid rgba(255,255,255,0.20)", whiteSpace:"nowrap" }}>{t}</span>
               ))}
             </div>

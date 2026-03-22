@@ -48,7 +48,7 @@ const initiatives = [
       "Ensuring they have access to clean water",
     ],
     image: "/initiatives/dog-safety-new.jpeg",
-    stat: "5,000+", statLabel: "Dogs Protected",
+    stat: "5,000+", statLabel: "Dogs Cared For",
     accent: "#1B5E3B", accentLight: "#EDFAF3",
   },
   {
