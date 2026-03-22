@@ -7,10 +7,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const CONTACTS = [
-  { Icon:MapPin,       title:"Location",          l1:"Rajasthan, India",                   l2:"Registered Public Trust, 2026" },
+  { Icon:MapPin,       title:"Location",          l1:"Basement Floor, Plot No 20, Chaudhary Nagar 2nd,",  l2:"Budhsinghpura, Sanganer, Jaipur, Rajasthan - 302029" },
   { Icon:Phone,        title:"Call / WhatsApp",   l1:"+91 7976606854",                    l2:"Mon–Sat, 9 AM – 6 PM" },
   { Icon:Mail,         title:"Email",             l1:"contact@unitedforanimalwelfare.org", l2:"Reply within 24 hours" },
-  { Icon:AlertCircle,  title:"Animal Emergency",  l1:"Rescue Hotline (24/7):",             l2:"+91 7976606854" },
 ];
 const KEY_PEOPLE = [
   { name:"Abhishek Soni",          role:"India Head",         note:"NGO partnerships & national ops" },
@@ -41,9 +40,6 @@ export default function ContactUs() {
             Get In <span style={{ color:"#F3842C" }}>Touch</span>
           </h1>
           <div className="divider" style={{ margin:"0 auto 20px" }} />
-          <p style={{ fontFamily:"var(--f-body)", fontSize:"1rem", color:"rgba(255,255,255,0.58)", maxWidth:520, margin:"0 auto" }}>
-            Have a question, want to volunteer, or need emergency animal rescue? We're here 24/7.
-          </p>
         </div>
       </div>
 
@@ -110,7 +106,7 @@ export default function ContactUs() {
           </motion.div>
           <motion.div {...fade(0.15)} style={{ borderRadius:"var(--r-xl)",overflow:"hidden",border:"1px solid var(--c-sand-light)",boxShadow:"var(--sh-xs)",minHeight:400 }}>
             <iframe className="w-full h-full" style={{ minHeight:400,border:"none" }}
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d904012.07!2d74.45!3d26.885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4b15077b%3A0x12ab8f4a68dc58a!2sRajasthan!5e0!3m2!1sen!2sin!4v1"
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3509.643777109597!2d75.81602047543625!3d26.81950757670283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDQ5JzEwLjIiTiA3NcKwNDknMDYuOSJF!5e1!3m2!1sen!2sin!4v1774089654323!5m2!1sen!2sin"
               allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
           </motion.div>
         </div>

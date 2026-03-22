@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Camera, ArrowLeft, Images } from "lucide-react";
 import Navbar from "../components/Navbar";
@@ -345,6 +346,21 @@ export default function Gallery() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+  const loc = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(loc.search);
+    const catId = params.get('category');
+    if (catId) {
+      const cat = GALLERY_CATEGORIES.find(c => c.id === catId);
+      if (cat) {
+        setSelectedCategory(cat);
+        setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 100);
+      }
+    } else {
+      setSelectedCategory(null);
+    }
+  }, [loc.search]);
 
   const openCategory = useCallback((category) => {
     setSelectedCategory(category);

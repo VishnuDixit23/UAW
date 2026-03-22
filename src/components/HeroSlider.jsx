@@ -46,10 +46,10 @@ const HeroSlider = ({ images }) => {
       <div className="absolute left-4 md:left-5 top-1/3 space-y-3 md:space-y-4 z-10 hidden sm:block">
         {[
           { Icon: FaFacebookF, url: "#" },
-          { Icon: FaInstagram, url: "#" },
+          { Icon: FaInstagram, url: "https://www.instagram.com/unitedforanimalwelfare?igsh=bTZlN3ZhemNwZnNr&utm_source=qr" },
           { Icon: FaLinkedinIn, url: "#" },
           { Icon: FaDiscord, url: "#" },
-          { Icon: FaYoutube, url: "#" },
+          { Icon: FaYoutube, url: "https://www.youtube.com/@UNITEDFORANIMALWELFARE" },
         ].map(({ Icon, url }, idx) => (
           <motion.a
             key={idx}
@@ -70,10 +70,10 @@ const HeroSlider = ({ images }) => {
       <div className="fixed bottom-4 left-0 right-0 flex justify-center space-x-3 z-50 sm:hidden">
         {[
           { Icon: FaFacebookF, url: "#" },
-          { Icon: FaInstagram, url: "#" },
+          { Icon: FaInstagram, url: "https://www.instagram.com/unitedforanimalwelfare?igsh=bTZlN3ZhemNwZnNr&utm_source=qr" },
           { Icon: FaLinkedinIn, url: "#" },
           { Icon: FaDiscord, url: "#" },
-          { Icon: FaYoutube, url: "#" },
+          { Icon: FaYoutube, url: "https://www.youtube.com/@UNITEDFORANIMALWELFARE" },
         ].map(({ Icon, url }, idx) => (
           <motion.a
             key={idx}

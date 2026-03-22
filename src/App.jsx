@@ -9,6 +9,8 @@ import Gallery from "./pages/Gallery";
 import Team from "./pages/Team";
 import Faqs from "./pages/Faqs";
 
+import ProgrammeDetail from "./pages/ProgrammeDetail";
+
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
@@ -24,6 +26,7 @@ function App() {
         <Route path="/about"        element={<About />} />
         <Route path="/contact"      element={<ContactUs />} />
         <Route path="/ourwork"      element={<OurWork />} />
+        <Route path="/ourwork/:id"  element={<ProgrammeDetail />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/team"         element={<Team />} />
         <Route path="/faqs"         element={<Faqs />} />

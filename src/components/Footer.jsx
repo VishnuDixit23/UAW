@@ -1,6 +1,6 @@
 import { ChevronRight, Phone, Mail, MapPin, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
-import { FaInstagram, FaLinkedinIn, FaFacebookF, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram, FaLinkedinIn, FaFacebookF, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const LINKS = [
@@ -35,7 +35,7 @@ export default function Footer() {
               <div>
                 <p style={{ fontFamily:"var(--f-body)", fontSize:"0.62rem", fontWeight:700, letterSpacing:"0.2em", color:"#F3842C", textTransform:"uppercase", marginBottom:3 }}>United for</p>
                 <p style={{ fontFamily:"var(--f-display)", fontSize:"1.1rem", fontWeight:700, color:"white", lineHeight:1 }}>Animal Welfare</p>
-                <p style={{ fontSize:"0.58rem", color:"rgba(255,255,255,0.30)", letterSpacing:"0.15em", textTransform:"uppercase", marginTop:3 }}>Rajasthan · India · 2026</p>
+                <p style={{ fontSize:"0.58rem", color:"rgba(255,255,255,0.30)", letterSpacing:"0.15em", textTransform:"uppercase", marginTop:3 }}>Jaipur · Rajasthan · India</p>
               </div>
             </div>
             <p style={{ fontFamily:"var(--f-body)", fontSize:"0.875rem", color:"rgba(255,255,255,0.48)", lineHeight:1.75, marginBottom:8 }}>
@@ -43,8 +43,14 @@ export default function Footer() {
             </p>
             <p style={{ fontFamily:"var(--f-body)", fontSize:"0.8rem", color:"rgba(243,132,44,0.55)", fontStyle:"italic", marginBottom:22 }}>"Compassion For Every Life"</p>
             <div style={{ display:"flex", gap:10 }}>
-              {[FaInstagram, FaLinkedinIn, FaFacebookF, FaWhatsapp].map((Icon,i) => (
-                <motion.a key={i} href="#"
+              {[
+                { Icon: FaInstagram, url: "https://www.instagram.com/unitedforanimalwelfare?igsh=bTZlN3ZhemNwZnNr&utm_source=qr" },
+                { Icon: FaYoutube, url: "https://www.youtube.com/@UNITEDFORANIMALWELFARE" },
+                { Icon: FaLinkedinIn, url: "#" },
+                { Icon: FaFacebookF, url: "#" },
+                { Icon: FaWhatsapp, url: "#" }
+              ].map(({Icon, url},i) => (
+                <motion.a key={i} href={url} target="_blank" rel="noopener noreferrer"
                   style={{ width:36, height:36, borderRadius:9, background:"rgba(255,255,255,0.05)", border:"1px solid rgba(255,255,255,0.09)", display:"flex", alignItems:"center", justifyContent:"center" }}
                   whileHover={{ scale:1.12, y:-2, background:"rgba(243,132,44,0.20)" }} transition={{ type:"spring", stiffness:380 }}>
                   <Icon style={{ color:"rgba(255,255,255,0.45)", fontSize:"0.85rem" }} />
@@ -73,7 +79,7 @@ export default function Footer() {
           <div>
             <p style={{ fontFamily:"var(--f-body)", fontSize:"0.65rem", fontWeight:700, letterSpacing:"0.18em", textTransform:"uppercase", color:"#F3842C", marginBottom:20 }}>Get In Touch</p>
             <div style={{ display:"flex", flexDirection:"column", gap:14, marginBottom:22 }}>
-              {[{ Icon:MapPin, text:"Rajasthan, India · Registered Public Trust, 2026" },
+              {[{ Icon:MapPin, text:"Basement Floor, Plot No 20, Chaudhary Nagar 2nd, Budhsinghpura, Sanganer, Jaipur, Rajasthan - 302029" },
                 { Icon:Phone, text:"+91 7976606854" },
                 { Icon:Mail,  text:"contact@unitedforanimalwelfare.org" }].map(({Icon,text},i) => (
                 <div key={i} style={{ display:"flex", alignItems:"flex-start", gap:12 }}>
@@ -105,7 +111,7 @@ export default function Footer() {
         {/* Bottom */}
         <div style={{ padding:"20px 0", display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap:"wrap", gap:12 }}>
           <p style={{ fontFamily:"var(--f-body)", fontSize:"0.78rem", color:"rgba(255,255,255,0.22)" }}>
-            © {new Date().getFullYear()} United for Animal Welfare · Founded by Shivajee Vishen · Rajasthan, India
+            © {new Date().getFullYear()} United for Animal Welfare · Founded by Shivajee Vishen · Jaipur, Rajasthan
           </p>
           <p style={{ fontFamily:"var(--f-body)", fontSize:"0.78rem", color:"rgba(243,132,44,0.40)", fontStyle:"italic" }}>
             "Compassion For Every Life" 🐾
