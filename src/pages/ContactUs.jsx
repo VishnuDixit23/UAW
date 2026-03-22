@@ -14,7 +14,7 @@ const CONTACTS = [
 const KEY_PEOPLE = [
   { name:"Abhishek Soni",          role:"India Head",         note:"NGO partnerships & national ops" },
   { name:"Hardik Visaria",         role:"Fundraising Head",   note:"Donations, CSR & fundraising" },
-  { name:"Vishwajeet Singh Vishen",role:"Senior Coordinator", note:"Volunteer & rescue coordination" },
+  { name:"Vishwajeet Singh Vishen",role:"Senior Coordinator", note:"Volunteer & coordination" },
 ];
 const fade = (d=0) => ({ initial:{opacity:0,y:22}, whileInView:{opacity:1,y:0}, transition:{duration:0.65,delay:d,ease:[0.22,1,0.36,1]}, viewport:{once:true} });
 
