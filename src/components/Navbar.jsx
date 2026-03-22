@@ -18,6 +18,7 @@ const WORK = [
   { to:"/ourwork/education", label:"📚 Education" },
   { to:"/ourwork/plantation", label:"🌳 Environment & Plantation" },
   { to:"/ourwork/youth-kickstart", label:"⚽ Youth Kickstart Programme" },
+  { to:"/ourwork/bird-feeding", label:"🐦 Bird Feeding" },
 ];
 
 export default function Navbar() {

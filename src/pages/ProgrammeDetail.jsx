@@ -83,6 +83,19 @@ const PROGRAMME_DATA = {
       "Nutrition plans and fitness programs",
       "Sports equipment and gear provided"
     ]
+  },
+  "bird-feeding": {
+    title: "Bird Feeding",
+    tagline: "Caring for Our Feathered Friends",
+    icon: "🐦",
+    heroImg: "/gallery/bird-feeding/bir1.jpeg",
+    description: "Birds are an essential part of our ecosystem, yet urbanisation has left many without adequate food and water. Our Bird Feeding initiative provides daily nourishment to birds across the city — placing grain and fresh water at key locations so no bird goes hungry or thirsty.",
+    points: [
+      "Daily grain and seed distribution for birds",
+      "Clean water stations set up across the city",
+      "Community awareness about bird conservation",
+      "Supporting injured and orphaned birds"
+    ]
   }
 };
 

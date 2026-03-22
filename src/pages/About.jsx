@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
-const SECTORS_PRIMARY = ["Animal Welfare 🐾","Children & Education & Literacy","Women's Development & Empowerment",,"Youth Sports Development"];
+const SECTORS_PRIMARY = ["Animal Welfare 🐾","Children & Education & Literacy","Women's Development & Empowerment","Youth Sports Development"];
 const SECTORS_SECONDARY = ["Agriculture & Animal Husbandry","Art & Culture","Biotechnology","Civic Issues","Dalit Upliftment","Differently Abled","Disaster Management","Drinking Water","Aged / Elderly","Environment & Forests","Food Processing","HIV/AIDS","Housing","Human Rights","ICT","Labour & Employment","Land Resources","Legal Awareness & Aid","Micro Finance","MSMEs","Minority Issues","New & Renewable Energy","Nutrition","Panchayati Raj","Prisoner's Issues","Right to Information"];
 
 
@@ -15,7 +15,7 @@ const MILESTONES = [
   { year:"2026", title:"NGO Support Programme", desc:"Launched flagship programme to financially support struggling animal welfare NGOs." },
   { year:"2026", title:"India Head Appointed",  desc:"Abhishek Soni takes charge to scale pan-India operations." },
   { year:"2026", title:"Fundraising Head Appointed",  desc:"Hardik Visaria will take the lead of all Fundraising activities." },
-  { year:"2026", title:"Impact So Far",  desc:"Cow fed (7,000+), dog cared for (5,000+), girls hygiene (1,200+), education (500+)." },
+  { year:"2026", title:"Impact So Far",  desc:"Cow fed (7,000+), dogs cared for (5,000+), girls hygiene (1,200+), education (500+)." },
 ];
 
 const fade = (delay=0, dir='up') => ({

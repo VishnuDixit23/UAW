@@ -24,6 +24,7 @@ const PROGRAMMES = [
   { id:"education", title:"Education",                 desc:"Providing books, stationery and geometric boxes to underprivileged students so no child is denied the right to learn.",                             icon:"📚", img:"/programmes/education.jpeg",   stat:"500+",   statLabel:"Students Helped" },
   { id:"plantation", title:"Environment & Plantation",  desc:"Plantation drives to combat climate change, deforestation and pollution — building greener, healthier communities across Rajasthan.",               icon:"🌳", img:"/programmes/environment-new.jpg", stat:"57+",  statLabel:"Trees Planted" },
   { id:"youth-kickstart", title:"Youth Kickstart Programme",  desc:"Running for 4–5 years, we support talented youth from financially challenged backgrounds — providing sports training, education, accommodation and nutrition. Proud sponsors of Jaipur City Football Club.", icon:"⚽", img:"/programmes/youth.jpeg", stat:"4–5 Yrs", statLabel:"Running Strong" },
+  { id:"bird-feeding", title:"Bird Feeding",  desc:"Providing food and water to birds across the city — ensuring our feathered friends never go hungry or thirsty.", icon:"🐦", img:"/gallery/bird-feeding/bir1.jpeg", stat:"Daily", statLabel:"Feeding Drives" },
 ];
 
 const STATS = [
@@ -395,7 +396,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════ TESTIMONIALS ═══════════ */}
+      {/* ═══════════ TESTIMONIALS (hidden for now — uncomment to re-enable) ═══════════ */}
+      {/*
       <section style={{ padding:"96px 0", background:"white" }}>
         <div className="section-container">
           <div style={{ textAlign:"center", marginBottom:56 }}>
@@ -425,6 +427,7 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+      */}
 
       {/* ═══════════ CTA ═══════════ */}
       <section style={{ padding:"96px 0", background:"var(--c-cream)" }}>

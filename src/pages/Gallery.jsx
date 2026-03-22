@@ -93,6 +93,18 @@ const GALLERY_CATEGORIES = [
       { src: "/gallery/plantation/plt1.jpeg", caption: "“Today we planted a sapling, tomorrow it will grow into hope. Small actions today create a greener, healthier future for all.” 🌱🌍💚" }
     ],
   },
+  {
+    id: "bird-feeding",
+    title: "Bird Feeding",
+    description: "Providing food and water to birds across the city — ensuring our feathered friends never go hungry or thirsty.",
+    icon: "🐦",
+    date: "Active",
+    coverImage: "/gallery/bird-feeding/bir1.jpeg",
+    images: [
+      { src: "/gallery/bird-feeding/bir1.jpeg", caption: "“Feeding hope, one grain at a time.”" },
+      { src: "/gallery/bird-feeding/bir2.jpeg", caption: "“Be the reason a life feels safe today. Feed, care, protect.”" }
+    ],
+  },
 ];
 
 /* ── Animations ── */
