@@ -15,7 +15,7 @@ const MILESTONES = [
   { year:"2026", title:"NGO Support Programme", desc:"Launched flagship programme to financially support struggling animal welfare NGOs." },
   { year:"2026", title:"India Head Appointed",  desc:"Abhishek Soni takes charge to scale pan-India operations." },
   { year:"2026", title:"Fundraising Head Appointed",  desc:"Hardik Visaria will take the lead of all Fundraising activities." },
-  { year:"2026", title:"First Campaigns Live",  desc:"Cow fed (7,000+), dog cared for (5,000+), girls hygiene (1,200+), education (500+)." },
+  { year:"2026", title:"Impact So Far",  desc:"Cow fed (7,000+), dog cared for (5,000+), girls hygiene (1,200+), education (500+)." },
 ];
 
 const fade = (delay=0, dir='up') => ({

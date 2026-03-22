@@ -53,7 +53,7 @@ const PROGRAMME_DATA = {
     heroImg: "/programmes/education.jpeg",
     description: "Education is the most powerful tool for change. We've provided books, notebooks and geometry box sets to more than 500 students from underprivileged backgrounds. By removing financial barriers to basic school supplies, we ensure that no child's dream of learning is held back by lack of resources.",
     points: [
-      "Textbooks, notebooks, and stationery kits",
+      "Notebooks, and stationery kits",
       "Geometry and compass box sets for every student",
       "School bag distribution drives",
       "Mentorship and tutoring support programs"

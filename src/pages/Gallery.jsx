@@ -49,7 +49,7 @@ const GALLERY_CATEGORIES = [
     title: "Dog Care & Radium Collars",
     description: "Caring for 5,000+ stray dogs and fitting them with glow-in-the-dark radium collar belts to save them from road accidents.",
     icon: "🐕",
-    date: "Coming Soon",
+    date: "Active",
     coverImage: "/gallery/dog-care/dog1.jpeg",
     images: [
       { src: "/gallery/dog-care/dog1.jpeg", caption: "“A small act of kindness can mean a full meal for someone who cannot ask for it. Together, we can make our streets a little more compassionate.” 🐾💛" },
@@ -62,7 +62,7 @@ const GALLERY_CATEGORIES = [
     title: "Girls' Hygiene Drive",
     description: "Distributing sanitary hygiene pads to girls in slum areas — giving them dignity, health and confidence every month.",
     icon: "💜",
-    date: "Coming Soon",
+    date: "Active",
     coverImage: "/gallery/girls-hygiene/gh1.jpeg",
     images: [
       { src: "/gallery/girls-hygiene/gh1.jpeg", caption: "“Dignity begins with care. A small gesture today can bring comfort, confidence, and hope tomorrow.” 🌼💙" },
@@ -78,7 +78,7 @@ const GALLERY_CATEGORIES = [
     title: "Education Support",
     description: "Providing books, stationery and geometric boxes to underprivileged students so no child is denied the right to learn.",
     icon: "📚",
-    date: "Coming Soon",
+    date: "Active",
     coverImage: null,
     images: [],
   },
@@ -87,7 +87,7 @@ const GALLERY_CATEGORIES = [
     title: "Environment & Plantation",
     description: "Plantation drives to combat climate change, deforestation and pollution — building greener, healthier communities.",
     icon: "🌳",
-    date: "Coming Soon",
+    date: "Active",
     coverImage: "/gallery/plantation/plt1.jpeg",
     images: [
       { src: "/gallery/plantation/plt1.jpeg", caption: "“Today we planted a sapling, tomorrow it will grow into hope. Small actions today create a greener, healthier future for all.” 🌱🌍💚" }

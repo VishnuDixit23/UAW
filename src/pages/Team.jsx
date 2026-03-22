@@ -44,7 +44,13 @@ const TEAM = [
     emoji: "❤️",
     img: "/team/hardik-visaria.jpeg",
     imgPosition: "center 15%",
-    bio: "With more than 5 years of experience in retail fundraising, Hardik specializes in Face-to-Face fundraising and tele-calling, building strong relationships with donors and supporters for social causes. He has worked with multiple NGOs and successfully conducted fundraising campaigns across more than seven cities in India — through street campaigns, door-to-door outreach, corporate offices, shopping malls, and airport fundraising. He also brings over one year of experience in customer service and more than six months in sales, reflecting a strong commitment to social impact and community engagement.",
+    bio: `Hardik Visaria is a dynamic fundraising professional and social impact advocate, serving as the Fundraising Head at United for Animal Welfare. With over 5 years of extensive experience in retail fundraising, he specializes in Face-to-Face fundraising and tele-calling, building strong, trust-based relationships with donors, corporate partners, and supporters to drive sustainable contributions for social causes.
+
+He has successfully led and executed high-impact fundraising campaigns across more than seven cities in India, working with multiple non-governmental organizations (NGOs). His expertise spans diverse fundraising environments including street campaigns, door-to-door outreach, corporate offices, shopping malls, and airport fundraising—enabling him to engage with varied audiences and consistently maximize donor participation.
+
+Hardik also brings valuable experience in customer service and sales, which strengthens his ability to communicate effectively, understand stakeholder needs, and deliver measurable results. His strategic approach, combined with strong interpersonal skills, allows him to align fundraising initiatives with CSR objectives, creating meaningful partnerships and long-term impact.
+
+Driven by a deep passion for social causes, Hardik is committed to contributing towards the betterment of society. He believes in creating sustainable change through collaboration, community engagement, and purpose-driven fundraising, making him a key force in advancing the mission of United for Animal Welfare.`,
   },
   {
     name: "Vishwajeet Singh Vishen",
