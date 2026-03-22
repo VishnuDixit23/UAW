@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
-const SECTORS_PRIMARY = ["Children & Education & Literacy","Health & Family Welfare","Women's Development & Empowerment","Animal Welfare 🐾","Youth Sports Development"];
+const SECTORS_PRIMARY = ["Animal Welfare 🐾","Children & Education & Literacy","Health & Family Welfare","Women's Development & Empowerment",,"Youth Sports Development"];
 const SECTORS_SECONDARY = ["Agriculture & Animal Husbandry","Art & Culture","Biotechnology","Civic Issues","Dalit Upliftment","Differently Abled","Disaster Management","Drinking Water","Aged / Elderly","Environment & Forests","Food Processing","HIV/AIDS","Housing","Human Rights","ICT","Labour & Employment","Land Resources","Legal Awareness & Aid","Micro Finance","MSMEs","Minority Issues","New & Renewable Energy","Nutrition","Panchayati Raj","Prisoner's Issues","Right to Information"];
 
 
@@ -71,7 +71,7 @@ export default function About() {
           <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:24 }} className="mv-grid">
             {[
               { icon:Target, title:"Our Mission", bg:"#FFF4EB", border:"#F3842C", iconColor:"#F3842C",
-                text:"To rescue, rehabilitate and rehome animals in need — and to keep the network of small, underfunded NGOs doing this vital work alive through financial support, resources and advocacy. Simultaneously, we serve communities through education, health, and empowerment programmes." },
+                text:"Help animals in need — and to keep the network of small, underfunded NGOs doing this vital work alive through financial support, resources and advocacy. Simultaneously, we serve communities through education, health, and empowerment programmes." },
               { icon:Eye, title:"Our Vision", bg:"#FFF4EB", border:"#F59E4B", iconColor:"#F59E4B",
                 text:"An India where no animal suffers for lack of care, and every passionate animal welfare NGO has the support it needs to survive. A society where humans and animals thrive together, supported by strong community welfare systems." },
             ].map(({icon:Icon,title,bg,border,iconColor,text},i) => (

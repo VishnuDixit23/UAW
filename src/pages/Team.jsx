@@ -28,7 +28,7 @@ const TEAM = [
     emoji: "📋",
     img: "/team/pooja-singh.png",
     imgPosition: "center 12%",
-    bio: "Manages governance, documentation and stakeholder relationships. The backbone of the trust's administrative operations and legal compliance.",
+    bio: "Pooja Singh serves as the Secretary and plays an important role in leading initiatives focused on women empowerment and community welfare. She actively works towards educating young girls about hygiene, health awareness, and personal well-being, helping them build confidence and knowledge for a better future.Her dedication and commitment continue to strengthen the organization’s mission of creating a more inclusive and compassionate society.",
   },
   {
     name: "Abhishek Soni",

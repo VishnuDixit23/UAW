@@ -69,7 +69,6 @@ const PROGRAMME_DATA = {
       "Native tree sapling plantation drives",
       "Regular watering and maintenance by volunteers",
       "Community awareness on environmental conservation",
-      "Partnering with schools for green initiatives"
     ]
   },
   "youth-kickstart": {

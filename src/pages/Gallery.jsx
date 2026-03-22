@@ -39,6 +39,8 @@ const GALLERY_CATEGORIES = [
       { src: "/gallery/youth-kickstart/yk3.jpg", caption: "Team photo after a hard-fought training session on the pitch" },
       { src: "/gallery/youth-kickstart/yk4.jpg", caption: "Champions! The squad celebrates with the trophy after a winning campaign" },
       { src: "/gallery/youth-kickstart/yk5.jpg", caption: "Nutrition matters — players sharing a meal together at the hostel" },
+      { src: "/gallery/youth-kickstart/yk9.jpeg", caption: "“From dreams to the field — where passion meets opportunity.”" },
+      { src: "/gallery/youth-kickstart/yk10.jpeg", caption: "“Stronger together — on and off the field.”" }
     ],
   },
   // Placeholder categories — will be populated later
@@ -68,7 +70,7 @@ const GALLERY_CATEGORIES = [
       { src: "/gallery/girls-hygiene/gh3.jpeg", caption: "“Not just essentials, but respect and compassion—delivered hand to hand.” 🤝💛" },
       { src: "/gallery/girls-hygiene/gh4.jpeg", caption: "“Every packet carries more than aid—it carries reassurance that someone cares.” 🌸📦" },
       { src: "/gallery/girls-hygiene/gh5.jpeg", caption: "“Hope grows where care is shared. Together, we’re building healthier, safer futures for every woman and child.” 🌱❤️" },
-      { src: "/gallery/girls-hygiene/gh6.mp4", caption: "Distribution with smiles" }
+      { src: "/gallery/girls-hygiene/gh6.mp4", caption: "“Dignity, health, and confidence — every girl deserves it.”" }
     ],
   },
   {

@@ -4,8 +4,7 @@
     "members": [
       { "name": "Shivajee Vishen",          "designation": "Founder",            "image": "/TeamImages/founder.jpg",     "linkedin": "", "instagram": "" },
       { "name": "Pooja Singh",              "designation": "Secretary",           "image": "/TeamImages/secretary.jpg",   "linkedin": "", "instagram": "" },
-      { "name": "Jitendra Gurjar",          "designation": "Vice President",      "image": "/TeamImages/vp.jpg",          "linkedin": "", "instagram": "" },
-      { "name": "Amit Agrawal",             "designation": "Treasurer",           "image": "/TeamImages/treasurer.jpg",   "linkedin": "", "instagram": "" }
+      { "name": "Jitendra Gurjar",          "designation": "Vice President",      "image": "/TeamImages/vp.jpg",          "linkedin": "", "instagram": "" }
     ]
   },
   {

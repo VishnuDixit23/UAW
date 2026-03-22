@@ -7,7 +7,7 @@ const impactStories = {
   rescue: {
     title: "Emergency Rescue Operations",
     subtitle: "Every Call Saves a Life",
-    tagline: "24/7 RESCUE HOTLINE",
+    tagline: "CARE HOTLINE",
     description: "ON THE GROUND, EVERY DAY",
     infoText: "Our rescue teams respond to hundreds of emergency calls every month across Jaipur and surrounding districts.",
     videoSrc: "/video/rescue.mp4",
