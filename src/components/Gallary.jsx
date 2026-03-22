@@ -7,13 +7,13 @@ const Gallary = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const galleryImages = [
-    { id: 1, src: mun1, alt: "Rescued dog receiving care",    caption: "Bruno — rescued from a road accident, now thriving" },
+    { id: 1, src: mun1, alt: "Dog receiving care",    caption: "Bruno — receiving daily meals, now thriving" },
     { id: 2, src: mun2, alt: "Shelter feeding time",          caption: "Morning feeding at our Jaipur shelter" },
-    { id: 3, src: mun3, alt: "Vet examining a rescued cat",   caption: "Dr. Nisha conducting triage on a newly rescued cat" },
+    { id: 3, src: mun3, alt: "Vet examining a cat",   caption: "Dr. Nisha conducting checkup on a street cat" },
     { id: 4, src: mun4, alt: "Adoption day event",            caption: "Adoption drive — 12 animals found homes in one day" },
     { id: 5, src: mun5, alt: "Volunteers with animals",       caption: "Our incredible volunteer team at the shelter" },
-    { id: 6, src: mun6, alt: "Rescued cow at sanctuary",      caption: "Gauri — rescued from an illegal slaughterhouse" },
-    { id: 7, src: mun7, alt: "Bird rehabilitation",           caption: "Injured pigeon recovering after manja string rescue" },
+    { id: 6, src: mun6, alt: "Cow at shelter",      caption: "Gauri — receiving nutritious meals and care" },
+    { id: 7, src: mun7, alt: "Bird rehabilitation",           caption: "Street pigeon recovering nicely" },
     { id: 8, src: mun8, alt: "NGO team visit",                caption: "Field visit to a supported NGO in Ajmer" },
     { id: 9, src: mun9, alt: "Animal camp for strays",        caption: "Free veterinary camp for strays in Tonk" },
   ];
@@ -26,7 +26,7 @@ const Gallary = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-[#1A140C] mt-3">
             Our <span className="text-[#1E5C3A]">Gallery</span>
           </h2>
-          <p className="text-[#6B5642] mt-4 text-lg max-w-xl mx-auto">Real moments from our rescue operations, shelters, and NGO partnerships.</p>
+          <p className="text-[#6B5642] mt-4 text-lg max-w-xl mx-auto">Real moments from our feeding drives, shelters, and NGO partnerships.</p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">

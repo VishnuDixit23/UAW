@@ -18,9 +18,9 @@ const GALLERY_CATEGORIES = [
     date: "Ongoing since 2026",
     coverImage: "/gallery/cow-feeding/cow1.jpg",
     images: [
-      { src: "/gallery/cow-feeding/cow1.jpg", caption: "Feeding green fodder to a rescued cow at the shelter" },
+      { src: "/gallery/cow-feeding/cow1.jpg", caption: "Feeding green fodder to a cow at the shelter" },
       { src: "/gallery/cow-feeding/cow2.jpg", caption: "A heartwarming moment — a young child bonds with a calf" },
-      { src: "/gallery/cow-feeding/cow3.jpg", caption: "Caring for a young calf rescued from the streets" },
+      { src: "/gallery/cow-feeding/cow3.jpg", caption: "Caring for a young calf living on the streets" },
       { src: "/gallery/cow-feeding/cow7.jpeg", caption: "🐄" },
       { src: "/gallery/cow-feeding/cow8.jpeg", caption: "🐮" },
       { src: "/gallery/cow-feeding/cow9.jpeg", caption: "🤠" }

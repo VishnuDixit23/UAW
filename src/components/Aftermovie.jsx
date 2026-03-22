@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 
 const impactStories = {
   rescue: {
-    title: "Emergency Rescue Operations",
+    title: "Daily Feeding & Care",
     subtitle: "Every Call Saves a Life",
     tagline: "CARE HOTLINE",
     description: "ON THE GROUND, EVERY DAY",
-    infoText: "Our rescue teams respond to hundreds of emergency calls every month across Jaipur and surrounding districts.",
+    infoText: "Our teams distribute nutritious meals across Jaipur and surrounding districts.",
     videoSrc: "/video/rescue.mp4",
     thumbnailSrc: "/bg1.jpg",
-    thumbnailAlt: "Animal rescue operation",
+    thumbnailAlt: "Animal feeding",
     emoji: "🚑",
   },
   shelter: {
@@ -20,7 +20,7 @@ const impactStories = {
     subtitle: "A Safe Haven for Every Animal",
     tagline: "HEALING WITH LOVE",
     description: "FROM INJURY TO ADOPTION",
-    infoText: "Our rehabilitation shelters provide round-the-clock medical care, nutrition and enrichment for rescued animals.",
+    infoText: "Our rehabilitation shelters provide round-the-clock medical care, nutrition and enrichment for street animals.",
     videoSrc: "/video/shelter.mp4",
     thumbnailSrc: "/bg 2.jpg",
     thumbnailAlt: "Animal shelter care",
@@ -76,7 +76,7 @@ const AfterMovie = () => {
                   activeTab === key ? "bg-[#1E5C3A] text-white shadow-md" : "text-[#6B5642] hover:text-[#1E5C3A]"
                 }`}>
                 <span>{story.emoji}</span>
-                <span className="hidden sm:inline capitalize">{key === "ngo" ? "NGO Support" : key === "rescue" ? "Rescue" : "Shelter"}</span>
+                <span className="hidden sm:inline capitalize">{key === "ngo" ? "NGO Support" : key === "rescue" ? "Feeding Drives" : "Shelter"}</span>
               </button>
             ))}
           </div>

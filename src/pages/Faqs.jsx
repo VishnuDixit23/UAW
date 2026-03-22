@@ -6,11 +6,11 @@ import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
 const FAQS = [
-  { q:"What is United for Animal Welfare?", a:"We are a registered Public Trust (Rajasthan, 2026) founded by Shivajee Vishen. Our primary focus is Animal Welfare alongside Children's Education, and Women's Empowerment. We rescue animals, support collapsing NGOs, and run daily feeding, hygiene and education programmes." },
-  { q:"How is my donation used?", a:"85% of donations go directly to animal rescue operations and NGO support. The remaining 15% covers operational costs." },
+  { q:"What is United for Animal Welfare?", a:"We are a registered Public Trust (Rajasthan, 2026) founded by Shivajee Vishen. Our primary focus is Animal Welfare alongside Children's Education, and Women's Empowerment. We care for street animals, support collapsing NGOs, and run daily feeding, hygiene and education programmes." },
+  { q:"How is my donation used?", a:"85% of donations go directly to animal feeding operations and NGO support. The remaining 15% covers operational costs." },
   { q:"Can I get a tax receipt?", a:"Yes! We are registered as a Public Trust in Rajasthan. You will receive a receipt by email within 5 working days. Please provide your PAN number for 80-G tax benefits." },
   { q:"Which NGOs do you support?", a:"We support local NGOs and we help them providing food for animals and medical facilities." },
-  { q:"How can I volunteer?", a:"Contact us via the form or reach Vishwajeet Singh Vishen (Senior Coordinator) directly. We have programmes for rescue operations, shelter care, awareness campaigns, and fundraising events." },
+  { q:"How can I volunteer?", a:"Contact us via the form or reach Vishwajeet Singh Vishen (Senior Coordinator) directly. We have programmes for feeding drives, animal care, awareness campaigns, and fundraising events." },
   { q:"Can I sponsor a specific animal or NGO?", a:"Yes! We have animal and NGO sponsorship programmes with monthly impact updates and photos. Contact Hardik Visaria (Fundraising Head) for customised arrangements." },
   { q:"Do you accept in-kind donations?", a:"Yes — animal food, medicines, blankets, cages, stationery and more. Contact us to coordinate a drop-off or collection in Rajasthan." },
   { q:"Are monthly donations possible?", a:"Absolutely, and we strongly encourage it. Monthly donors provide the most stable support. You can set up recurring donations on our Donate page and cancel anytime." },

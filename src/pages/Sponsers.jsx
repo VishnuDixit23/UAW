@@ -9,13 +9,13 @@ const PARTNERS = [
   { name:"Wildlife Trust India", type:"Gold Partner",     emoji:"🦁" },
   { name:"Petcare India",        type:"Silver Partner",   emoji:"🐕" },
   { name:"Blue Cross Society",   type:"Silver Partner",   emoji:"💙" },
-  { name:"Animal Aid Unlimited", type:"Rescue Partner",   emoji:"🐄" },
+  { name:"Animal Aid Unlimited", type:"Care Partner",   emoji:"🐄" },
   { name:"PETA India",           type:"Advocacy Partner", emoji:"✊" },
 ];
 const TIERS = [
   { tier:"Bronze", amount:"₹25,000", color:"var(--c-pale)", border:"var(--c-leaf)", label:"var(--c-forest)", benefits:["Logo on website","Social media mention","Impact report","Certificate of partnership"] },
   { tier:"Silver", amount:"₹50,000", color:"var(--c-amber-pale)", border:"var(--c-amber-light)", label:"var(--c-amber)", benefits:["All Bronze benefits","Co-branded campaigns","Volunteer day for your team","Event visibility"] },
-  { tier:"Gold",   amount:"₹1,00,000+", color:"var(--c-pale)", border:"var(--c-forest)", label:"var(--c-forest)", benefits:["All Silver benefits","Naming rights for a rescue unit","Press coverage","Board-level engagement"] },
+  { tier:"Gold",   amount:"₹1,00,000+", color:"var(--c-pale)", border:"var(--c-forest)", label:"var(--c-forest)", benefits:["All Silver benefits","Naming rights for a care and feeding unit","Press coverage","Board-level engagement"] },
 ];
 const fade = (d=0) => ({ initial:{opacity:0,y:22}, whileInView:{opacity:1,y:0}, transition:{duration:0.65,delay:d,ease:[0.22,1,0.36,1]}, viewport:{once:true} });
 

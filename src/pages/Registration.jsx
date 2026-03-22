@@ -20,7 +20,7 @@ export default function Registration() {
           </h1>
           <div className="divider" style={{ margin: "0 auto 20px" }} />
           <p style={{ fontFamily: "var(--f-body)", fontSize: "1rem", color: "rgba(255,255,255,0.58)", maxWidth: 500, margin: "0 auto" }}>
-            Your donation goes directly to animal rescue and keeping NGOs alive.
+            Your donation goes directly to animal feeding and care and keeping NGOs alive.
           </p>
         </div>
       </div>

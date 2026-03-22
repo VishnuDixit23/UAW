@@ -12,7 +12,7 @@ const TEAM = [
     emoji: "🌱",
     img: "/team/shivajee-vishen.jpeg",
     imgPosition: "center 15%",
-    bio: "A compassionate leader with over a decade of hands-on experience in animal welfare. His vision spans animal rescue, education for underprivileged students, hygiene support for girls, and youth sports development — including over a year of support for the Jaipur City Football Club. Humble, action-oriented, and driven by purpose.",
+    bio: "A compassionate leader with over a decade of hands-on experience in animal welfare. His vision spans animal care and feeding, education for underprivileged students, hygiene support for girls, and youth sports development — including over a year of support for the Jaipur City Football Club. Humble, action-oriented, and driven by purpose.",
   },
   {
     name: "Jitendra Gurjar",

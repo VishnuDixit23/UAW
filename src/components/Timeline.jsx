@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const timelineData = {
   rescue: [
     { time: "06:00 AM", event: "Morning Feeding Round",      description: "All animals in our shelters receive their morning feed and health check." },
-    { time: "08:00 AM", event: "Rescue Team Dispatch",       description: "Teams dispatched to respond to overnight emergency calls." },
+    { time: "08:00 AM", event: "Feeding Team Dispatch",       description: "Teams dispatched to distribute nutritious food to street animals." },
     { time: "10:00 AM", event: "Vet Consultation Hours",     description: "In-house vet sees newly arrived animals for triage and treatment plans." },
     { time: "12:30 PM", event: "Midday Care & Enrichment",   description: "Volunteers provide enrichment activities and socialisation for shelter animals." },
     { time: "03:00 PM", event: "Adoption Visits",            description: "Prospective adopters visit and meet available animals under staff supervision." },
@@ -37,7 +37,7 @@ const MunTimeline = () => {
         <div className="flex justify-center mb-10">
           <div className="inline-flex bg-[#D8EFDF]/40 border border-[#E8DDD0] rounded-full p-1">
             {[
-              { key: "rescue", label: "🐾 Rescue Shelter" },
+              { key: "rescue", label: "🐾 Animal Feeding" },
               { key: "ngo",    label: "🌿 NGO Support" },
             ].map(({ key, label }) => (
               <button key={key} onClick={() => setActiveTab(key)}

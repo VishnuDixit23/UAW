@@ -6,10 +6,10 @@ import { AlertTriangle, Heart } from "lucide-react";
 
 const ngos = [
   { name:"Paws of Hope, Jaipur",    animals:120, risk:"Critical", since:2015, desc:"Cares for stray dogs and cats in the walled city area. Currently unable to pay vet bills." },
-  { name:"Green Wings Sanctuary",   animals:85,  risk:"Critical", since:2018, desc:"The only bird rescue centre in Rajasthan. Funding has dried up after key donor withdrawal." },
+  { name:"Green Wings Sanctuary",   animals:85,  risk:"Critical", since:2018, desc:"The only bird care centre in Rajasthan. Funding has dried up after key donor withdrawal." },
   { name:"Cow Care Trust, Ajmer",   animals:200, risk:"High",     since:2009, desc:"Gaushala serving 200 cows. Struggling to buy fodder after local government grants ended." },
   { name:"Stray Strong Network",    animals:65,  risk:"High",     since:2020, desc:"Runs ABC (Animal Birth Control) programme for strays across 4 districts. Underfunded." },
-  { name:"Desert Animal Rescue",    animals:40,  risk:"Moderate", since:2017, desc:"Rescues wild animals from the Thar Desert region. Staff have not been paid in 2 months." },
+  { name:"Desert Animal Care",    animals:40,  risk:"Moderate", since:2017, desc:"Cares for wild animals from the Thar Desert region. Staff have not been paid in 2 months." },
   { name:"River Dolphin Foundation",animals:12,  risk:"Moderate", since:2016, desc:"Protects the critically endangered Gangetic dolphin. Research funding depleted." },
 ];
 

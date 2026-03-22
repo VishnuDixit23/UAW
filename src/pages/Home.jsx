@@ -438,7 +438,7 @@ export default function Home() {
               Be the Reason an <span className="text-green-grad">Animal Survives Today</span>
             </h2>
             <p style={{ fontFamily:"var(--f-body)", fontSize:"1.05rem", color:"var(--c-bark-muted)", lineHeight:1.75, maxWidth:480, margin:"0 auto 40px" }}>
-              A small donation keeps our feeding drives running, funds a rescue operation, or ensures a girl in a slum receives her hygiene kit.
+              A small donation keeps our feeding drives running, provides a meal for an animal in need, or ensures a girl in a slum receives her hygiene kit.
             </p>
             <Link to="/registration">
               <motion.span className="btn btn-amber btn-lg" style={{ display:"inline-flex", fontSize:"1.1rem" }} whileHover={{ scale:1.05 }} whileTap={{ scale:0.97 }}>
