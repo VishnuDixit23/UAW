@@ -24,7 +24,7 @@ const PROGRAMME_DATA = {
     title: "Dog Care & Radium Collars",
     tagline: "Protecting 5,000+ Street Dogs",
     icon: "🐕",
-    heroImg: "/programmes/collar.jpeg",
+    heroImg: "/programmes/dog-care-new.jpg",
     description: "Street dogs face grave danger from speeding vehicles, especially at night. Our Radium Collar Belt initiative has provided stray dogs with reflective, glowing collars that make them visible to drivers after dark. This simple yet life-saving measure has significantly reduced nighttime road accidents involving animals.",
     points: [
       "Reflective radium collar belts for nighttime visibility",
@@ -63,7 +63,7 @@ const PROGRAMME_DATA = {
     title: "Environment & Plantation",
     tagline: "Planting for a Greener Tomorrow",
     icon: "🌳",
-    heroImg: "/programmes/environment.jpeg",
+    heroImg: "/programmes/environment-new.jpg",
     description: "Climate change and deforestation are pressing issues. Our plantation drives focus on planting native, shade-giving and fruit-bearing trees across urban areas. We don't just plant them, we ensure they are watered and protected until they are self-sustaining.",
     points: [
       "Native tree sapling plantation drives",
