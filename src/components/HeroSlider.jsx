@@ -45,7 +45,7 @@ const HeroSlider = ({ images }) => {
       {/* Sidebar Social Media Icons - Hidden on small screens */}
       <div className="absolute left-4 md:left-5 top-1/3 space-y-3 md:space-y-4 z-10 hidden sm:block">
         {[
-          { Icon: FaFacebookF, url: "#" },
+          { Icon: FaFacebookF, url: "https://www.facebook.com/share/1AqD4wWaip/?mibextid=wwXIfr" },
           { Icon: FaInstagram, url: "https://www.instagram.com/unitedforanimalwelfare?igsh=bTZlN3ZhemNwZnNr&utm_source=qr" },
           { Icon: FaLinkedinIn, url: "#" },
           { Icon: FaDiscord, url: "#" },
@@ -69,7 +69,7 @@ const HeroSlider = ({ images }) => {
       {/* Mobile Social Icons Row */}
       <div className="fixed bottom-4 left-0 right-0 flex justify-center space-x-3 z-50 sm:hidden">
         {[
-          { Icon: FaFacebookF, url: "#" },
+          { Icon: FaFacebookF, url: "https://www.facebook.com/share/1AqD4wWaip/?mibextid=wwXIfr" },
           { Icon: FaInstagram, url: "https://www.instagram.com/unitedforanimalwelfare?igsh=bTZlN3ZhemNwZnNr&utm_source=qr" },
           { Icon: FaLinkedinIn, url: "#" },
           { Icon: FaDiscord, url: "#" },

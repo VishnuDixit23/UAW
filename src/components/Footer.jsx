@@ -47,7 +47,7 @@ export default function Footer() {
                 { Icon: FaInstagram, url: "https://www.instagram.com/unitedforanimalwelfare?igsh=bTZlN3ZhemNwZnNr&utm_source=qr" },
                 { Icon: FaYoutube, url: "https://www.youtube.com/@UNITEDFORANIMALWELFARE" },
                 { Icon: FaLinkedinIn, url: "#" },
-                { Icon: FaFacebookF, url: "#" },
+                { Icon: FaFacebookF, url: "https://www.facebook.com/share/1AqD4wWaip/?mibextid=wwXIfr" },
                 { Icon: FaWhatsapp, url: "#" }
               ].map(({Icon, url},i) => (
                 <motion.a key={i} href={url} target="_blank" rel="noopener noreferrer"
