@@ -10,7 +10,6 @@ const CONTACTS = [
   { Icon:MapPin,       title:"Location",          l1:"Basement Floor, Plot No 20, Chaudhary Nagar 2nd,",  l2:"Budhsinghpura, Sanganer, Jaipur, Rajasthan - 302029" },
   { Icon:Phone,        title:"Call / WhatsApp",   l1:"+91 7976606854",                    l2:"Mon–Sat, 9 AM – 6 PM" },
   { Icon:Mail,         title:"Email",             l1:"contact@unitedforanimalwelfare.org", l2:"Reply within 24 hours" },
-  { Icon:AlertCircle,  title:"Animal Emergency",  l1:"Rescue Hotline (24/7):",             l2:"+91 7976606854" },
 ];
 const KEY_PEOPLE = [
   { name:"Abhishek Soni",          role:"India Head",         note:"NGO partnerships & national ops" },
@@ -41,9 +40,6 @@ export default function ContactUs() {
             Get In <span style={{ color:"#F3842C" }}>Touch</span>
           </h1>
           <div className="divider" style={{ margin:"0 auto 20px" }} />
-          <p style={{ fontFamily:"var(--f-body)", fontSize:"1rem", color:"rgba(255,255,255,0.58)", maxWidth:520, margin:"0 auto" }}>
-            Have a question, want to volunteer, or need emergency animal rescue? We're here 24/7.
-          </p>
         </div>
       </div>
 

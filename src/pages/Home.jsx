@@ -94,7 +94,7 @@ export default function Home() {
       <Navbar />
 
       {/* ═══════════ HERO ═══════════ */}
-      <section ref={heroRef} style={{ position:"relative", height:"75vh", minHeight:"480px", maxHeight:"800px", display:"flex", alignItems:"center", justifyContent:"center", overflow:"hidden" }}>
+      <section ref={heroRef} style={{ position:"relative", height:"100vh", minHeight:"650px", maxHeight:"1000px", display:"flex", alignItems:"center", justifyContent:"center", overflow:"hidden", paddingTop:"80px" }}>
 
         {/* ── Background Image Slideshow ── */}
         <AnimatePresence mode="sync">
@@ -169,10 +169,10 @@ export default function Home() {
           </motion.div>
 
           {/* Headline */}
-          <motion.h1 {...fadeUp(0.14)} style={{ fontFamily:"var(--f-display)", fontSize:"clamp(3.2rem,10vw,8rem)", fontWeight:700, color:"white", lineHeight:0.95, marginBottom:6, letterSpacing:"-0.01em", textShadow:"0 4px 30px rgba(0,0,0,0.4)" }}>
+          <motion.h1 {...fadeUp(0.14)} style={{ fontFamily:"var(--f-display)", fontSize:"clamp(2.5rem,8vw,6.5rem)", fontWeight:700, color:"white", lineHeight:0.95, marginBottom:6, letterSpacing:"-0.01em", textShadow:"0 4px 30px rgba(0,0,0,0.4)" }}>
             United For
           </motion.h1>
-          <motion.h2 {...fadeUp(0.20)} style={{ fontFamily:"var(--f-display)", fontSize:"clamp(2.8rem,9vw,7.2rem)", fontWeight:700, lineHeight:1.0, marginBottom:16, letterSpacing:"-0.01em", background:"linear-gradient(135deg, #F3842C, #F59E4B)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text", filter:"drop-shadow(0 2px 10px rgba(243,132,44,0.3))" }}>
+          <motion.h2 {...fadeUp(0.20)} style={{ fontFamily:"var(--f-display)", fontSize:"clamp(2.2rem,7.5vw,5.8rem)", fontWeight:700, lineHeight:1.0, marginBottom:16, letterSpacing:"-0.01em", background:"linear-gradient(135deg, #F3842C, #F59E4B)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text", filter:"drop-shadow(0 2px 10px rgba(243,132,44,0.3))" }}>
             Animal Welfare
           </motion.h2>
           <motion.p {...fadeUp(0.26)} style={{ fontFamily:"var(--f-body)", fontSize:"0.85rem", fontWeight:600, letterSpacing:"0.22em", textTransform:"uppercase", color:"rgba(255,255,255,0.55)", marginBottom:16 }}>
@@ -290,9 +290,7 @@ export default function Home() {
               <p style={{ fontFamily:"var(--f-body)", fontSize:"1.02rem", color:"var(--c-bark-muted)", lineHeight:1.8, letterSpacing:"0.005em", marginBottom:16 }}>
                 <strong style={{ color:"#F3842C" }}>United for Animal Welfare</strong> is a registered Public Trust (Rajasthan, 2026) founded by <strong>Shivajee Vishen</strong>. Our team has fed 7,000+ street cows, cared for 5,000+ dogs, and distributed hygiene kits to girls in slums.
               </p>
-              <p style={{ fontFamily:"var(--f-body)", fontSize:"1.02rem", color:"var(--c-bark-muted)", lineHeight:1.8, letterSpacing:"0.005em", marginBottom:28 }}>
-                We also fight for the survival of animal NGOs on the verge of collapse — because when they shut down, hundreds of animals lose their only source of care.
-              </p>
+
 
               <div className="trust-card" style={{ marginBottom:28 }}>
                 <p style={{ fontFamily:"var(--f-body)", fontSize:"0.65rem", fontWeight:700, letterSpacing:"0.18em", textTransform:"uppercase", color:"#F3842C", marginBottom:14 }}>Trust Details</p>

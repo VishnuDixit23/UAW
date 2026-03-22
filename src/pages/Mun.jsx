@@ -28,8 +28,8 @@ const initiatives = [
     description: "Our largest ongoing initiative we have fed more than 7,000 street cows across the city . Our dedicated volunteers prepare and distribute nutritious fodder to these gentle animals who often go hungry on busy roads. Caring for these sacred beings is not just an act of kindness — it's a responsibility we all share.",
     highlights: [
       "Daily feeding drives across multiple city zones",
-      "Nutritious fodder mix prepared with veterinary guidance",
-      "Medical check-ups for injured or sick street cows",
+      "Offering fresh fodder and jaggery to street cows",
+      "Ensuring clean drinking water availability",
       "Community awareness about cow welfare",
     ],
     image: "/initiatives/cow-feeding-new.jpeg",
@@ -43,9 +43,9 @@ const initiatives = [
     description: "Street dogs face grave danger from speeding vehicles, especially at night. Our Radium Collar Belt initiative has provided stray dogs with reflective, glowing collars that make them visible to drivers after dark. This simple yet life-saving measure has significantly reduced nighttime road accidents involving animals.",
     highlights: [
       "Reflective radium collar belts for nighttime visibility",
-      "Anti-rabies vaccination drives",
-      "Sterilization (ABC) program partnerships",
-      "Rescue and rehabilitation of injured dogs",
+      "Daily food distribution for street dogs",
+      "Providing nutritious meals to keep them healthy",
+      "Ensuring they have access to clean water",
     ],
     image: "/initiatives/dog-safety-new.jpeg",
     stat: "5,000+", statLabel: "Dogs Protected",
