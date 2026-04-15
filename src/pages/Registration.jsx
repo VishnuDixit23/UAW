@@ -1,9 +1,105 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Wrench, ArrowLeft, Heart, Clock } from "lucide-react";
+import { Heart, ArrowLeft, Copy, Check, Building2, MapPin, CreditCard, Landmark } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+
+function CopyButton({ text }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <motion.button
+      onClick={handleCopy}
+      whileHover={{ scale: 1.08 }}
+      whileTap={{ scale: 0.92 }}
+      style={{
+        background: copied ? "#E8F5E9" : "#FFF4EB",
+        border: copied ? "1px solid rgba(76,175,80,0.3)" : "1px solid rgba(243,132,44,0.2)",
+        borderRadius: 8,
+        padding: "6px 8px",
+        cursor: "pointer",
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 4,
+        transition: "all 0.25s ease",
+      }}
+      title="Copy to clipboard"
+    >
+      {copied ? (
+        <Check style={{ width: 14, height: 14, color: "#4CAF50" }} />
+      ) : (
+        <Copy style={{ width: 14, height: 14, color: "#F3842C" }} />
+      )}
+      <span style={{
+        fontFamily: "var(--f-body)",
+        fontSize: "0.7rem",
+        fontWeight: 600,
+        color: copied ? "#4CAF50" : "#F3842C",
+      }}>
+        {copied ? "Copied!" : "Copy"}
+      </span>
+    </motion.button>
+  );
+}
+
+function DetailRow({ icon: Icon, label, value, copyable = false, mono = false }) {
+  return (
+    <div style={{
+      display: "flex",
+      alignItems: "flex-start",
+      gap: 14,
+      padding: "18px 0",
+      borderBottom: "1px solid rgba(0,0,0,0.05)",
+    }}>
+      <div style={{
+        width: 42,
+        height: 42,
+        borderRadius: 12,
+        background: "linear-gradient(145deg, #FFF4EB, #FFE8D6)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexShrink: 0,
+      }}>
+        <Icon style={{ width: 18, height: 18, color: "#F3842C" }} />
+      </div>
+      <div style={{ flex: 1, textAlign: "left" }}>
+        <p style={{
+          fontFamily: "'Outfit', sans-serif",
+          fontSize: "0.75rem",
+          fontWeight: 600,
+          color: "var(--c-bark-muted)",
+          letterSpacing: "0.08em",
+          textTransform: "uppercase",
+          marginBottom: 6,
+        }}>
+          {label}
+        </p>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+          <p style={{
+            fontFamily: mono ? "'IBM Plex Mono', monospace" : "'Outfit', sans-serif",
+            fontSize: mono ? "1.08rem" : "1.1rem",
+            fontWeight: mono ? 500 : 600,
+            color: "var(--c-bark)",
+            lineHeight: 1.45,
+            wordBreak: "break-word",
+            letterSpacing: mono ? "0.04em" : "0.005em",
+          }}>
+            {value}
+          </p>
+          {copyable && <CopyButton text={value} />}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Registration() {
   return (
@@ -25,8 +121,8 @@ export default function Registration() {
         </div>
       </div>
 
-      {/* ── UNDER MAINTENANCE CARD ── */}
-      <div className="section-container" style={{ paddingTop: 60, paddingBottom: 80, maxWidth: 640 }}>
+      {/* ── DONATION DETAILS CARD ── */}
+      <div className="section-container" style={{ paddingTop: 60, paddingBottom: 80, maxWidth: 680 }}>
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
@@ -34,96 +130,159 @@ export default function Registration() {
           style={{
             background: "white",
             borderRadius: 28,
-            padding: "60px 44px",
-            textAlign: "center",
+            padding: "48px 40px",
             boxShadow: "0 8px 40px rgba(0,0,0,0.08)",
             border: "1px solid rgba(0,0,0,0.06)",
           }}
         >
-          {/* Animated Icon */}
+          {/* Header Icon */}
+          <div style={{ textAlign: "center", marginBottom: 28 }}>
+            <motion.div
+              animate={{ scale: [1, 1.06, 1] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+              style={{
+                width: 80,
+                height: 80,
+                borderRadius: 22,
+                background: "linear-gradient(145deg, #FFF4EB, #FFE8D6)",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 8px 24px rgba(243,132,44,0.15)",
+                border: "1px solid rgba(243,132,44,0.12)",
+              }}
+            >
+              <Landmark style={{ width: 36, height: 36, color: "#F3842C" }} />
+            </motion.div>
+
+            <h2 style={{
+              fontFamily: "var(--f-display)",
+              fontSize: "1.65rem",
+              fontWeight: 700,
+              color: "var(--c-bark)",
+              marginTop: 20,
+              marginBottom: 8,
+              lineHeight: 1.2,
+            }}>
+              Bank Transfer Details
+            </h2>
+
+            <div style={{ width: 48, height: 3, background: "linear-gradient(90deg, #F3842C, #F59E4B)", borderRadius: 2, margin: "0 auto 10px" }} />
+
+            <p style={{
+              fontFamily: "var(--f-body)",
+              fontSize: "0.92rem",
+              color: "var(--c-bark-muted)",
+              lineHeight: 1.65,
+              maxWidth: 440,
+              margin: "0 auto",
+            }}>
+              Use the details below to make a direct bank transfer. Every contribution makes a difference!
+            </p>
+          </div>
+
+          {/* Details */}
+          <div style={{
+            background: "#FAFAF8",
+            borderRadius: 18,
+            padding: "8px 24px",
+            border: "1px solid rgba(0,0,0,0.04)",
+          }}>
+            <DetailRow
+              icon={Building2}
+              label="Organisation Name"
+              value="United for Animal Welfare"
+            />
+            <DetailRow
+              icon={CreditCard}
+              label="Account Number"
+              value="2602221612905715"
+              copyable
+              mono
+            />
+            <DetailRow
+              icon={Landmark}
+              label="IFSC Code"
+              value="AUBL0002216"
+              copyable
+              mono
+            />
+            <div style={{
+              display: "flex",
+              alignItems: "flex-start",
+              gap: 14,
+              padding: "18px 0",
+            }}>
+              <div style={{
+                width: 42,
+                height: 42,
+                borderRadius: 12,
+                background: "linear-gradient(145deg, #FFF4EB, #FFE8D6)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
+              }}>
+                <MapPin style={{ width: 18, height: 18, color: "#F3842C" }} />
+              </div>
+              <div style={{ flex: 1, textAlign: "left" }}>
+                <p style={{
+                  fontFamily: "'Outfit', sans-serif",
+                  fontSize: "0.75rem",
+                  fontWeight: 600,
+                  color: "var(--c-bark-muted)",
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  marginBottom: 6,
+                }}>
+                  Branch Address
+                </p>
+                <p style={{
+                  fontFamily: "'Outfit', sans-serif",
+                  fontSize: "0.95rem",
+                  fontWeight: 500,
+                  color: "var(--c-bark)",
+                  lineHeight: 1.6,
+                }}>
+                  Pratap Nagar Jaipur, Ground &amp; First Floor,<br />
+                  P. No- 83/141, Haldighati Marg,<br />
+                  Sector 8, Pratap Nagar
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Trust Note */}
           <motion.div
-            animate={{ rotate: [0, 15, -15, 10, -10, 0] }}
-            transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
             style={{
-              width: 88,
-              height: 88,
-              borderRadius: 24,
-              background: "linear-gradient(145deg, #FFF4EB, #FFE8D6)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              margin: "0 auto 28px",
-              boxShadow: "0 8px 24px rgba(243,132,44,0.15)",
-              border: "1px solid rgba(243,132,44,0.12)",
+              gap: 8,
+              background: "#FFF8ED",
+              border: "1px solid rgba(243,132,44,0.15)",
+              borderRadius: 14,
+              padding: "14px 20px",
+              marginTop: 24,
             }}
           >
-            <Wrench style={{ width: 40, height: 40, color: "#F3842C" }} />
-          </motion.div>
-
-          <h2 style={{
-            fontFamily: "var(--f-display)",
-            fontSize: "1.8rem",
-            fontWeight: 700,
-            color: "var(--c-bark)",
-            marginBottom: 12,
-            lineHeight: 1.2,
-          }}>
-            Under Maintenance
-          </h2>
-
-          <div style={{ width: 48, height: 3, background: "linear-gradient(90deg, #F3842C, #F59E4B)", borderRadius: 2, margin: "0 auto 20px" }} />
-
-          <p style={{
-            fontFamily: "var(--f-body)",
-            fontSize: "1rem",
-            color: "var(--c-bark-muted)",
-            lineHeight: 1.75,
-            maxWidth: 420,
-            margin: "0 auto 12px",
-          }}>
-            We're currently upgrading our donation system to serve you better. This page will be back up shortly!
-          </p>
-
-          <p style={{
-            fontFamily: "var(--f-body)",
-            fontSize: "0.88rem",
-            color: "var(--c-bark-muted)",
-            lineHeight: 1.65,
-            maxWidth: 400,
-            margin: "0 auto 32px",
-          }}>
-            In the meantime, you can reach out to us directly via our contact page to make a donation or learn more.
-          </p>
-
-          {/* Status Badge */}
-          <div style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 8,
-            background: "#FFF8ED",
-            border: "1px solid rgba(243,132,44,0.2)",
-            borderRadius: 99,
-            padding: "8px 20px",
-            marginBottom: 32,
-          }}>
-            <motion.div
-              animate={{ opacity: [1, 0.4, 1] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              style={{ width: 8, height: 8, borderRadius: "50%", background: "#F3842C" }}
-            />
+            <Heart style={{ width: 16, height: 16, color: "#F3842C", fill: "#F3842C" }} />
             <span style={{
               fontFamily: "var(--f-body)",
-              fontSize: "0.75rem",
-              fontWeight: 600,
-              color: "#F3842C",
-              letterSpacing: "0.04em",
+              fontSize: "0.82rem",
+              fontWeight: 500,
+              color: "#8B5E3C",
+              lineHeight: 1.5,
             }}>
-              Maintenance in progress
+              100% of your donation goes directly towards animal welfare — feeding &amp; care.
             </span>
-          </div>
+          </motion.div>
 
           {/* Action Buttons */}
-          <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14, marginTop: 28 }}>
             <Link to="/contact">
               <motion.span
                 className="btn btn-amber"
@@ -131,13 +290,19 @@ export default function Registration() {
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
               >
-                <Heart style={{ width: 16, height: 16, fill: "white" }} /> Contact Us to Donate
+                <Heart style={{ width: 16, height: 16, fill: "white" }} /> Need Help? Contact Us
               </motion.span>
             </Link>
             <Link to="/">
               <motion.span
-                className="btn btn-ghost"
-                style={{ display: "inline-flex", fontSize: "0.88rem" }}
+                className="btn"
+                style={{
+                  display: "inline-flex",
+                  fontSize: "0.88rem",
+                  background: "transparent",
+                  color: "var(--c-bark-muted)",
+                  border: "2px solid var(--c-sand-light)",
+                }}
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
               >
