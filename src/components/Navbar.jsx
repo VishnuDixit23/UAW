@@ -9,6 +9,7 @@ const NAV = [
   { to:"/gallery",  label:"Gallery" },
   { to:"/team",     label:"Team" },
   { to:"/faqs",     label:"FAQs" },
+  { to:"/legal",    label:"Legal" },
   { to:"/contact",  label:"Contact" },
 ];
 const WORK = [

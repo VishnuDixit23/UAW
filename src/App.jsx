@@ -8,6 +8,7 @@ import Registration from "./pages/Registration";
 import Gallery from "./pages/Gallery";
 import Team from "./pages/Team";
 import Faqs from "./pages/Faqs";
+import LegalTransparency from "./pages/LegalTransparency";
 
 import ProgrammeDetail from "./pages/ProgrammeDetail";
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/team"         element={<Team />} />
         <Route path="/faqs"         element={<Faqs />} />
         <Route path="/gallery"      element={<Gallery />} />
+        <Route path="/legal"        element={<LegalTransparency />} />
       </Routes>
     </BrowserRouter>
   );

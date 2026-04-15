@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Heart, ArrowLeft, Copy, Check, Building2, MapPin, CreditCard, Landmark } from "lucide-react";
+import { Heart, ArrowLeft, Copy, Check, Building2, MapPin, CreditCard, Landmark, ShieldCheck } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
@@ -281,8 +281,37 @@ export default function Registration() {
             </span>
           </motion.div>
 
+          {/* Verify Credentials Link */}
+          <Link to="/legal" style={{ textDecoration: "none", display: "block", marginTop: 16 }}>
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 8,
+                background: "rgba(243,132,44,0.05)",
+                border: "1px dashed rgba(243,132,44,0.25)",
+                borderRadius: 12,
+                padding: "12px 20px",
+                cursor: "pointer",
+              }}
+            >
+              <ShieldCheck style={{ width: 16, height: 16, color: "#F3842C" }} />
+              <span style={{
+                fontFamily: "'Outfit', sans-serif",
+                fontSize: "0.82rem",
+                fontWeight: 600,
+                color: "#F3842C",
+              }}>
+                Verify Our Credentials — View Legal Documents
+              </span>
+            </motion.div>
+          </Link>
+
           {/* Action Buttons */}
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14, marginTop: 28 }}>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14, marginTop: 20 }}>
             <Link to="/contact">
               <motion.span
                 className="btn btn-amber"
