@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import CountUp from "react-countup";
 
 const stats = [
-  { number: 7000,  suffix: "+", label: "Street Cows Fed",        color: "text-[#1E5C3A]",  icon: "🐄" },
+  { number: 20000,  suffix: "+", label: "Street Cows Fed",        color: "text-[#1E5C3A]",  icon: "🐄" },
   { number: 5000,  suffix: "+", label: "Dogs Cared For",         color: "text-[#C8861A]",  icon: "🐕" },
   { number: 1200,  suffix: "+", label: "Girls Received Hygiene Kits", color: "text-[#1E5C3A]", icon: "💜" },
   { number: 500,   suffix: "+", label: "Students Supported",     color: "text-[#C8861A]",  icon: "📚" },

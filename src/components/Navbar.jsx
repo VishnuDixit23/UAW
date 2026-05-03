@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useLocation, Link } from "react-router-dom";
-import { Menu, ChevronDown, X } from "lucide-react";
+import { useLocation, Link, useNavigate } from "react-router-dom";
+import { Menu, ChevronDown, X, User, LogOut, LogIn } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAuth } from "../lib/AuthContext";
 
 const NAV = [
   { to:"/",         label:"Home" },
@@ -31,6 +32,10 @@ export default function Navbar() {
   const prevY               = useRef(0);
   const dropTimer           = useRef(null);
   const loc                 = useLocation();
+  const navigate            = useNavigate();
+  const { user, isLoggedIn, logout } = useAuth();
+
+  const handleLogout = () => { logout(); setOpen(false); navigate("/"); };
 
   useEffect(() => {
     const fn = () => {
@@ -140,8 +145,23 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* CTA + Burger */}
-          <div style={{ display: "flex", alignItems: "center", gap: 12, flexShrink: 0 }}>
+          {/* CTA + User + Burger */}
+          <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
+            {isLoggedIn ? (
+              <Link to="/login" className="user-avatar-btn" style={{ textDecoration: "none" }}>
+                <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }}
+                  style={{ width: 38, height: 38, borderRadius: 10, background: "linear-gradient(135deg, #10B981, #059669)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 8px rgba(16,185,129,0.3)", cursor: "pointer" }}>
+                  <span style={{ fontFamily: "var(--f-body)", fontSize: "0.9rem", fontWeight: 700, color: "white" }}>{(user?.firstname || "U")[0].toUpperCase()}</span>
+                </motion.div>
+              </Link>
+            ) : (
+              <Link to="/login" className="user-avatar-btn" style={{ textDecoration: "none" }}>
+                <motion.span whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
+                  style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: "var(--f-body)", fontWeight: 600, fontSize: "0.85rem", color: "#F3842C", background: "#FFF4EB", padding: "9px 16px", borderRadius: 10, border: "1px solid rgba(243,132,44,0.15)", cursor: "pointer", whiteSpace: "nowrap" }}>
+                  <LogIn style={{ width: 15, height: 15 }} /> Login
+                </motion.span>
+              </Link>
+            )}
             <Link to="/registration" className="donate-btn" style={{ textDecoration: "none" }}>
               <motion.span
                 style={{ display: "inline-flex", alignItems: "center", gap: 7, fontFamily: "var(--f-body)", fontWeight: 700, fontSize: "0.88rem", letterSpacing: "0.01em", color: "white", background: "linear-gradient(135deg, #F3842C, #E67E22)", padding: "10px 22px", borderRadius: 12, boxShadow: "0 4px 16px rgba(243,132,44,0.35)", cursor: "pointer", whiteSpace: "nowrap" }}
@@ -228,7 +248,31 @@ export default function Navbar() {
                   ))}
                 </div>
 
-                <div style={{ marginTop: 28, paddingTop: 20, borderTop: "1px solid #E5E7EB" }}>
+                {/* User status in mobile */}
+                {isLoggedIn && (
+                  <div style={{ marginTop: 20, padding: "14px 16px", background: "#ECFDF5", borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                      <div style={{ width: 32, height: 32, borderRadius: 8, background: "linear-gradient(135deg, #10B981, #059669)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <span style={{ fontFamily: "var(--f-body)", fontSize: "0.8rem", fontWeight: 700, color: "white" }}>{(user?.firstname || "U")[0].toUpperCase()}</span>
+                      </div>
+                      <span style={{ fontFamily: "var(--f-body)", fontSize: "0.85rem", fontWeight: 600, color: "#065F46" }}>{user?.firstname}</span>
+                    </div>
+                    <button onClick={handleLogout} style={{ display: "flex", alignItems: "center", gap: 4, fontFamily: "var(--f-body)", fontSize: "0.75rem", fontWeight: 600, color: "#DC2626", background: "#FEF2F2", border: "1px solid #FECACA", borderRadius: 6, padding: "4px 10px", cursor: "pointer" }}>
+                      <LogOut style={{ width: 12, height: 12 }} /> Logout
+                    </button>
+                  </div>
+                )}
+
+                <div style={{ marginTop: isLoggedIn ? 12 : 28, paddingTop: isLoggedIn ? 0 : 20, borderTop: isLoggedIn ? "none" : "1px solid #E5E7EB" }}>
+                  {!isLoggedIn && (
+                    <Link to="/login" onClick={() => setOpen(false)} style={{ textDecoration: "none", display: "block", marginBottom: 10 }}>
+                      <motion.span
+                        style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, fontFamily: "var(--f-body)", fontWeight: 600, fontSize: "0.95rem", color: "#F3842C", background: "#FFF4EB", padding: "12px", borderRadius: 12, border: "1px solid rgba(243,132,44,0.15)" }}
+                        whileTap={{ scale: 0.97 }}>
+                        <LogIn style={{ width: 16, height: 16 }} /> Login / Register
+                      </motion.span>
+                    </Link>
+                  )}
                   <Link to="/registration" onClick={() => setOpen(false)} style={{ textDecoration: "none" }}>
                     <motion.span
                       style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, fontFamily: "var(--f-body)", fontWeight: 700, fontSize: "1rem", color: "white", background: "linear-gradient(135deg, #F3842C, #E67E22)", padding: "14px", borderRadius: 12, boxShadow: "0 4px 16px rgba(243,132,44,0.35)" }}
@@ -246,7 +290,7 @@ export default function Navbar() {
       {/* Responsive overrides */}
       <style>{`
         @media (min-width: 640px) { .logo-text { display: block !important; } }
-        @media (max-width: 960px) { .desktop-nav { display: none !important; } .donate-btn { display: none !important; } }
+        @media (max-width: 960px) { .desktop-nav { display: none !important; } .donate-btn { display: none !important; } .user-avatar-btn { display: none !important; } }
         @media (min-width: 961px) { .burger-btn { display: none !important; } }
       `}</style>
     </>

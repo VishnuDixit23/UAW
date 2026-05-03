@@ -13,7 +13,7 @@ const GALLERY_CATEGORIES = [
   {
     id: "cow-feeding",
     title: "Cow Feeding",
-    description: "Our teams feed 7,000+ street cows across Rajasthan with nutrition drives, ensuring no sacred animal goes hungry.",
+    description: "Our teams feed 20,000+ street cows across Rajasthan with nutrition drives, ensuring no sacred animal goes hungry.",
     icon: "🐄",
     date: "Ongoing since 2026",
     coverImage: "/gallery/cow-feeding/cow1.jpg",

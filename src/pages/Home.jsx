@@ -18,7 +18,7 @@ const HERO_IMAGES = [
 
 /* ── DATA ── */
 const PROGRAMMES = [
-  { id:"cow-feeding", title:"Cow Feeding",               desc:"We have fed more than 7000 cow till date across Rajasthan with nutrition drives, ensuring no sacred animal goes hungry.",                         icon:"🐄", img:"/programmes/feeding.jpeg",     stat:"7,000+", statLabel:"Cows Fed" },
+  { id:"cow-feeding", title:"Cow Feeding",               desc:"We have fed more than 20,000 cows till date across Rajasthan with nutrition drives, ensuring no sacred animal goes hungry.",                         icon:"🐄", img:"/programmes/feeding.jpeg",     stat:"20,000+", statLabel:"Cows Fed" },
   { id:"dog-care", title:"Dog Care & Radium Collars", desc:"Cared for 5,000+ stray dogs and fitting them with glow-in-the-dark radium collar belts to save them from road accidents at night.",               icon:"🐕", img:"/programmes/dog-care-new.jpg",      stat:"5,000+", statLabel:"Dogs Cared For" },
   { id:"girls-hygiene", title:"Girls' Hygiene",            desc:" 1200+ girls helped with sanitary hygiene pads in slum areas till now.",                               icon:"💜", img:"/programmes/hygiene-cover.jpg",     stat:"1,200+", statLabel:"Girls Supported" },
   { id:"education", title:"Education",                 desc:"Providing books, stationery and geometric boxes to underprivileged students so no child is denied the right to learn.",                             icon:"📚", img:"/programmes/education.jpeg",   stat:"500+",   statLabel:"Students Helped" },
@@ -28,7 +28,7 @@ const PROGRAMMES = [
 ];
 
 const STATS = [
-  { n:7000, suf:"+", label:"Street Cows Fed",    icon:"🐄" },
+  { n:20000, suf:"+", label:"Street Cows Fed",    icon:"🐄" },
   { n:5000, suf:"+", label:"Dogs Cared For",     icon:"🐕" },
   { n:1200, suf:"+", label:"Girls Helped",       icon:"💜" },
   { n:500,  suf:"+", label:"Students Supported", icon:"📚" },
@@ -238,7 +238,7 @@ export default function Home() {
         <div className="marquee-inner">
           {[...Array(2)].map((_,o) => (
             <div key={o} style={{ display:"flex", flexShrink:0 }}>
-              {["🐄  7,000+ Cows Fed","🐕  5,000+ Dogs Cared For","💜  1,200+ Girls Helped","📚  500+ Students Supported","🌳  Tree Plantation Drive","⚽  Youth Kickstart Programme","🏥  NGO Life Support","❤  Compassion For Every Life"].map((t,i) => (
+              {["🐄  20,000+ Cows Fed","🐕  5,000+ Dogs Cared For","💜  1,200+ Girls Helped","📚  500+ Students Supported","🌳  Tree Plantation Drive","⚽  Youth Kickstart Programme","🏥  NGO Life Support","❤  Compassion For Every Life"].map((t,i) => (
                 <span key={i} style={{ fontFamily:"var(--f-body)", fontSize:"0.82rem", fontWeight:500, letterSpacing:"0.06em", color:"rgba(255,255,255,0.90)", padding:"4px 36px", borderRight:"1px solid rgba(255,255,255,0.20)", whiteSpace:"nowrap" }}>{t}</span>
               ))}
             </div>
@@ -289,7 +289,7 @@ export default function Home() {
                 United, We Stand<br /><span className="text-green-grad">For Every Life</span>
               </h2>
               <p style={{ fontFamily:"var(--f-body)", fontSize:"1.02rem", color:"var(--c-bark-muted)", lineHeight:1.8, letterSpacing:"0.005em", marginBottom:16 }}>
-                <strong style={{ color:"#F3842C" }}>United for Animal Welfare</strong> is a registered Public Trust (Rajasthan, 2026) founded by <strong>Shivajee Vishen</strong>. Our team has fed 7,000+ street cows, cared for 5,000+ dogs, and distributed hygiene kits to girls in slums.
+                <strong style={{ color:"#F3842C" }}>United for Animal Welfare</strong> is a registered Public Trust (Rajasthan, 2026) founded by <strong>Shivajee Vishen</strong>. Our team has fed 20,000+ street cows, cared for 5,000+ dogs, and distributed hygiene kits to girls in slums.
               </p>
 
 

@@ -24,8 +24,8 @@ const initiatives = [
   {
     id: "cow-feeding",
     title: "Cow Feeding Program",
-    tagline: "Nourished 7,000+ Street Cows",
-    description: "Our largest ongoing initiative we have fed more than 7,000 street cows across the city . Our dedicated volunteers prepare and distribute nutritious fodder to these gentle animals who often go hungry on busy roads. Caring for these sacred beings is not just an act of kindness — it's a responsibility we all share.",
+    tagline: "Nourished 20,000+ Street Cows",
+    description: "Our largest ongoing initiative we have fed more than 20,000 street cows across the city . Our dedicated volunteers prepare and distribute nutritious fodder to these gentle animals who often go hungry on busy roads. Caring for these sacred beings is not just an act of kindness — it's a responsibility we all share.",
     highlights: [
       "Daily feeding drives across multiple city zones",
       "Offering fresh fodder and jaggery to street cows",
@@ -33,7 +33,7 @@ const initiatives = [
       "Community awareness about cow welfare",
     ],
     image: "/initiatives/cow-feeding-new.jpeg",
-    stat: "7,000+", statLabel: "Cows Fed",
+    stat: "20,000+", statLabel: "Cows Fed",
     accent: "#C8801A", accentLight: "#FFF8ED",
   },
   {
