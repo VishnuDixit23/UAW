@@ -24,7 +24,7 @@ export default function Footer() {
       <div style={{ position:"absolute", bottom:"-10%", left:"-5%", width:350, height:350, borderRadius:"50%", background:"radial-gradient(circle, rgba(243,132,44,0.06), transparent)", filter:"blur(70px)", pointerEvents:"none" }} />
 
       <div className="section-container" style={{ position:"relative", zIndex:1, paddingTop:64, paddingBottom:0 }}>
-        <div style={{ display:"grid", gridTemplateColumns:"2fr 1fr 1.6fr", gap:48, paddingBottom:48, borderBottom:"1px solid rgba(255,255,255,0.08)" }} className="footer-grid">
+        <div style={{ display:"grid", gridTemplateColumns:"1.6fr 1.2fr 1.2fr 1fr", gap:32, paddingBottom:48, borderBottom:"1px solid rgba(255,255,255,0.08)" }} className="footer-grid">
 
           {/* Brand */}
           <div>
@@ -59,29 +59,13 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <p style={{ fontFamily:"var(--f-body)", fontSize:"0.65rem", fontWeight:700, letterSpacing:"0.18em", textTransform:"uppercase", color:"#F3842C", marginBottom:20 }}>Quick Links</p>
-            <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
-              {LINKS.map((item,i) => (
-                <Link key={i} to={item.path}
-                  style={{ fontFamily:"var(--f-body)", fontSize:"0.86rem", color:"rgba(255,255,255,0.48)", textDecoration:"none", display:"flex", alignItems:"center", gap:8, transition:"all 0.2s" }}
-                  onMouseEnter={e => { e.currentTarget.style.color="rgba(255,255,255,0.85)"; e.currentTarget.style.paddingLeft="4px"; }}
-                  onMouseLeave={e => { e.currentTarget.style.color="rgba(255,255,255,0.48)"; e.currentTarget.style.paddingLeft="0"; }}>
-                  <ChevronRight style={{ width:12, height:12, color:"#F3842C", flexShrink:0 }} />
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-
           {/* Contact */}
           <div>
-            <p style={{ fontFamily:"var(--f-body)", fontSize:"0.65rem", fontWeight:700, letterSpacing:"0.18em", textTransform:"uppercase", color:"#F3842C", marginBottom:20 }}>Get In Touch</p>
-            <div style={{ display:"flex", flexDirection:"column", gap:14, marginBottom:22 }}>
+            <p style={{ fontFamily:"var(--f-body)", fontSize:"0.65rem", fontWeight:700, letterSpacing:"0.18em", textTransform:"uppercase", color:"#F3842C", marginBottom:20 }}>Contact Us</p>
+            <div style={{ display:"flex", flexDirection:"column", gap:14, marginBottom:18 }}>
               {[{ Icon:MapPin, text:"Basement Floor, Plot No 20, Chaudhary Nagar 2nd, Budhsinghpura, Sanganer, Jaipur, Rajasthan - 302029" },
-                { Icon:Phone, text:"+91 7976606854" },
-                { Icon:Mail,  text:"info@unitedforanimalwelfare.org" }].map(({Icon,text},i) => (
+                { Icon:Phone, text:"+91 9116688804 / 9116688805" },
+                { Icon:Mail,  text:"contact@unitedforanimalwelfare.org" }].map(({Icon,text},i) => (
                 <div key={i} style={{ display:"flex", alignItems:"flex-start", gap:12 }}>
                   <div style={{ width:32, height:32, borderRadius:8, background:"rgba(243,132,44,0.12)", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0 }}>
                     <Icon style={{ width:14, height:14, color:"#F3842C" }} />
@@ -90,19 +74,70 @@ export default function Footer() {
                 </div>
               ))}
             </div>
+          </div>
 
-            <div style={{ background:"rgba(255,255,255,0.04)", borderRadius:14, padding:"14px 16px", border:"1px solid rgba(255,255,255,0.07)", marginBottom:22 }}>
-              <p style={{ fontSize:"0.62rem", fontWeight:700, letterSpacing:"0.15em", textTransform:"uppercase", color:"#F3842C", marginBottom:10 }}>Key Contacts</p>
-              {[["India Head","Abhishek Soni"],["Fundraising","Hardik Visaria"],["Coordination","Vishwajeet Singh Vishen"]].map(([r,n]) => (
-                <p key={r} style={{ fontSize:"0.8rem", color:"rgba(255,255,255,0.40)", marginBottom:4 }}>
-                  <strong style={{ color:"rgba(255,255,255,0.65)" }}>{r}:</strong> {n}
-                </p>
+          {/* Links Grid */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+            {/* Quick Links */}
+            <div>
+              <p style={{ fontFamily:"var(--f-body)", fontSize:"0.65rem", fontWeight:700, letterSpacing:"0.18em", textTransform:"uppercase", color:"#F3842C", marginBottom:20 }}>Quick Links</p>
+              <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
+                {LINKS.map((item,i) => (
+                  <Link key={i} to={item.path}
+                    style={{ fontFamily:"var(--f-body)", fontSize:"0.86rem", color:"rgba(255,255,255,0.48)", textDecoration:"none", display:"flex", alignItems:"center", gap:8, transition:"all 0.2s" }}
+                    onMouseEnter={e => { e.currentTarget.style.color="rgba(255,255,255,0.85)"; e.currentTarget.style.paddingLeft="4px"; }}
+                    onMouseLeave={e => { e.currentTarget.style.color="rgba(255,255,255,0.48)"; e.currentTarget.style.paddingLeft="0"; }}>
+                    <ChevronRight style={{ width:12, height:12, color:"#F3842C", flexShrink:0 }} />
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Legal & Policies */}
+            <div>
+              <p style={{ fontFamily:"var(--f-body)", fontSize:"0.65rem", fontWeight:700, letterSpacing:"0.18em", textTransform:"uppercase", color:"#F3842C", marginBottom:20 }}>Legal</p>
+              <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
+                {[
+                  { name:"About Us",           path:"/policy#about-us" },
+                  { name:"Privacy Policy",     path:"/policy#privacy-policy" },
+                  { name:"Terms & Conditions", path:"/policy#terms-conditions" },
+                  { name:"Refund Policy",      path:"/policy#cancellation-refund" },
+                  { name:"Shipping Policy",    path:"/policy#shipping-service" },
+                ].map((item,i) => (
+                  <Link key={i} to={item.path}
+                    style={{ fontFamily:"var(--f-body)", fontSize:"0.86rem", color:"rgba(255,255,255,0.48)", textDecoration:"none", display:"flex", alignItems:"center", gap:8, transition:"all 0.2s" }}
+                    onMouseEnter={e => { e.currentTarget.style.color="rgba(255,255,255,0.85)"; e.currentTarget.style.paddingLeft="4px"; }}
+                    onMouseLeave={e => { e.currentTarget.style.color="rgba(255,255,255,0.48)"; e.currentTarget.style.paddingLeft="0"; }}>
+                    <ChevronRight style={{ width:12, height:12, color:"#F3842C", flexShrink:0 }} />
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Donate & QR */}
+          <div style={{ display:"flex", flexDirection:"column", alignItems:"flex-start" }}>
+            <p style={{ fontFamily:"var(--f-display)", fontSize:"0.95rem", fontWeight:700, color:"white", marginBottom:14, lineHeight:1.3 }}>
+              Donate through <span style={{ color:"#F3842C" }}>QR</span>
+            </p>
+            <div style={{ background:"white", borderRadius:10, padding:6, boxShadow:"0 2px 12px rgba(243,132,44,0.10)", marginBottom:10, width:"100%", maxWidth:140 }}>
+              <img src="/qr-code.jpg" alt="Scan to pay - United for Animal Welfare"
+                style={{ width:"100%", borderRadius:6, display:"block" }} />
+            </div>
+            <p style={{ fontFamily:"var(--f-body)", fontSize:"0.62rem", color:"rgba(255,255,255,0.35)", lineHeight:1.4, marginBottom:14 }}>
+              Scan from any UPI app
+            </p>
+            <div style={{ display:"flex", flexWrap:"wrap", gap:4, marginBottom:16 }}>
+              {["Paytm","GPay","PhonePe","BHIM"].map((name) => (
+                <span key={name} style={{ fontFamily:"var(--f-body)", fontSize:"0.55rem", fontWeight:600, color:"rgba(255,255,255,0.35)", background:"rgba(255,255,255,0.06)", borderRadius:4, padding:"2px 6px" }}>{name}</span>
               ))}
             </div>
 
-            <Link to="/registration">
+            <Link to="/registration" style={{ width: "100%", textDecoration: "none" }}>
               <motion.span className="btn btn-amber btn-sm" style={{ display:"inline-flex", width:"100%", justifyContent:"center" }} whileHover={{ scale:1.03 }} whileTap={{ scale:0.97 }}>
-                <Heart style={{ width:14, height:14, fill:"white" }} /> Donate & Save a Life
+                <Heart style={{ width:14, height:14, fill:"white" }} /> Donate Online
               </motion.span>
             </Link>
           </div>
@@ -120,10 +155,13 @@ export default function Footer() {
       </div>
 
       <style>{`
-        @media (max-width: 900px) {
+        @media (max-width: 1100px) {
+          .footer-grid { grid-template-columns: 1fr 1fr 1fr !important; }
+        }
+        @media (max-width: 700px) {
           .footer-grid { grid-template-columns: 1fr 1fr !important; }
         }
-        @media (max-width: 580px) {
+        @media (max-width: 480px) {
           .footer-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>

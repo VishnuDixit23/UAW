@@ -227,6 +227,23 @@ export default function Registration() {
                     </div>
                   </div>
                 </div>
+
+                {/* ── QR CODE SECTION ── */}
+                <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.5 }}
+                  style={{ marginTop: 28, textAlign: "center" }}>
+                  <div style={{ width: 48, height: 3, background: "linear-gradient(90deg, #F3842C, #F59E4B)", borderRadius: 2, margin: "0 auto 16px" }} />
+                  <p style={{ fontFamily: "var(--f-body)", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#F3842C", marginBottom: 6 }}>Scan & Pay</p>
+                  <p style={{ fontFamily: "var(--f-body)", fontSize: "0.88rem", color: "var(--c-bark-muted)", marginBottom: 18, lineHeight: 1.6 }}>
+                    Scan this QR code from any UPI app to donate directly
+                  </p>
+                  <div style={{ display: "inline-block", background: "white", borderRadius: 20, padding: 12, border: "2px solid rgba(243,132,44,0.18)", boxShadow: "0 6px 28px rgba(243,132,44,0.10)" }}>
+                    <img src="/qr-code.jpg" alt="Scan to pay - United for Animal Welfare" style={{ width: 180, maxWidth: "100%", borderRadius: 12, display: "block" }} />
+                  </div>
+                  <p style={{ fontFamily: "var(--f-body)", fontSize: "0.78rem", color: "var(--c-bark-muted)", marginTop: 14, opacity: 0.7 }}>
+                    Supports Paytm, Google Pay, PhonePe, BHIM & 30+ apps
+                  </p>
+                </motion.div>
+
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 0.6 }}
                   style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, background: "#FFF8ED", border: "1px solid rgba(243,132,44,0.15)", borderRadius: 14, padding: "14px 20px", marginTop: 24 }}>
                   <Heart style={{ width: 16, height: 16, color: "#F3842C", fill: "#F3842C" }} />

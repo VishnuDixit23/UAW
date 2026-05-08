@@ -13,6 +13,7 @@ import ProgrammeDetail from "./pages/ProgrammeDetail";
 import Login from "./pages/Login";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import PaymentFailure from "./pages/PaymentFailure";
+import Policy from "./pages/Policy";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -38,6 +39,7 @@ function App() {
         <Route path="/login"           element={<Login />} />
         <Route path="/payment-success" element={<PaymentSuccess />} />
         <Route path="/payment-failure" element={<PaymentFailure />} />
+        <Route path="/policy"          element={<Policy />} />
       </Routes>
     </BrowserRouter>
   );
