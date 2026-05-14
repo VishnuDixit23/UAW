@@ -163,7 +163,7 @@ export default function Login() {
                   </h2>
                   <div style={{ width: 44, height: 3, background: "linear-gradient(90deg, #F3842C, #F59E4B)", borderRadius: 2, margin: "0 auto 8px" }} />
                   <p style={{ fontFamily: "var(--f-body)", fontSize: "0.85rem", color: "var(--c-bark-muted)" }}>
-                    {mode === "login" ? "Enter your phone number to receive an OTP" : "Register with your details to start donating"}
+                    {mode === "login" ? "OTP will be sent to your phone number & Gmail" : "Register with your details to start donating"}
                   </p>
                 </div>
 
@@ -183,11 +183,11 @@ export default function Login() {
                   ) : (
                     <motion.form key="register-form" onSubmit={handleRegister} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }}>
                       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 16px" }}>
-                        <InputField icon={User} label="First Name" placeholder="First name" value={form.firstname} onChange={set("firstname")} required />
+                        <InputField icon={User} label="First Name *" placeholder="First name" value={form.firstname} onChange={set("firstname")} required />
                         <InputField icon={User} label="Last Name" placeholder="Last name" value={form.lastname} onChange={set("lastname")} />
                       </div>
-                      <InputField icon={Phone} label="Phone Number" placeholder="10-digit mobile" value={form.phoneNumber} onChange={set("phoneNumber")} required pattern="^[0-9]{10}$" maxLength={10} />
-                      <InputField icon={Mail} label="Email" placeholder="you@example.com" type="email" value={form.email} onChange={set("email")} />
+                      <InputField icon={Phone} label="Phone Number *" placeholder="10-digit mobile" value={form.phoneNumber} onChange={set("phoneNumber")} required pattern="^[0-9]{10}$" maxLength={10} />
+                      <InputField icon={Mail} label="Email *" placeholder="you@gmail.com" type="email" value={form.email} onChange={set("email")} required />
                       <InputField icon={MapPin} label="Address" placeholder="Address line 1" value={form.address1} onChange={set("address1")} />
                       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "0 12px" }}>
                         <InputField icon={MapPin} label="City" placeholder="City" value={form.city} onChange={set("city")} />
@@ -218,10 +218,12 @@ export default function Login() {
                     style={{ width: 68, height: 68, borderRadius: 18, background: "linear-gradient(145deg, #FFF4EB, #FFE8D6)", display: "inline-flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 24px rgba(243,132,44,0.15)", border: "1px solid rgba(243,132,44,0.12)" }}>
                     <ShieldCheck style={{ width: 30, height: 30, color: "#F3842C" }} />
                   </motion.div>
-                  <h2 style={{ fontFamily: "var(--f-display)", fontSize: "1.5rem", fontWeight: 700, color: "var(--c-bark)", marginTop: 16, marginBottom: 6 }}>Verify Your Phone</h2>
+                  <h2 style={{ fontFamily: "var(--f-display)", fontSize: "1.5rem", fontWeight: 700, color: "var(--c-bark)", marginTop: 16, marginBottom: 6 }}>Verify Your Identity</h2>
                   <div style={{ width: 44, height: 3, background: "linear-gradient(90deg, #F3842C, #F59E4B)", borderRadius: 2, margin: "0 auto 8px" }} />
-                  <p style={{ fontFamily: "var(--f-body)", fontSize: "0.85rem", color: "var(--c-bark-muted)" }}>
+                  <p style={{ fontFamily: "var(--f-body)", fontSize: "0.85rem", color: "var(--c-bark-muted)", lineHeight: 1.7 }}>
                     OTP sent to <strong style={{ color: "#F3842C" }}>+91 {activePhone}</strong>
+                    {" & "}
+                    <strong style={{ color: "#F3842C" }}>{mode === "register" && form.email ? form.email : "Registered email"}</strong>
                   </p>
                 </div>
                 <form onSubmit={handleVerifyOtp}>

@@ -48,8 +48,10 @@ export default function Registration() {
         else setError(res.message || "Could not send link");
       } else if (method === "cash") {
         const res = await submitCashPayment(payload);
-        if (res.success) setSuccess("✅ Cash donation of ₹" + amt.toLocaleString() + " registered! Your 80G receipt will be sent shortly.");
-        else setError(res.message || "Cash registration failed");
+        if (res.success) {
+          const cashRef = `CASH-${Date.now()}`;
+          navigate(`/payment-success?txnid=${cashRef}&amount=${amt}&method=cash`);
+        } else setError(res.message || "Cash registration failed");
       }
     } catch (err) {
       const data = err.response?.data;

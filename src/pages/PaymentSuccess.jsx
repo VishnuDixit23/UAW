@@ -21,6 +21,7 @@ export default function PaymentSuccess() {
   const [searchParams] = useSearchParams();
   const txnid = searchParams.get("txnid") || "N/A";
   const amount = searchParams.get("amount") || "0";
+  const isCash = searchParams.get("method") === "cash";
   const [confetti, setConfetti] = useState(true);
 
   useEffect(() => { const t = setTimeout(() => setConfetti(false), 4000); return () => clearTimeout(t); }, []);
@@ -54,14 +55,14 @@ export default function PaymentSuccess() {
         <div style={{ position: "absolute", top: 0, right: 0, width: "50%", height: "100%", background: "radial-gradient(ellipse at top right, rgba(16,185,129,0.2) 0%, transparent 60%)", pointerEvents: "none" }} />
         <div style={{ position: "relative", zIndex: 2 }}>
           <p className="section-label" style={{ justifyContent: "center", color: "#6EE7B7", marginBottom: 12 }}>
-            <span style={{ display: "inline-block", width: 24, height: 2, background: "#6EE7B7", borderRadius: 2, marginRight: 10 }} />Payment Successful
+            <span style={{ display: "inline-block", width: 24, height: 2, background: "#6EE7B7", borderRadius: 2, marginRight: 10 }} />{isCash ? "Cash Donation Registered" : "Payment Successful"}
           </p>
           <h1 style={{ fontFamily: "var(--f-display)", fontSize: "clamp(2.2rem,5vw,3.8rem)", fontWeight: 700, color: "white", marginBottom: 14 }}>
-            Thank You <span style={{ color: "#6EE7B7" }}>For Your Kindness</span>
+            Thank You <span style={{ color: "#6EE7B7" }}>{isCash ? "For Your Generosity" : "For Your Kindness"}</span>
           </h1>
           <div style={{ width: 56, height: 3, background: "linear-gradient(90deg, #10B981, #34D399)", borderRadius: 2, margin: "0 auto 20px" }} />
           <p style={{ fontFamily: "var(--f-body)", fontSize: "1rem", color: "rgba(255,255,255,0.65)", maxWidth: 460, margin: "0 auto" }}>
-            Your donation has been received and will go directly towards saving animal lives.
+            {isCash ? "Your cash donation has been recorded. Your 80G receipt will be sent shortly." : "Your donation has been received and will go directly towards saving animal lives."}
           </p>
         </div>
       </div>
@@ -78,7 +79,7 @@ export default function PaymentSuccess() {
               <CheckCircle style={{ width: 48, height: 48, color: "#10B981" }} />
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}>
-              <h2 style={{ fontFamily: "var(--f-display)", fontSize: "1.65rem", fontWeight: 700, color: "var(--c-bark)", marginTop: 20, marginBottom: 6 }}>Payment Successful!</h2>
+              <h2 style={{ fontFamily: "var(--f-display)", fontSize: "1.65rem", fontWeight: 700, color: "var(--c-bark)", marginTop: 20, marginBottom: 6 }}>{isCash ? "Cash Donation Registered!" : "Payment Successful!"}</h2>
               <div style={{ width: 48, height: 3, background: "linear-gradient(90deg, #10B981, #34D399)", borderRadius: 2, margin: "0 auto 10px" }} />
             </motion.div>
           </div>
@@ -86,7 +87,7 @@ export default function PaymentSuccess() {
           {/* Amount */}
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.6 }}
             style={{ background: "linear-gradient(145deg, #ECFDF5, #F0FDF4)", borderRadius: 18, padding: "24px", textAlign: "center", border: "1px solid rgba(16,185,129,0.15)", marginBottom: 24 }}>
-            <p style={{ fontFamily: "var(--f-body)", fontSize: "0.75rem", fontWeight: 600, color: "#059669", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 6 }}>Amount Donated</p>
+            <p style={{ fontFamily: "var(--f-body)", fontSize: "0.75rem", fontWeight: 600, color: "#059669", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 6 }}>{isCash ? "Cash Donated" : "Amount Donated"}</p>
             <p style={{ fontFamily: "var(--f-number)", fontSize: "2.8rem", fontWeight: 800, color: "#065F46", lineHeight: 1.1 }}>₹{parseFloat(amount).toLocaleString("en-IN")}</p>
           </motion.div>
 
@@ -111,10 +112,13 @@ export default function PaymentSuccess() {
 
           {/* Receipt Notice */}
           <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.75 }}
-            style={{ display: "flex", alignItems: "flex-start", gap: 12, background: "linear-gradient(135deg,#EFF6FF,#DBEAFE)", border: "1px solid rgba(59,130,246,0.18)", borderRadius: 14, padding: "14px 18px", marginBottom: 16 }}>
-            <span style={{ fontSize: "1.25rem", flexShrink: 0, marginTop: 2 }}>📄</span>
-            <span style={{ fontFamily: "var(--f-body)", fontSize: "0.83rem", fontWeight: 500, color: "#1E40AF", lineHeight: 1.55 }}>
-              Your <strong>80G tax-exemption receipt</strong> is being generated and will be sent to your registered <strong>WhatsApp</strong> and <strong>email</strong> within a few minutes.
+            style={{ display: "flex", alignItems: "flex-start", gap: 12, background: isCash ? "linear-gradient(135deg,#ECFDF5,#D1FAE5)" : "linear-gradient(135deg,#EFF6FF,#DBEAFE)", border: `1px solid ${isCash ? "rgba(16,185,129,0.2)" : "rgba(59,130,246,0.18)"}`, borderRadius: 14, padding: "14px 18px", marginBottom: 16 }}>
+            <span style={{ fontSize: "1.25rem", flexShrink: 0, marginTop: 2 }}>{isCash ? "🧾" : "📄"}</span>
+            <span style={{ fontFamily: "var(--f-body)", fontSize: "0.83rem", fontWeight: 500, color: isCash ? "#065F46" : "#1E40AF", lineHeight: 1.55 }}>
+              {isCash
+                ? <>Your cash donation of <strong>₹{parseFloat(amount).toLocaleString("en-IN")}</strong> has been <strong>recorded offline</strong>. Your <strong>80G tax-exemption receipt</strong> will be sent to your registered <strong>WhatsApp</strong> and <strong>email</strong> shortly.</>
+                : <>Your <strong>80G tax-exemption receipt</strong> is being generated and will be sent to your registered <strong>WhatsApp</strong> and <strong>email</strong> within a few minutes.</>
+              }
             </span>
           </motion.div>
 
