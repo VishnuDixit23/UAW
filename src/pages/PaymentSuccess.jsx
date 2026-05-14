@@ -109,6 +109,15 @@ export default function PaymentSuccess() {
             </div>
           </div>
 
+          {/* Receipt Notice */}
+          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.75 }}
+            style={{ display: "flex", alignItems: "flex-start", gap: 12, background: "linear-gradient(135deg,#EFF6FF,#DBEAFE)", border: "1px solid rgba(59,130,246,0.18)", borderRadius: 14, padding: "14px 18px", marginBottom: 16 }}>
+            <span style={{ fontSize: "1.25rem", flexShrink: 0, marginTop: 2 }}>📄</span>
+            <span style={{ fontFamily: "var(--f-body)", fontSize: "0.83rem", fontWeight: 500, color: "#1E40AF", lineHeight: 1.55 }}>
+              Your <strong>80G tax-exemption receipt</strong> is being generated and will be sent to your registered <strong>WhatsApp</strong> and <strong>email</strong> within a few minutes.
+            </span>
+          </motion.div>
+
           {/* Message */}
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
             style={{ display: "flex", alignItems: "center", gap: 10, background: "#FFF8ED", border: "1px solid rgba(243,132,44,0.15)", borderRadius: 14, padding: "14px 20px", marginBottom: 24 }}>

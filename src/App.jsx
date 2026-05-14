@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { seedCsrfToken } from "./lib/api";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import ContactUs from "./pages/ContactUs";
@@ -22,6 +23,16 @@ function ScrollToTop() {
 }
 
 function App() {
+  // 🔐 Seed the XSRF-TOKEN cookie on first load.
+  // Spring Security's CookieCsrfTokenRepository plants the token in response
+  // to this GET. Every subsequent POST will then attach X-XSRF-TOKEN header
+  // via the Axios interceptor in api.js.
+  useEffect(() => {
+    seedCsrfToken().catch(() => {
+      // Backend might not be running locally — silently ignore
+    });
+  }, []);
+
   return (
     <BrowserRouter>
       <ScrollToTop />
