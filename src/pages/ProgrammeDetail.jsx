@@ -46,17 +46,31 @@ const PROGRAMME_DATA = {
       "Partnering with local health volunteers",
     ]
   },
-  "education": {
-    title: "Education Support",
-    tagline: "Equipping 500+ Students for Success",
-    icon: "📚",
-    heroImg: "/programmes/education.jpeg",
-    description: "Education is the most powerful tool for change. We've provided books, notebooks and geometry box sets to more than 500 students from underprivileged backgrounds. By removing financial barriers to basic school supplies, we ensure that no child's dream of learning is held back by lack of resources.",
+//   "education": {
+//     title: "Education Support",
+//     tagline: "Equipping 500+ Students for Success",
+//     icon: "📚",
+//     heroImg: "/programmes/education.jpeg",
+//     description: "Education is the most powerful tool for change. We've provided books, notebooks and geometry box sets to more than 500 students from underprivileged backgrounds. By removing financial barriers to basic school supplies, we ensure that no child's dream of learning is held back by lack of resources.",
+//     points: [
+//       "Notebooks, and stationery kits",
+//       "Geometry and compass box sets for every student",
+//       "School bag distribution drives",
+//       "Mentorship and tutoring support programs"
+//     ]
+//   },
+  "mid-day-meal": {
+    title: "Mid-Day Meal Program",
+    tagline: "Nourishing Underprivileged Communities",
+    icon: "🍛",
+    heroImg: "/gallery/mid-day-meal/mid1.png",
+    description: "The Mid-Day Meal Program by United for Animal Welfare is a humanitarian initiative focused on addressing hunger and malnutrition among underprivileged communities. We provide fresh, hygienic, and nutritious meals daily to daily wage workers, homeless individuals, slum communities, and children from economically weaker backgrounds, particularly in regions like Rajasthan where food insecurity remains a significant challenge.",
     points: [
-      "Notebooks, and stationery kits",
-      "Geometry and compass box sets for every student",
-      "School bag distribution drives",
-      "Mentorship and tutoring support programs"
+      "Ensuring that no individual goes hungry",
+      "Providing balanced and nutritious meals daily",
+      "Supporting the health and development of children",
+      "Reducing malnutrition in low-income communities",
+      "Promoting dignity through access to food"
     ]
   },
   "plantation": {
@@ -82,6 +96,20 @@ const PROGRAMME_DATA = {
       "Professional football coaching and training",
       "Nutrition plans and fitness programs",
       "Sports equipment and gear provided"
+    ]
+  },
+  "womens-league": {
+    title: "Rajasthan Women's Football League",
+    tagline: "Empowering Women Through Football",
+    icon: "🏆",
+    heroImg: "/programmes/womens-league.jpg",
+    description: "We are proudly supporting the first-ever top division senior women's football league in Rajasthan. Taking place from May 19th to June 6th, the league features 5 top teams (3 from Jaipur, 1 from Udaipur, and 1 from Bikaner) with a total squad size of 27 players each. The tournament follows a rigorous double-leg format where each team plays 8 matches (1 home and 1 away). With total expenses amounting to approximately ₹10 Lakhs, our foundation covers everything from accommodation, nutritious food, and electricity to federation registration, coaches' salaries, medical care, transportation, and complete training and match kits, ensuring these talented athletes have the professional platform they deserve.",
+    points: [
+      "Hosting the first top division senior women's league in Rajasthan",
+      "Supporting 5 teams in an intense double-leg 8-match format",
+      "Providing full accommodation, meals, and transportation for players",
+      "Covering all professional expenses including kits, coaching, and medical care",
+      "Creating a professional, empowering platform for female athletes"
     ]
   },
   "bird-feeding": {

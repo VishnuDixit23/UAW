@@ -24,7 +24,7 @@ export default function Footer() {
       <div style={{ position:"absolute", bottom:"-10%", left:"-5%", width:350, height:350, borderRadius:"50%", background:"radial-gradient(circle, rgba(243,132,44,0.06), transparent)", filter:"blur(70px)", pointerEvents:"none" }} />
 
       <div className="section-container" style={{ position:"relative", zIndex:1, paddingTop:64, paddingBottom:0 }}>
-        <div style={{ display:"grid", gridTemplateColumns:"1.6fr 1.2fr 1.2fr 1fr", gap:32, paddingBottom:48, borderBottom:"1px solid rgba(255,255,255,0.08)" }} className="footer-grid">
+        <div style={{ display:"grid", gridTemplateColumns:"1.6fr 1fr 1fr 1.5fr", gap:32, paddingBottom:48, borderBottom:"1px solid rgba(255,255,255,0.08)" }} className="footer-grid">
 
           {/* Brand */}
           <div>
@@ -122,7 +122,7 @@ export default function Footer() {
             <p style={{ fontFamily:"var(--f-display)", fontSize:"0.95rem", fontWeight:700, color:"white", marginBottom:14, lineHeight:1.3 }}>
               Donate through <span style={{ color:"#F3842C" }}>QR</span>
             </p>
-            <div style={{ background:"white", borderRadius:10, padding:6, boxShadow:"0 2px 12px rgba(243,132,44,0.10)", marginBottom:10, width:"100%", maxWidth:140 }}>
+            <div style={{ background:"white", borderRadius:12, padding:12, boxShadow:"0 2px 14px rgba(243,132,44,0.18)", marginBottom:12, width:"100%", maxWidth:320 }}>
               <img src="/qr-code.jpg" alt="Scan to pay - United for Animal Welfare"
                 style={{ width:"100%", borderRadius:6, display:"block" }} />
             </div>

@@ -73,14 +73,32 @@ const GALLERY_CATEGORIES = [
       { src: "/gallery/girls-hygiene/gh6.mp4", caption: "“Dignity, health, and confidence — every girl deserves it.”" }
     ],
   },
+  // {
+  //   id: "education",
+  //   title: "Education Support",
+  //   description: "Providing books, stationery and geometric boxes to underprivileged students so no child is denied the right to learn.",
+  //   icon: "📚",
+  //   date: "Active",
+  //   coverImage: null,
+  //   images: [],
+  // },
   {
-    id: "education",
-    title: "Education Support",
-    description: "Providing books, stationery and geometric boxes to underprivileged students so no child is denied the right to learn.",
-    icon: "📚",
+    id: "mid-day-meal",
+    title: "Mid-Day Meal Program (Human Feeding Initiative)",
+    description: "A humanitarian initiative focused on addressing hunger and malnutrition among underprivileged communities by providing fresh, hygienic, and nutritious meals.",
+    icon: "🍛",
     date: "Active",
-    coverImage: null,
-    images: [],
+    coverImage: "/gallery/mid-day-meal/mid1.png",
+    images: [
+      { src: "/gallery/mid-day-meal/mid1.png", caption: "\"Serving more than meals — serving hope, care, and brighter futures. 🍛❤️\"" },
+      { src: "/gallery/mid-day-meal/mid2.png", caption: "\"Every plate shared today is a step toward a healthier and happier tomorrow. 🌱✨\"" },
+      { src: "/gallery/mid-day-meal/mid3.png", caption: "\"Nourishing young minds, one warm meal at a time. 🍲📚\"" },
+      { src: "/gallery/mid-day-meal/mid4.png", caption: "\"Together, we can fight hunger and fuel dreams. 🤝🍽️\"" },
+      { src: "/gallery/mid-day-meal/mid5.png", caption: "\"A simple meal can spark a child’s smile and strength for the day. 😊🍛\"" },
+      { src: "/gallery/mid-day-meal/mid6.png", caption: "\"Midday meals, endless possibilities — because no child should learn hungry. ✨📖\"" },
+      { src: "/gallery/mid-day-meal/mid7.png", caption: "\"Spreading kindness through every serving and every smile. ❤️🥄\"" },
+      { src: "/gallery/mid-day-meal/mid8.png", caption: "\"Feeding children, empowering communities, building a better future. 🌍🍲\"" }
+    ],
   },
   {
     id: "plantation",
@@ -92,6 +110,20 @@ const GALLERY_CATEGORIES = [
     images: [
       { src: "/gallery/plantation/plt1.jpeg", caption: "“Today we planted a sapling, tomorrow it will grow into hope. Small actions today create a greener, healthier future for all.” 🌱🌍💚" },
       { src: "/gallery/plantation/plt2.mp4", caption: "\"Message from team\"" }
+    ],
+  },
+  {
+    id: "womens-league",
+    title: "Rajasthan Women's Football League",
+    description: "Supporting the first-ever top division senior women's football league in Rajasthan.",
+    icon: "🏆",
+    date: "May 19th - June 6th",
+    coverImage: "/programmes/womens-league.jpg",
+    images: [
+      { src: "/programmes/womens-league.jpg", caption: "“Empowering women through football — our squad ready for the first-ever top division senior league in Rajasthan.” 🏆⚽" },
+      { src: "/gallery/womens-league/wom1.jpeg", caption: "\"Strong on the field, unstoppable in spirit. ⚽🔥\"" },
+      { src: "/gallery/womens-league/wom2.jpeg", caption: "\"She believed she could, so she played like a champion. 💪⚽\"" },
+      { src: "/gallery/womens-league/wom3.jpeg", caption: "\"Breaking barriers, scoring goals, inspiring generations. 🌟🥅\"" }
     ],
   },
   {
