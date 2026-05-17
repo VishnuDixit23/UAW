@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { User, Phone, Mail, MapPin, Lock, ArrowRight, CheckCircle, Loader2, ShieldCheck, Heart, Home as HomeIcon, LogIn, UserPlus } from "lucide-react";
+import { User, Phone, Mail, MapPin, Lock, ArrowRight, CheckCircle, Loader2, ShieldCheck, Heart, Home as HomeIcon, LogIn, UserPlus, Shield } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link, useNavigate } from "react-router-dom";
@@ -47,7 +47,7 @@ const fadeVariant = {
 
 export default function Login() {
   const navigate = useNavigate();
-  const { login, isLoggedIn, user } = useAuth();
+  const { login, isLoggedIn, isAdmin, user } = useAuth();
   const [mode, setMode] = useState("login"); // "login" or "register"
   const [step, setStep] = useState("form"); // "form", "otp", "verified"
   const [loading, setLoading] = useState(false);
@@ -265,6 +265,13 @@ export default function Login() {
                       <Heart style={{ width: 16, height: 16, fill: "white" }} /> Donate Now
                     </motion.span>
                   </Link>
+                  {(verifiedUser?.role === "ADMIN" || isAdmin) && (
+                    <Link to="/admin" style={{ textDecoration: "none" }}>
+                      <motion.span className="btn" style={{ display: "inline-flex", fontSize: "0.88rem", background: "#F5F3FF", color: "#7C3AED", border: "2px solid rgba(124,58,237,0.18)" }} whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+                        <Shield style={{ width: 16, height: 16 }} /> Admin Panel
+                      </motion.span>
+                    </Link>
+                  )}
                   <Link to="/" style={{ textDecoration: "none" }}>
                     <motion.span className="btn" style={{ display: "inline-flex", fontSize: "0.88rem", background: "transparent", color: "var(--c-bark-muted)", border: "2px solid var(--c-sand-light)" }} whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
                       <HomeIcon style={{ width: 16, height: 16 }} /> Back to Home

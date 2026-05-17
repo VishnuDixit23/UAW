@@ -71,6 +71,22 @@ export const submitCashPayment = async (paymentData) => {
   return response.data;
 };
 
+// ─── Admin: Donation History ───
+export const getDonationHistoryBySort = async (page = 0, size = 10, field = 'createdAt') => {
+  const response = await api.post('/payment/donation/history/sort', { page, size, field });
+  return response.data;
+};
+
+export const getDonationHistoryByPhone = async (page = 0, size = 10, phoneNumber) => {
+  const response = await api.post('/payment/donation/history/phone', { page, size, phoneNumber });
+  return response.data;
+};
+
+export const getDonationHistoryByMode = async (page = 0, size = 10, mode) => {
+  const response = await api.post('/payment/donation/history/mode', { page, size, mode });
+  return response.data;
+};
+
 // ─── CSRF seed call ───
 // Call this once on app mount so the backend plants the XSRF-TOKEN cookie.
 // Without this first GET, the first POST (generateOtp / registerUser) will

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useLocation, Link, useNavigate } from "react-router-dom";
-import { Menu, ChevronDown, X, User, LogOut, LogIn } from "lucide-react";
+import { Menu, ChevronDown, X, User, LogOut, LogIn, Shield } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "../lib/AuthContext";
 
@@ -33,7 +33,7 @@ export default function Navbar() {
   const dropTimer           = useRef(null);
   const loc                 = useLocation();
   const navigate            = useNavigate();
-  const { user, isLoggedIn, logout } = useAuth();
+  const { user, isLoggedIn, isAdmin, logout } = useAuth();
 
   const handleLogout = () => { logout(); setOpen(false); navigate("/"); };
 
@@ -147,6 +147,14 @@ export default function Navbar() {
 
           {/* CTA + User + Burger */}
           <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
+            {isAdmin && (
+              <Link to="/admin" className="admin-btn" style={{ textDecoration: "none" }}>
+                <motion.span whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
+                  style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: "var(--f-body)", fontWeight: 600, fontSize: "0.85rem", color: "#7C3AED", background: "#F5F3FF", padding: "9px 16px", borderRadius: 10, border: "1px solid rgba(124,58,237,0.15)", cursor: "pointer", whiteSpace: "nowrap" }}>
+                  <Shield style={{ width: 15, height: 15 }} /> Admin
+                </motion.span>
+              </Link>
+            )}
             {isLoggedIn ? (
               <Link to="/login" className="user-avatar-btn" style={{ textDecoration: "none" }}>
                 <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }}
@@ -248,6 +256,16 @@ export default function Navbar() {
                   ))}
                 </div>
 
+                {/* Admin link in mobile */}
+                {isAdmin && (
+                  <motion.div initial={{ opacity: 0, x: 18 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.35 }}>
+                    <Link to="/admin" onClick={() => setOpen(false)}
+                      style={{ display: "flex", alignItems: "center", gap: 10, padding: "12px 16px", borderRadius: 11, fontFamily: "var(--f-body)", fontWeight: 600, fontSize: "0.95rem", color: active("/admin") ? "#7C3AED" : "#7C3AED", background: active("/admin") ? "#F5F3FF" : "transparent", textDecoration: "none", marginTop: 4, border: "1px solid rgba(124,58,237,0.12)" }}>
+                      <Shield style={{ width: 16, height: 16 }} /> Admin Panel
+                    </Link>
+                  </motion.div>
+                )}
+
                 {/* User status in mobile */}
                 {isLoggedIn && (
                   <div style={{ marginTop: 20, padding: "14px 16px", background: "#ECFDF5", borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -290,7 +308,7 @@ export default function Navbar() {
       {/* Responsive overrides */}
       <style>{`
         @media (min-width: 640px) { .logo-text { display: block !important; } }
-        @media (max-width: 960px) { .desktop-nav { display: none !important; } .donate-btn { display: none !important; } .user-avatar-btn { display: none !important; } }
+        @media (max-width: 960px) { .desktop-nav { display: none !important; } .donate-btn { display: none !important; } .user-avatar-btn { display: none !important; } .admin-btn { display: none !important; } }
         @media (min-width: 961px) { .burger-btn { display: none !important; } }
       `}</style>
     </>

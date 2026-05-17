@@ -63,7 +63,8 @@ export function UserBar({ user, onLogout }) {
 export const METHODS = [
   { id: "website", icon: Globe, label: "Pay on Website", desc: "Instant payment via Easebuzz gateway", color: "#F3842C" },
   { id: "email", icon: Send, label: "Pay via Email Link", desc: "Get a payment link sent to your email", color: "#3B82F6" },
-  { id: "cash", icon: Banknote, label: "Cash Payment", desc: "Register an offline cash donation", color: "#10B981" },
+  { id: "cash", icon: Banknote, label: "Cash Donation", desc: "Record a cash donation (Admin only)", color: "#10B981", adminOnly: true },
+  //change 1
 ];
 
 export function MethodCard({ method, selected, onClick }) {

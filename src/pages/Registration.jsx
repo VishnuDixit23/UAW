@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart, ArrowLeft, Building2, MapPin, CreditCard, Landmark, ShieldCheck, Loader2, LogIn, Send, Banknote, Globe, CheckCircle2 } from "lucide-react";
+import { Heart, ArrowLeft, Building2, MapPin, CreditCard, Landmark, ShieldCheck, Loader2, LogIn, Send, Banknote, Globe, CheckCircle2, X, User, Phone, Mail } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,8 +9,9 @@ import { useAuth } from "../lib/AuthContext";
 import { CopyButton, card, labelStyle, AmountPicker, UserBar, METHODS, MethodCard, MathCaptcha } from "./RegistrationHelpers";
 
 export default function Registration() {
-  const { user, isLoggedIn, logout } = useAuth();
+  const { user, isLoggedIn, isAdmin, logout } = useAuth();
   const navigate = useNavigate();
+  const availableMethods = METHODS.filter(m => !m.adminOnly || isAdmin);
   const [tab, setTab] = useState("online");
   const [method, setMethod] = useState("website");
   const [amount, setAmount] = useState("");
@@ -18,6 +19,10 @@ export default function Registration() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [captchaToken, setCaptchaToken] = useState(false);
+  const [cashModal, setCashModal] = useState(false);
+  const [cashDonor, setCashDonor] = useState({ name: "", phone: "", email: "", amount: "" });
+  const [cashLoading, setCashLoading] = useState(false);
+  const [cashError, setCashError] = useState("");
 
   const tabBtn = (active) => ({
     flex: 1, padding: "12px 20px", fontFamily: "var(--f-body)", fontSize: "0.88rem", fontWeight: 600,
@@ -47,11 +52,12 @@ export default function Registration() {
         if (res.success) setSuccess("✅ Payment link sent to your email and WhatsApp!");
         else setError(res.message || "Could not send link");
       } else if (method === "cash") {
-        const res = await submitCashPayment(payload);
-        if (res.success) {
-          const cashRef = `CASH-${Date.now()}`;
-          navigate(`/payment-success?txnid=${cashRef}&amount=${amt}&method=cash`);
-        } else setError(res.message || "Cash registration failed");
+        // Open the cash donor popup instead of submitting admin's details
+        setLoading(false);
+        setCashDonor({ name: "", phone: "", email: "", amount: amount });
+        setCashError("");
+        setCashModal(true);
+        return;
       }
     } catch (err) {
       const data = err.response?.data;
@@ -106,14 +112,14 @@ export default function Registration() {
                   <div style={{ marginBottom: 24 }}>
                     <label style={labelStyle}>Choose Payment Method</label>
                     <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                      {METHODS.map(m => <MethodCard key={m.id} method={m} selected={method} onClick={() => { setMethod(m.id); setError(""); setSuccess(""); setCaptchaToken(false); }} />)}
+                      {availableMethods.map(m => <MethodCard key={m.id} method={m} selected={method} onClick={() => { setMethod(m.id); setError(""); setSuccess(""); setCaptchaToken(false); }} />)}
                     </div>
                   </div>
                   <motion.div key={method} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}
                     style={{ display: "flex", alignItems: "center", gap: 10, background: `${getMethodColor()}10`, border: `1px solid ${getMethodColor()}30`, borderRadius: 12, padding: "12px 16px", marginBottom: 22 }}>
                     {method === "website" && <><Globe size={16} color={getMethodColor()} /><span style={{ fontFamily: "var(--f-body)", fontSize: "0.82rem", color: "#555" }}>You'll be redirected to Easebuzz's secure payment gateway.</span></>}
                     {method === "email" && <><Send size={16} color={getMethodColor()} /><span style={{ fontFamily: "var(--f-body)", fontSize: "0.82rem", color: "#555" }}>A secure link will be sent to <strong>{user.email}</strong> and WhatsApp.</span></>}
-                    {method === "cash" && <><Banknote size={16} color={getMethodColor()} /><span style={{ fontFamily: "var(--f-body)", fontSize: "0.82rem", color: "#555" }}>Register a cash payment you've already made. 80G receipt auto-generated.</span></>}
+                    {method === "cash" && <><Banknote size={16} color={getMethodColor()} /><span style={{ fontFamily: "var(--f-body)", fontSize: "0.82rem", color: "#555" }}>Enter the <strong>donor's details</strong> in the popup to record a cash donation.</span></>}
                   </motion.div>
                   <form onSubmit={handleSubmit}>
                     <AmountPicker amount={amount} setAmount={setAmount} />
@@ -201,6 +207,104 @@ export default function Registration() {
           )}
         </AnimatePresence>
       </div>
+      {/* ─── CASH DONATION MODAL ─── */}
+      <AnimatePresence>
+        {cashModal && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            style={{ position: "fixed", inset: 0, zIndex: 100, background: "rgba(0,0,0,0.55)", backdropFilter: "blur(6px)", display: "flex", alignItems: "center", justifyContent: "center", overflowY: "auto", padding: "24px 16px" }}
+            onClick={(e) => { if (e.target === e.currentTarget) setCashModal(false); }}>
+            <motion.div initial={{ opacity: 0, scale: 0.92, y: 30 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.92, y: 30 }}
+              transition={{ type: "spring", stiffness: 300, damping: 28 }}
+              style={{ width: "100%", maxWidth: 480, background: "white", borderRadius: 24, padding: "28px 26px", boxShadow: "0 24px 80px rgba(0,0,0,0.18)", border: "1px solid rgba(0,0,0,0.06)", margin: "auto", flexShrink: 0 }}>
+              {/* Header */}
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <div style={{ width: 42, height: 42, borderRadius: 12, background: "linear-gradient(145deg, #ECFDF5, #D1FAE5)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <Banknote size={22} color="#10B981" />
+                  </div>
+                  <div>
+                    <h3 style={{ fontFamily: "var(--f-display)", fontSize: "1.15rem", fontWeight: 700, color: "var(--c-bark)", margin: 0 }}>Cash Donation</h3>
+                    <p style={{ fontFamily: "var(--f-body)", fontSize: "0.74rem", color: "var(--c-bark-muted)", margin: 0 }}>Enter the donor's details below</p>
+                  </div>
+                </div>
+                <motion.button onClick={() => setCashModal(false)} whileHover={{ scale: 1.1, rotate: 90 }} whileTap={{ scale: 0.9 }}
+                  style={{ width: 34, height: 34, borderRadius: 9, background: "#FEF2F2", border: "1px solid #FECACA", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", flexShrink: 0 }}>
+                  <X size={15} color="#DC2626" />
+                </motion.button>
+              </div>
+              {/* Form */}
+              <form onSubmit={async (e) => {
+                e.preventDefault(); setCashError("");
+                if (!cashDonor.name.trim()) { setCashError("Donor name is required"); return; }
+                if (!/^[0-9]{10}$/.test(cashDonor.phone)) { setCashError("Enter a valid 10-digit phone number"); return; }
+                const amt = parseFloat(cashDonor.amount);
+                if (!amt || amt < 1) { setCashError("Enter a valid amount (min ₹1)"); return; }
+                if (amt > 200000) { setCashError("Maximum donation is ₹2,00,000"); return; }
+                setCashLoading(true);
+                try {
+                  const payload = { name: cashDonor.name.trim(), phoneNumber: cashDonor.phone, email: cashDonor.email.trim(), amount: amt };
+                  const res = await submitCashPayment(payload);
+                  if (res.success) {
+                    setCashModal(false);
+                    navigate(`/payment-success?txnid=CASH-${Date.now()}&amount=${amt}&method=cash`);
+                  } else setCashError(res.message || "Cash registration failed");
+                } catch (err) {
+                  const data = err.response?.data;
+                  setCashError(data?.message || (typeof data === "string" ? data : null) || err.message || "Something went wrong.");
+                } finally { setCashLoading(false); }
+              }}>
+                {/* Name + Phone — side by side */}
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 12 }}>
+                  <div>
+                    <label style={{ fontFamily: "var(--f-body)", fontSize: "0.72rem", fontWeight: 600, color: "var(--c-bark-muted)", letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 5, display: "block" }}>Donor Name *</label>
+                    <div style={{ position: "relative" }}>
+                      <User size={15} style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "#10B981", opacity: 0.6 }} />
+                      <input value={cashDonor.name} onChange={e => setCashDonor({ ...cashDonor, name: e.target.value })} required placeholder="Full name"
+                        style={{ width: "100%", padding: "11px 14px 11px 38px", fontFamily: "var(--f-body)", fontSize: "0.9rem", fontWeight: 500, color: "#111", background: "#FAFAF8", border: "1.5px solid rgba(0,0,0,0.08)", borderRadius: 11, outline: "none", boxSizing: "border-box" }} />
+                    </div>
+                  </div>
+                  <div>
+                    <label style={{ fontFamily: "var(--f-body)", fontSize: "0.72rem", fontWeight: 600, color: "var(--c-bark-muted)", letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 5, display: "block" }}>Phone *</label>
+                    <div style={{ position: "relative" }}>
+                      <Phone size={15} style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "#10B981", opacity: 0.6 }} />
+                      <input value={cashDonor.phone} onChange={e => setCashDonor({ ...cashDonor, phone: e.target.value.replace(/\D/g, "").slice(0, 10) })} required placeholder="10-digit number" maxLength={10}
+                        style={{ width: "100%", padding: "11px 14px 11px 38px", fontFamily: "var(--f-body)", fontSize: "0.9rem", fontWeight: 500, color: "#111", background: "#FAFAF8", border: "1.5px solid rgba(0,0,0,0.08)", borderRadius: 11, outline: "none", boxSizing: "border-box" }} />
+                    </div>
+                  </div>
+                </div>
+                {/* Email + Amount — side by side */}
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 16 }}>
+                  <div>
+                    <label style={{ fontFamily: "var(--f-body)", fontSize: "0.72rem", fontWeight: 600, color: "var(--c-bark-muted)", letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 5, display: "block" }}>Email</label>
+                    <div style={{ position: "relative" }}>
+                      <Mail size={15} style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "#10B981", opacity: 0.6 }} />
+                      <input value={cashDonor.email} onChange={e => setCashDonor({ ...cashDonor, email: e.target.value })} placeholder="Optional" type="email"
+                        style={{ width: "100%", padding: "11px 14px 11px 38px", fontFamily: "var(--f-body)", fontSize: "0.9rem", fontWeight: 500, color: "#111", background: "#FAFAF8", border: "1.5px solid rgba(0,0,0,0.08)", borderRadius: 11, outline: "none", boxSizing: "border-box" }} />
+                    </div>
+                  </div>
+                  <div>
+                    <label style={{ fontFamily: "var(--f-body)", fontSize: "0.72rem", fontWeight: 600, color: "var(--c-bark-muted)", letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 5, display: "block" }}>Amount *</label>
+                    <div style={{ position: "relative" }}>
+                      <span style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", fontFamily: "var(--f-number)", fontSize: "0.95rem", fontWeight: 700, color: "#10B981", opacity: 0.7 }}>₹</span>
+                      <input value={cashDonor.amount} onChange={e => setCashDonor({ ...cashDonor, amount: e.target.value })} required placeholder="Amount" type="number" min="1" max="200000"
+                        style={{ width: "100%", padding: "11px 14px 11px 34px", fontFamily: "var(--f-number)", fontSize: "1rem", fontWeight: 600, color: "#111", background: "#FAFAF8", border: "1.5px solid rgba(0,0,0,0.08)", borderRadius: 11, outline: "none", boxSizing: "border-box" }} />
+                    </div>
+                  </div>
+                </div>
+                {/* Error */}
+                {cashError && <div style={{ background: "#FEF2F2", border: "1px solid #FECACA", borderRadius: 10, padding: "9px 14px", marginBottom: 12 }}><p style={{ fontFamily: "var(--f-body)", fontSize: "0.82rem", color: "#DC2626", margin: 0 }}>{cashError}</p></div>}
+                {/* Submit */}
+                <motion.button type="submit" disabled={cashLoading} whileHover={{ scale: 1.02, y: -1 }} whileTap={{ scale: 0.98 }}
+                  style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, fontFamily: "var(--f-body)", fontWeight: 700, fontSize: "0.95rem", color: "white", background: "linear-gradient(135deg, #10B981, #059669)", padding: "14px", borderRadius: 13, border: "none", cursor: cashLoading ? "wait" : "pointer", boxShadow: "0 4px 16px rgba(16,185,129,0.35)", opacity: cashLoading ? 0.7 : 1 }}>
+                  {cashLoading ? <Loader2 size={20} style={{ animation: "spin 1s linear infinite" }} /> : <><Banknote size={18} /> Record Cash Donation{cashDonor.amount ? ` of ₹${parseFloat(cashDonor.amount).toLocaleString()}` : ""}</>}
+                </motion.button>
+              </form>
+              <p style={{ fontFamily: "var(--f-body)", fontSize: "0.7rem", color: "var(--c-bark-muted)", textAlign: "center", marginTop: 12, marginBottom: 0 }}>Saved under the donor's name, not the admin's.</p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <style>{`@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
       <Footer />
     </div>
