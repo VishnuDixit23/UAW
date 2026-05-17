@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.3.5</version> <!-- Screenshot ke hisaab se stable version -->
+		<relativePath />
+	</parent>
+	<groupId>com.example</groupId>
+	<artifactId>AnimalWelfare</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>AnimalWelfare</name>
+	<description>Project for Animal Welfare Management</description>
+	<url />
+	<licenses>
+		<license />
+	</licenses>
+	<developers>
+		<developer />
+	</developers>
+	<scm>
+		<connection />
+		<developerConnection />
+		<tag />
+		<url />
+	</scm>
+	<properties>
+		<java.version>17</java.version>
+	</properties>
+	<dependencies>
+		<!-- 1. Web Starter (Corrected Name) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- 2. Actuator (Removed Version - Parent will handle it) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<!-- 3. Security (Only one entry needed) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<!-- 4. Data JPA & MySQL -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- 5. Payment & Other Integrations (As per your project) -->
+		<dependency>
+			<groupId>com.razorpay</groupId>
+			<artifactId>razorpay-java</artifactId>
+			<version>1.4.4</version>
+		</dependency>
+
+		<!--<dependency>
+			<groupId>com.twilio.sdk</groupId>
+			<artifactId>twilio</artifactId>
+			<version>10.1.2</version>
+		</dependency>-->
+
+		<!-- 6. JWT Settings -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>0.11.5</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>0.11.5</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>0.11.5</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- 7. Tools -->
+
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+
+		<!-- Test Dependencies -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>com.vaadin.external.google</groupId>
+					<artifactId>android-json</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.xhtmlrenderer</groupId>
+			<artifactId>flying-saucer-pdf-openpdf</artifactId>
+			<version>9.1.22</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.cloudinary</groupId>
+			<artifactId>cloudinary-http5</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>io.github.git-commit-id</groupId>
+				<artifactId>git-commit-id-maven-plugin</artifactId>
+				<!-- Ensure version 8.0.0+ is used for Spring Boot 4 / Java 17+ -->
+				<version>8.0.0</version>
+				<executions>
+					<execution>
+						<id>get-the-git-infos</id>
+						<goals>
+							<goal>revision</goal>
+						</goals>
+					</execution>
+				</executions>
+				<!-- Do not bind execution automatically to avoid failures when
+				.git has no commits.
+                Executions removed so plugin doesn't run during the default build lifecycle in
+				environments
+                where the repository has no commits. You can still run it manually if you have
+				a proper Git repo.
+                -->
+				<configuration>
+					<!-- Output file where Git info is stored -->
+					<generateGitPropertiesFile>true</generateGitPropertiesFile>
+					<gitPropertiesFile>
+						${project.build.outputDirectory}/git.properties</gitPropertiesFile>
+					<!-- Simplify output (optional, but reduces noise) -->
+					<abbrevLength>7</abbrevLength>
+					<failOnNoGitDirectory>false</failOnNoGitDirectory>
+					<quietUncommittedChanges>true</quietUncommittedChanges>
+					<!--<excludeProperties>
+                        <excludeProperty>git.remote.origin.url</excludeProperty>
+                    </excludeProperties>-->
+				</configuration>
+			</plugin>
+			<!-- Add fallback generator in case git plugin couldn't create
+			git.properties -->
+			<!--            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>generate-fallback-git-properties</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <condition property="git.props.exists" value="true" else="false">
+                                    <available file="${project.build.outputDirectory}/git.properties" />
+                                </condition>
+                                <echo message="git.properties exists? ${git.props.exists}" />
+                                <sequential>
+                                    <mkdir dir="${project.build.outputDirectory}" />
+                                    <echo file="${project.build.outputDirectory}/git.properties" append="false">#
+			fallback git.properties
+# If the git-commit-id-plugin did not produce git.properties (for example, repo
+			has no commits),
+# these placeholder values will be used so Spring Boot Actuator Info/Git shows
+			something.
+# Replace these with real values by committing your repo and running the
+			plugin.
+git.commit.id=UNAVAILABLE
+git.commit.id.abbrev=UNAVAIL
+git.build.time=${maven.build.timestamp}</echo>
+                                </sequential>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>-->
+		</plugins>
+	</build>
+
+</project>

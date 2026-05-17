@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        @page { size: A4; margin: 15mm; }
+        body {
+		 font-family: Helvetica, Arial;
+		  color: #333; font-size: 12px; margin: 0; 
+		  padding: 0; 
+		  }
+        
+        /* Rounded Border Container */
+        .main-container {
+            border: 1px solid #cccccc;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .logo { width: 120px; margin-bottom: 10px; }
+        
+        .title { color: #007bff; font-size: 22px; font-weight: bold; margin-bottom: 5px; }
+        .receipt-id { color: #666; margin-bottom: 25px; font-size: 11px; }
+
+        .intro-text { text-align: left; line-height: 1.6; margin-bottom: 20px; }
+        
+        /* Table Style like Sample */
+        .details-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .details-table td { 
+            padding: 10px; 
+            border: 1px solid #eeeeee; 
+            text-align: left; 
+        }
+        .label { font-weight: bold; background-color: #fafafa; width: 35%; }
+
+        .footer { 
+            margin-top: 30px; 
+            font-size: 9px; 
+            color: #888; 
+            border-top: 1px solid #eeeeee; 
+            padding-top: 20px; 
+            line-height: 1.5;
+        }
+        .link { color: #e67e22; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <img th:src="${logoUrl}" class="logo" />
+        
+        <div class="title">80G Tax Receipt</div>
+        <div class="receipt-id">Receipt Number: <span th:text="${receiptId}"></span></div>
+
+        <div class="intro-text">
+            Received with thanks from <strong th:text="${donorName}"></strong>, 
+            the donation of <strong>Rs. <span th:text="${amount}"></span></strong>, 
+            towards United for Animal Welfare (PAN: <strong>AABTU6231C</strong>).<br/>
+            Your donation is tax-exempt under section 80G of the Income Tax Act 1961.
+        </div>
+
+        <table class="details-table">
+            <tr><td class="label">Transaction Amount:</td><td th:text="'Rs. ' + ${amount}"></td></tr>
+            <tr><td class="label">Donation Date:</td><td th:text="${date}"></td></tr>
+            <tr><td class="label">Mobile Number:</td><td th:text="${mobile}"></td></tr>
+            <tr><td class="label">Full Address:</td><td th:text="${address}"></td></tr>
+        </table>
+
+        <div class="footer">
+            This receipt is valid subject to transfer of funds. Queries: <span class="link">unitedforanimalwelfare.org</span>
+            <p style="margin: 10px 0; color: #555;">
+                <strong>United for Animal Welfare</strong><br/>
+                Plot 7, F-2, Chaudhary Nagar-2, Sanganer, Jaipur, RJ-302029
+            </p>
+            80G No: AABTU6231CF20261 | PAN: AABTU6231C<br/>
+            Website: <span class="link">https://unitedforanimalwelfare.org</span>
+        </div>
+    </div>
+</body>
+</html>
