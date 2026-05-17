@@ -14,7 +14,7 @@ export function CopyButton({ text }) {
   );
 }
 
-export const AMOUNTS = [100, 500, 1000, 2500, 5000];
+export const AMOUNTS = [500, 1000, 2500, 5000];
 export const card = { background: "white", borderRadius: 28, padding: "40px 36px", boxShadow: "0 8px 40px rgba(0,0,0,0.08)", border: "1px solid rgba(0,0,0,0.06)" };
 export const labelStyle = { fontFamily: "var(--f-body)", fontSize: "0.76rem", fontWeight: 600, color: "var(--c-bark-muted)", letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 8, display: "block" };
 
